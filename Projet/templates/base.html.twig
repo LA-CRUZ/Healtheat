@@ -45,13 +45,27 @@
                     <li class="nav-item">
                         <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
                     </li>
-                    </ul>
-                    <form class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                    </form>
-                </div>
-            </nav>
+                    {% if not app.user %}
+                        <liv class="nav-item">
+                            <a href="{{ path('security_connexion') }}" class="nav-link">
+                                Connexion
+                            </a>
+                        </liv>
+                    {% else %}
+                        <liv class="nav-item">
+                            <a class="nav-link" href="{{ path('espace_perso') }}">
+                                Espace Personnel
+                            </a>
+                        </liv>
+                        <liv class="nav-item">
+                            <a href="{{ path('security_logout') }}" class="nav-link">
+                                Déconnexion
+                            </a>
+                        </liv>
+                    {% endif %}
+                </ul>
+            </div>
+        </nav>
 
             {% block body %}{% endblock %}
             <div class="ti">

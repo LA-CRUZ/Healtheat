@@ -1,0 +1,28 @@
+{% extends "base.html.twig" %}
+
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
+
+{% block body %}
+
+    <h1>Espace Personnel</h1>
+
+    {{ form_start(form) }}
+
+       {{ form_row(form.Nom, {'label' : "Nom" })}}
+        {{ form_row(form.Prenom, {'label' : "Prenom" })}}
+        {{ form_row(form.Sexe, {'label' : "Sexe" })}}
+        {{ form_row(form.Age, {'label' : "Age" })}}
+        {{ form_row(form.Poids, {'label' : "Poids" })}}
+        {{ form_row(form.Taille, {'label' : "Taille" })}}
+        {{ form_row(form.tour_taille, {'label' : "Tour de Taille" })}}
+        {{ form_row(form.tour_hanche, {'label' : "Tour de Hanche" })}}
+        {{ form_row(form.temps_activite_physique, {'label' : "Temps D'activité Physique" })}}
+        {{ form_row(form.intolerance, {'label' : "Intolerance" })}}
+        {{ form_row(form.type_regime, {'label' : "Type de Régime" })}}
+      
+        
+        <button type="submit" class="btn btn-primary">Enregistrer</button>
+    
+    {{ form_end(form) }}
+
+{% endblock %}
