@@ -47,6 +47,11 @@ class InfoUser
     private $Taille;
 
     /**
+     * @ORM\Column(type="float", nullable=true)
+     */
+    private $Imc;
+
+    /**
      * @ORM\Column(type="integer", nullable=true)
      */
     private $tour_taille;
@@ -204,6 +209,18 @@ class InfoUser
     public function setTypeRegime(?string $type_regime): self
     {
         $this->type_regime = $type_regime;
+
+        return $this;
+    }
+
+    public function getImc(): ?float
+    {
+        return $this->Imc;
+    }
+
+    public function setImc(?float $Imc): self
+    {
+        $this->Imc = $Imc;
 
         return $this;
     }
