@@ -3,8 +3,9 @@
 namespace App\Controller;
 
 use App\Entity\User;
-use App\Form\InscriptionType;
+use App\Entity\InfoUser;
 
+use App\Form\InscriptionType;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\Routing\Annotation\Route;
@@ -19,6 +20,7 @@ class SecurityController extends AbstractController
     public function inscription(Request $request, ObjectManager $manager, UserPasswordEncoderInterface $encoder)
     {
         $user = new User();
+        $InfoUser = new InfoUser();
 
         $form = $this->createForm(InscriptionType::class, $user);
 
@@ -30,7 +32,9 @@ class SecurityController extends AbstractController
             $user->setPassword($hash);
 
             $manager->persist($user);
+            $manager->persist($InfoUser);
             $manager->flush();
+
 
             return $this->redirectToRoute('security_connexion');
         }
