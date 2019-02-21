@@ -17,12 +17,18 @@
         {{ form_row(form.tour_taille, {'label' : "Tour de Taille" })}}
         {{ form_row(form.tour_hanche, {'label' : "Tour de Hanche" })}}
         {{ form_row(form.temps_activite_physique, {'label' : "Temps D'activité Physique" })}}
-        {{ form_row(form.intolerance, {'label' : "Intolerance" })}}
-        {{ form_row(form.type_regime, {'label' : "Type de Régime" })}}
-      
-        
-        <button type="submit" class="btn btn-primary">Enregistrer</button>
-    
+        <button type="button" class="btn btn-danger" data-toggle="collapse" data-target="#intolerance">Intolerance</button>
+        <button type="button" class="btn btn-danger" data-toggle="collapse" data-target="#allergie">Allergie</button>
+        <div id="intolerance" class="collapse">
+            {{ form_row(form.intolerance, {'label' : "Intolerance" })}}
+        </div>
+        <div id="allergie" class="collapse">
+            {{ form_row(form.allergie, {'label' : "Allergie" })}}
+        </div>
+        <br>
+        <br>
+        {{ form_row(form.enregistrer, {'label' : "enregister" })}}
+          
     {{ form_end(form) }}
 
 {% endblock %}

@@ -48,8 +48,9 @@ class HealtheatController extends AbstractController
             }
             $manager->persist($InfoUser);
             $manager->flush();
-
-            return $this->redirectToRoute('healtheat');
+            if($form->get('enregistrer')->isClicked()){
+                return $this->redirectToRoute('healtheat');
+            }
         }
 
         return $this->render('healtheat/perso.html.twig', [
