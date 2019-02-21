@@ -1,4 +1,101 @@
 /* assets/css/app.css */
+/* font-family: 'Laila', serif; */
+html, body {
+	height: 100%;
+	width: 100%;
+}
+
 body {
-    background-color: rgba(255, 255, 255, 0.774);
+    background-color: rgb(255, 255, 255);
+}
+
+.responsive {
+	width: 100%;
+	max-width: 200px;
+	height: auto;
+}
+
+.navbar {
+    font-family: 'Laila', serif;
+    font-size: 20px;
+    font-weight: bold;  
+    padding: 1% 0;
+    /*box-shadow: 1px 3px 12px rgb(77, 54, 33);*/
+    position: fixed;
+    border-bottom-width: 0px;
+    /*border-bottom-color: rgb(209, 107, 24);*/
+    background-color: rgba(0, 0, 0, 0);
+    transition: 2s;
+}
+
+.navbar-brand {
+	min-height: 55px;
+	padding: 0 15px 5px;
+}
+
+
+.navbar-default .navbar-nav li a{
+    color: rgb(209, 107, 24);
+    font-family: 'Laila', serif;
+}
+
+.navbar-default .navbar-nav li a:hover,.navbar-default .navbar-nav li a:active {
+    color: rgb(209, 107, 24) ;
+    font-family: 'Laila', serif;
+}
+
+.paragraphe {
+    padding: 150px 20% 10% 20%;
+}
+
+.landing-textp{
+	display: table-cell;
+	text-align: center;
+	vertical-align: middle;
+	padding-top: 130px;
+}
+
+.landing-textp h1{
+    font-size: 300%;
+	font-weight: 700;
+    font-family: 'Laila', serif;
+    color: white;
+}
+
+#homep{
+	background: url(../images/baniere.jpg) no-repeat center center fixed ;
+	display: table;
+	height: 100%;
+	position: relative;
+	width: 100%;
+	background-size: cover;
+}
+
+
+#home{
+	background: url(../images/baniere.jpg) no-repeat center center fixed ;
+	display: table;
+	height: 100%;
+	position: relative;
+	width: 100%;
+	background-size: cover;
+}
+
+.landing-text{
+	display: table-cell;
+	text-align: center;
+    vertical-align: middle;
+    color: rgb(224, 101, 0);
+    font-size: 200%;
+	font-weight: 700;
+    font-family: 'Laila', serif;
+}
+
+footer{
+    width: 100%;
+	background-color: white;
+	color: rgb(209, 107, 24);
+	padding: 3% 5% 5% 5%;
+    padding-bottom: 0px;
+    box-shadow: 1px 3px 12px rgb(46, 45, 45);
 }
