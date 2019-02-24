@@ -49,7 +49,7 @@ class HealtheatController extends AbstractController
             $manager->persist($InfoUser);
             $manager->flush();
             if($form->get('enregistrer')->isClicked()){
-                return $this->redirectToRoute('healtheat');
+                return $this->redirectToRoute('info_perso');
             }
         }
 
@@ -59,4 +59,20 @@ class HealtheatController extends AbstractController
         ]);
     }
 
+    /**
+     * @Route("/infoperso", name = "info_perso")
+     */
+    public function info_perso()
+    {
+        $repository = $this->getDoctrine()->getRepository(InfoUser::class);
+
+        $id = $this->getUser()->getId();
+
+        $info = $repository->find($id);
+
+        return $this->render('healtheat/infoperso.html.twig', [
+            'info_user' => $info,
+            'user' => $this->getUser()
+        ]);
+    }
 }

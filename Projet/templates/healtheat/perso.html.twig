@@ -2,13 +2,18 @@
 
 {% form_theme form 'bootstrap_4_layout.html.twig' %}
 
+{% block stylesheet %}
+    {{ encore_entry_link_tags('InfoPersoForm') }}
+    <link rel="stylesheet" href="/build/InfoPersoForm.css">
+{% endblock %}
+
 {% block body %}
 
     <h1>Espace Personnel</h1>
 
     {{ form_start(form) }}
 
-       {{ form_row(form.Nom, {'label' : "Nom" })}}
+        {{ form_row(form.Nom, {'label' : "Nom" })}}
         {{ form_row(form.Prenom, {'label' : "Prenom" })}}
         {{ form_row(form.Sexe, {'label' : "Sexe" })}}
         {{ form_row(form.Age, {'label' : "Age" })}}

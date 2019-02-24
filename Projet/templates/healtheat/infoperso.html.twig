@@ -1,0 +1,71 @@
+{% extends "base.html.twig" %}
+
+{% block stylesheet %}
+    {# {{ encore_entry_link_tags('') }}
+    <link rel="stylesheet" href="/build/InfoPersoForm.css"> #}
+{% endblock %}
+
+{% block body %}
+
+    <h1>Espace Personnel</h1>
+
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-4">
+            <h1>Info de {{ user.username }}</h1>
+            {% if info_user.nom != NULL %}
+                <p>nom : </p>{{ info_user.nom }} <br>
+            {% endif %}
+            {% if info_user.prenom != NULL %}
+                <p>prenom : </p>{{ info_user.prenom }} <br>
+            {% endif %}
+            {% if info_user.sexe != NULL %}
+                <p>sexe : </p>{{ info_user.sexe }} <br>
+            {% endif %}
+            {% if info_user.age != NULL %}
+                <p>age : </p>{{ info_user.age }} <br>
+            {% endif %}
+            {% if info_user.poids != NULL %}
+                <p>poids : </p>{{ info_user.poids }}  <p>kg</p><br>
+            {% endif %}
+            {% if info_user.taille != NULL %}
+                <p>taille : </p>{{ info_user.taille /100 }} <p>m</p><br>
+            {% endif %}
+            {% if info_user.imc != NULL %}
+                <p>imc : </p>{{ info_user.imc }} <br>
+            {% endif %}
+            {% if info_user.getTourTaille() != NULL %}
+                <p>tour de taille : </p>{{ info_user.getTourTaille() }} <p>cm</p> <br>
+            {% endif %}
+            {% if info_user.getTourHanche() != NULL %}
+                <p>tour de hanche : </p>{{ info_user.getTourHanche() }} <p>cm</p> <br>
+            {% endif %}
+        </div>
+        <div class="col-4">
+        {% if info_user.intolerance != NULL %}
+            <h4>Intolerance :</h4>
+            <ul>
+            {% for into in info_user.intolerance %}
+                <li>{{ into.nom }}</li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+        {% if info_user.allergie != NULL %}
+            <h4>Allergies :</h4>
+            <ul>
+            {% for alle in info_user.allergie %}
+                <li>{{ alle.nom }}</li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+                
+        </div>
+        <div class="col-2"></div>
+    </div>
+    <div class="row">
+        <div class="col-3">
+            <a href={{ path('espace_perso') }} class="btn btn-primary" > test </a>
+        </div>
+    </div>
+
+{% endblock %}
