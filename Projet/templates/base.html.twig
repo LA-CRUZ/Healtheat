@@ -21,7 +21,8 @@
         {% endblock %}
     
     </head>
-    <body>   
+    <body>  
+
     <nav class="navbar navbar-default navbar-fixed-top" role="navigation" id="test">
 		<div class="container-fluid ">
 			<div class="navbar-header">
@@ -47,8 +48,13 @@
 				</ul>
             {% endif %}
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a data-target="#"  href="{{ path('healtheat') }}" class="active" style="font-family: 'Laila', serif;"  id="elem-menu">ACCUEIL</a>
-                    </li>				
+                    <li><a data-target="#"  href="{{ path('healtheat') }}" class="e_menu" style="font-family: 'Laila', serif;"  id="elem-menu">ACCUEIL</a></li>
+            {% if app.user %}	
+                    <li><a data-target="#"  href="{{ path('healtheat') }}" class="e_menu" style="font-family: 'Laila', serif;"  id="elem-menu2">MON COMPTE</a></li>	
+                    <li><a data-target="#"  href="{{ path('healtheat') }}" class="e_menu" style="font-family: 'Laila', serif;"  id="elem-menu3">SUIVI</a></li>		
+                    <li><a data-target="#"  href="{{ path('healtheat') }}" class="e_menu" style="font-family: 'Laila', serif;"  id="elem-menu4">PROGRAMMES</a></li>		
+                    <li><a data-target="#"  href="{{ path('healtheat') }}" class="e_menu" style="font-family: 'Laila', serif;"  id="elem-menu5">INVENTAIRE</a></li>    
+                    {% endif %}             		
                 </ul>
 			</div>
 		</div>
