@@ -29,7 +29,7 @@ class InfoPersoType extends AbstractType
                 ],
                 'expanded' => true,
                 'label_attr' => [
-                    'class' => 'radio-inline'
+                    'class' => 'radio-inline',
                 ],
             ])
             ->add('Age', TextType::class, [
@@ -54,7 +54,7 @@ class InfoPersoType extends AbstractType
                 'class' => Intolerance::class,
                 'choice_label' => 'Nom',
                 'label_attr' => [
-                    'class' => 'checkbox-inline'
+                    'class' => 'checkbox-inline',
                 ],
                 'expanded' => true,
                 'multiple' => true

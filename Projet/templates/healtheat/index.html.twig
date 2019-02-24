@@ -1,58 +1,129 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Accueil{% endblock %}
+{% block title %}HEALTH EAT{% endblock %}
 
 {% block body %}
 
-<div id="home">
-		<div class="landing-text">
-			<h1>HEALTH EAT</h1>
-			<br><br><br><br>
-			<a class="ct-btn-scroll ct-js-btn-scroll scroll" href="#section2"><img alt="Arrow Down Icon" src="https://www.solodev.com/assets/anchor/arrow-down.png"></a>
-		</div>
-	</div>
+<script>
+    $(window).on("scroll", function () {
+        if ($(window).scrollTop()) {
+            document.getElementById("test").style.backgroundColor = "rgb(255, 255, 255)";
+            document.getElementById("test").style.boxShadow = "1px 3px 12px rgb(0, 0, 0)";
+            document.getElementById("test").style.transition = "1.5s";
+            document.getElementById("elem-menu").onmouseover = function () {
+                this.style.color = "rgb(194, 23, 42)";
+            }
+        } else {
+            document.getElementById("test").style.backgroundColor = "rgb(255, 255, 255, 0)";
+            document.getElementById("test").style.boxShadow = "0px 0px 0px rgb(255, 255, 255)";
+            document.getElementById("test").style.transition = "1s";
+            document.getElementById("elem-menu").onmouseover = function () {
+                this.style.color = "white";
+            }
+            document.getElementById("elem-menu").onmouseout = function () {
+                this.style.color = "rgb(194, 23, 42)";
+            }
+        }
+    })
+</script>
+
+    <div id="home">
+            <div class="landing-text">
+                <h1>LOGO</h1>
+                <a class="ct-btn-scroll ct-js-btn-scroll scroll" href="#section2"><i class="fas fa-chevron-circle-down" alt="Arrow Down Icon"></i></a>
+            </div>
+    </div>
 
     <section id="section2">
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt quasi autem cum similique repudiandae, ipsa quod odit, quisquam fugit nam quas officiis corrupti dolores voluptate at? Accusantium nesciunt sequi excepturi?
-        Eaque cupiditate at natus ea quis recusandae ipsa deleniti nesciunt voluptatibus id, similique ullam facere dignissimos incidunt nam voluptatem mollitia assumenda error tempore? Facilis, cum. Magnam eum enim animi atque!
-        Impedit repellendus necessitatibus, non voluptates corporis asperiores repudiandae laborum, facere perferendis sit totam quam, sapiente aliquid nobis numquam amet? Numquam accusamus sapiente illum fuga recusandae. Quam eius debitis ut molestias?
-        Temporibus repellendus, ullam aspernatur laboriosam iusto asperiores. Sequi laudantium voluptates dolorum consectetur, quaerat necessitatibus alias obcaecati magnam est officiis qui minus enim, error sunt fuga, illum dolore illo neque eum?
-        Neque iusto commodi, dicta accusantium architecto impedit? Quo autem aliquid maiores esse rem eos. Ipsam, sint cupiditate doloremque nostrum nam iste neque aliquid voluptatibus, recusandae labore voluptas error mollitia voluptatem.
-        Eius cum quibusdam natus corrupti ipsum velit perspiciatis, maxime ea aspernatur recusandae in similique. Deleniti eos voluptatem animi velit earum provident minima obcaecati dignissimos odio rem quaerat incidunt, id eaque.
-        Ab quaerat atque nostrum provident odit vel, quae perferendis sit doloremque quam dolore unde ex dicta eligendi, rem placeat a reiciendis illo, voluptas cupiditate quo eius minima porro. Consequatur, pariatur?
-        Culpa libero excepturi aperiam consequatur sequi eveniet vero obcaecati natus, nobis quod non accusamus ullam nulla dolore, magnam incidunt! Porro nihil similique consectetur dolores inventore autem ab, reiciendis labore error!
-        Commodi fugit vero dolore facilis tempore. Ex fuga optio nemo suscipit aspernatur ullam dolore accusantium nesciunt adipisci magni facilis culpa labore autem cupiditate dolorem, commodi officiis hic. Quo, aperiam debitis!
-        Debitis fuga amet eveniet mollitia dicta magni libero, laboriosam eaque sunt? Quae odit officia minima quis perferendis commodi eaque doloribus totam eos maiores aspernatur, amet dolore consequuntur iste, ipsam veritatis?
-        Repellendus delectus, corrupti suscipit, illum aut odio, architecto est aspernatur obcaecati sapiente debitis cumque assumenda ducimus! Odio voluptatum assumenda, blanditiis facilis soluta beatae iste accusamus minus laboriosam distinctio quod nemo.
-        Molestias nemo aspernatur ab dolor voluptatum eligendi recusandae nulla aliquam error, exercitationem id qui, ut vel! Repellat, quas? Omnis architecto maiores ullam enim dolores, inventore veritatis asperiores debitis ipsum mollitia?
-        Eius ea atque eligendi odit aperiam. Culpa optio minus error quas a illum quis vitae nisi, architecto deleniti porro cumque perspiciatis distinctio ut nemo quod accusantium quisquam repellendus. Numquam, itaque.
-        Non ea sint harum voluptatem facilis aut libero velit? Provident obcaecati quod ea consequuntur veniam, itaque eum eveniet accusamus consequatur molestiae architecto expedita deserunt quaerat facilis tenetur distinctio voluptatum quisquam?
-        Nobis sint optio error quasi nisi ducimus doloremque perferendis porro odit esse, nam inventore dolore sunt iure minus iusto, numquam quidem cum dicta? Numquam facere ab animi, laudantium qui voluptatibus.
-        Assumenda doloribus laudantium deserunt ex labore perspiciatis tenetur illo velit autem quasi ut, quis veritatis quibusdam totam accusantium magni minus nemo repudiandae delectus. Ducimus maiores quas cumque, ipsum dolore ipsa.
-        Molestias, esse eum dolores tempore ab ducimus sequi, optio reiciendis aut neque harum culpa? Possimus dolorum, perspiciatis dignissimos cum adipisci quis dolores, alias sapiente modi maxime cumque ipsam recusandae hic!
-        Mollitia magni illum tenetur magnam deserunt aliquid quidem neque quaerat, error accusamus delectus voluptatibus numquam ex ipsum cumque architecto recusandae saepe libero consequatur modi aut sunt assumenda non cupiditate. At.
-        Soluta distinctio ad tenetur, eligendi itaque excepturi expedita! Dolor quae nobis iste consequuntur ex laudantium fugit inventore consequatur repudiandae quod nam eaque quam voluptatem, velit, magnam praesentium est facere deserunt!
-        Vero dignissimos ex debitis tempore officia consequuntur ab officiis quae iure possimus, quis nesciunt laborum magnam sunt nihil saepe asperiores illo. Sapiente repellat temporibus distinctio quisquam qui atque tempora accusantium!
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Atque, odio sapiente. Tempore nam perferendis, maiores perspiciatis cupiditate voluptates corporis ipsum fuga earum consectetur? Deserunt nesciunt eum ex obcaecati, nobis corrupti.
-        Accusantium, quibusdam. Cum repudiandae sed placeat expedita et iure consequuntur ipsum officiis consequatur accusantium quo, error quos ipsa non molestias soluta debitis? Quisquam, reprehenderit tempora fuga eligendi dolorum laboriosam non?
-        Inventore quia tempora excepturi sint molestiae delectus architecto modi vitae, blanditiis nam id omnis veritatis! Vitae illo molestias saepe facilis eligendi repudiandae mollitia deserunt! Adipisci temporibus quasi eum sunt ducimus?
-        Ipsam, aspernatur id quasi aut excepturi esse? Voluptatibus placeat dicta obcaecati, ullam omnis corrupti veritatis atque earum nam ipsum sequi ex asperiores quibusdam voluptates expedita totam consectetur labore dolorum modi.
-        Ducimus nam, a fugit animi voluptate ipsum molestias in et deserunt non quos earum impedit qui odio aperiam itaque soluta ea error esse autem aliquam. Asperiores vitae veniam vero at.
-        Cumque commodi, illum, consequatur doloremque explicabo vel quo repellat adipisci exercitationem nulla neque, optio vitae ullam facere quam velit similique pariatur. Nisi necessitatibus qui ullam dolores nulla cumque amet porro.
-        Distinctio atque odit architecto corrupti sit explicabo, adipisci animi laboriosam ullam eius quod iure numquam nostrum in ad suscipit, ratione fugiat asperiores. Dolor rerum nulla molestiae repellat vitae porro cum.
-        Fuga tempora possimus assumenda praesentium aperiam, magni hic temporibus quae corrupti, repellat quod illum totam magnam autem dolorum delectus blanditiis accusantium quasi saepe ex libero in vero! Ipsam, maiores atque.
-        Aliquid id explicabo, aperiam inventore non sed perspiciatis dolor reprehenderit quaerat beatae aliquam at eos ratione quos necessitatibus qui ab, exercitationem, labore illo nisi fugit voluptas. Tempore atque maxime nisi.
-        Quasi exercitationem ratione expedita maiores! Ipsa quibusdam ducimus molestiae, qui, recusandae vel officia fugiat fugit totam velit autem distinctio quis eaque enim odio quos porro sed corporis, illum nulla tempore.
-        Sapiente distinctio officiis ducimus eligendi? Autem quibusdam illum voluptatum deserunt eveniet ducimus ipsa a necessitatibus molestias tenetur ex modi tempora dolorem veniam dolorum mollitia, saepe eum! Officia omnis similique dolores.
-        Ut adipisci ad nesciunt repellat dolor commodi iusto consequatur necessitatibus numquam? Hic nostrum explicabo culpa nesciunt quaerat? Illo animi voluptate sunt. Ducimus, nobis fuga laboriosam neque id nisi alias earum.
-        Dolores ad dicta totam architecto praesentium atque voluptatibus? Quam, veritatis voluptatum at itaque atque modi voluptates accusantium quod magni ipsa voluptas culpa, recusandae obcaecati unde beatae tempora eius reprehenderit nisi.
-        Quisquam minus atque reprehenderit nulla voluptates culpa debitis unde enim fugiat voluptatum ut esse accusantium, laboriosam veniam tenetur fugit odit sunt maxime hic ab nobis dolorem mollitia deleniti quo! Earum!
-        Eligendi, distinctio dolorum vero ab culpa quibusdam, ipsam non dolor sed at deserunt quisquam ex quam eos quaerat fugit dolore, nostrum maxime tenetur eaque laborum. Corporis velit tenetur quaerat harum.
-        Dolore dolor reprehenderit, ipsum pariatur vero sint, id maiores alias aliquam distinctio similique molestias ullam, quam accusantium aliquid! Corrupti sed ad excepturi fugit quia dolorem ipsum consectetur esse tempora nihil?
-        Accusamus asperiores eum maiores ab est, veritatis, ipsam tempora eius facilis dolorum fugiat vero minus voluptas optio error dolores? Expedita suscipit accusamus itaque distinctio fuga maiores ipsa sit sequi ullam?
-        Accusamus, error dolore iusto aspernatur nemo pariatur placeat architecto debitis quod tempora! Sapiente eaque a ut amet explicabo, beatae, enim porro quasi numquam deserunt fuga voluptates repellendus laborum illo magnam.
-        Officiis neque tempora dicta quasi rem ducimus iste ipsa? Obcaecati assumenda, qui provident quidem iusto sapiente similique nam architecto nesciunt possimus beatae perferendis eum corporis voluptatem ex, dicta repellat hic!
-        Eveniet repellat vero ipsa aut aliquid delectus magni obcaecati explicabo ea iusto reprehenderit quas quia nulla minima impedit ad in voluptas animi atque repellendus, corrupti magnam ipsum. Maxime, cum! Optio.</p>
+        <div class="container">
+            <div class="description">
+                <div class="row">
+					<div class="col-sm-4 ">
+						<img id="myImg" src="{{ asset('build/images/pom.png') }}" alt="" style="width:100%;max-width:800px">
+					</div>
+
+					<div class="col-sm-1">
+						<br>
+					</div>
+					<div class="col-sm-7 ">
+						<h1>DESCRIPTION PROJET</h1>
+						<div class=eqcss>
+			                <hr align=center width="70%">
+		                </div>
+						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci fugiat obcaecati voluptatibus, delectus est minima, assumenda sed modi voluptate ducimus illum? Expedita sint error optio aperiam exercitationem soluta, fugiat cupiditate.
+                        Magni soluta doloribus, dolorem praesentium corporis laboriosam nesciunt, possimus facilis, consectetur odit facere? Voluptatibus minima pariatur nam alias veritatis, expedita voluptate nemo deserunt placeat quis atque omnis nobis, eum nulla.
+                        Facere incidunt dolore repellendus laborum expedita, sapiente quas. Sapiente, autem recusandae, itaque quis ducimus dolorum non, animi temporibus eum aspernatur fuga facere quasi quod rem minus fugiat nisi? At, quam!
+                        Unde magnam facilis quisquam iste odit cumque animi harum sit consectetur perferendis id error beatae nam commodi minima accusamus fugit, voluptatibus nulla? Quae tempore fuga saepe at ipsam possimus aperiam!
+                        Excepturi quo maiores quia fuga, amet reiciendis repellendus sunt impedit blanditiis quae voluptatem corrupti dicta minima eaque itaque cum. Libero quisquam, eaque tempora quidem blanditiis dolorem porro voluptate.</p>
+					</div>
+				</div>
+            </div>
+        </div>
     </section>
+
+    <div id="home2">
+	</div>
+
+    <div class="container">
+        <div class="description">
+            <div class="row">
+                <div class="col-sm-3 ">
+                    <div class="case">
+                        <img id="myImg" src="{{ asset('build/images/info.png') }}" alt="" style="width:100%;max-width:200px">
+                        <h2>Profil Personnel</h2>
+                        <p>Lorem ipsum dolor, sit amet sitee consectetur.</p>
+                        {% if app.user %}
+                        <a href=""><button class="btn  fonction" >  MON ESPACE</button></a>
+                        {% endif %}
+                    </div>
+                </div>
+                
+                <div class="col-sm-3 ">
+                    <div class="case">
+                        <img id="myImg" src="{{ asset('build/images/graphe.png') }}" alt="" style="width:100%;max-width:200px">
+                        <h2>Suivi Personnel</h2>
+                        <p>Lorem ipsum dolor, sit amet sitee consectetur.</p>
+                        {% if app.user %}
+                        <a href=""><button class="btn  fonction" >  VOIR MON SUIVI</button></a>
+                        {% endif %}
+                    </div>
+                </div>
+               
+                <div class="col-sm-3 ">
+                    <div class="case">
+                        <img id="myImg" src="{{ asset('build/images/nourriture.png') }}" alt="" style="width:100%;max-width:200px">
+                        <h2>Programmes</h2>
+                        <p>Lorem ipsum dolor, sit amet sitee consectetur.</p>
+                        {% if app.user %}
+                        <a href=""><button class="btn  fonction" >  MON PROGRAMME</button></a>
+                        {% endif %}
+                    </div>
+                </div>
+                    
+                <div class="col-sm-3 ">
+                    <div class="case">
+                        <img id="myImg" src="{{ asset('build/images/inventaire.png') }}" alt="" style="width:100%;max-width:200px">
+                        <h2>Inventaire</h2>
+                        <p>Lorem ipsum dolor, sit amet sitee consectetur.</p>
+                        {% if app.user %}
+                        <a href=""><button class="btn  fonction" >  GERER MON INVENTAIRE</button></a>
+                        {% endif %}
+                    </div>
+                </div>
+			</div>
+            {% if not app.user %}
+            <br><br>
+            <div class="case2">
+                Pour avoir accès aux différentes fonctionnalités, veuillez vous inscrire ou vous connecter.
+                <br><br>
+                <a href="{{ path('security_connexion') }}"><button class="btn  connexion" ><i class="far fa-user-circle"></i>  CONNECTEZ-VOUS</button></a>
+                <a href="{{ path('security_inscription') }}"><button class="btn  connexion" ><i class="far fa-user-circle"></i>  INSCRIVEZ-VOUS</button></a>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+
+    <div id="home2">
+	</div>
 
 {% endblock %}

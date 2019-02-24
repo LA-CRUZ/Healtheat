@@ -17,15 +17,12 @@ body {
 
 .navbar {
     font-family: 'Laila', serif;
-    font-size: 20px;
+    font-size: 17px;
     font-weight: bold;  
     padding: 1% 0;
-    /*box-shadow: 1px 3px 12px rgb(77, 54, 33);*/
     position: fixed;
     border-bottom-width: 0px;
-    /*border-bottom-color: rgb(209, 107, 24);*/
     background-color: rgba(0, 0, 0, 0);
-    transition: 2s;
 }
 
 .navbar-brand {
@@ -35,17 +32,16 @@ body {
 
 
 .navbar-default .navbar-nav li a{
-    color: rgb(209, 107, 24);
+    color: rgb(194, 23, 42);
     font-family: 'Laila', serif;
 }
 
 .navbar-default .navbar-nav li a:hover,.navbar-default .navbar-nav li a:active {
-    color: rgb(209, 107, 24) ;
-    font-family: 'Laila', serif;
-}
-
-.paragraphe {
-    padding: 150px 20% 10% 20%;
+    color: white;
+	font-family: 'Laila', serif;
+	transition: 0.5s;
+	text-decoration: overline;
+	
 }
 
 .landing-textp{
@@ -63,7 +59,7 @@ body {
 }
 
 #homep{
-	background: url(../images/baniere.jpg) no-repeat center center fixed ;
+	background: url(../images/baniere2.jpg) no-repeat center center fixed ;
 	display: table;
 	height: 100%;
 	position: relative;
@@ -73,7 +69,7 @@ body {
 
 
 #home{
-	background: url(../images/baniere.jpg) no-repeat center center fixed ;
+	background: url(../images/baniere2.jpg) no-repeat center center fixed ;
 	display: table;
 	height: 100%;
 	position: relative;
@@ -85,7 +81,7 @@ body {
 	display: table-cell;
 	text-align: center;
     vertical-align: middle;
-    color: rgb(224, 101, 0);
+    color: white;
     font-size: 200%;
 	font-weight: 700;
     font-family: 'Laila', serif;
@@ -94,8 +90,177 @@ body {
 footer{
     width: 100%;
 	background-color: white;
-	color: rgb(209, 107, 24);
+	color: rgb(194, 23, 42);
 	padding: 3% 5% 5% 5%;
-    padding-bottom: 0px;
     box-shadow: 1px 3px 12px rgb(46, 45, 45);
+}
+
+.connexion {
+	color: rgb(194, 23, 42);
+	background-color: white;
+	height: 40px;
+	font-family: 'Laila', serif;
+	border-radius: 2rem;
+	font-weight: bold;
+	font-size: 13px;
+	padding-top: 7px;
+	margin: 5px 10px 0px 10px;
+	border-color: rgb(194, 23, 42);
+}
+
+.connexion:hover {
+	color: white;
+	background-color: rgb(194, 23, 42);
+	height: 40px;
+	font-family: 'Laila', serif;
+	border-radius: 2rem;
+	font-weight: bold;
+	font-size: 13px;
+	padding-top: 7px;
+	margin: 5px 10px 0px 10px;
+	border-color: white;
+	transition: 0.2s;
+}
+
+.connexion i{
+	font-size: 18px;
+}
+
+.scroll {
+	color: white;
+	font-size: 70px;
+}
+
+.scroll:hover{
+	color: white;
+	transition: 0.3s;
+}
+
+.description{
+	padding: 100px 0px 100px 0px;
+	text-align: center;
+}
+
+.description h1{
+	color: rgb(194, 23, 42);
+	font-family: 'Laila', serif;
+	text-align: center;
+	font-size: 40px;
+}
+
+.description p{
+	text-align: justify;
+	color: rgb(32, 32, 32);
+	font-family: 'Laila', serif;
+	font-size: 20px;
+}
+
+.eqcss{
+	padding-bottom: 50px;
+}
+
+.eqcss hr {
+ 	display: block;
+  	background-color: rgb(194, 23, 42) ;
+  	height: 2px;
+  	border-color: rgb(194, 23, 42);
+}
+
+.eqcss2 hr {
+	display: block;
+	background-color: rgb(194, 23, 42) ;
+	height: 1px;
+	border-color: rgb(194, 23, 42);
+}
+
+.eqcss h1 {
+	color: rgb(194, 23, 42);
+}
+
+#home2{
+	background: url(../images/baniere2.jpg) no-repeat center center fixed;
+	display: table;
+	height: 40%;
+	position: relative;
+	width: 100%;
+	background-size: cover;
+}
+
+#myImg { padding-top: 90px;}
+
+.fonction {
+	color: rgb(194, 23, 42);
+	background-color: white;
+	height: 60px;
+	width: 200px;
+	font-family: 'Laila', serif;
+	border-radius: 4rem;
+	font-weight: bold;
+	font-size: 13px;
+	padding-top: 7px;
+	margin: 20px 10px 0px 10px;
+	border: solid 3px rgb(194, 23, 42);
+}
+
+.fonction:hover {
+	color: white;
+	background-color: rgb(194, 23, 42);
+	height: 60px;
+	width: 200px;
+	font-family: 'Laila', serif;
+	border-radius: 4rem;
+	font-weight: bold;
+	font-size: 13px;
+	padding-top: 7px;
+	margin: 20px 10px 0px 10px;
+	border-color: white;
+	transition: 0.2s;
+}
+
+.case {
+    box-shadow: 6px 6px 10px 6px rgba(0, 0, 0, 0.4);
+    height: auto;
+	border-radius: 10px;
+	padding: 20px;
+	margin-bottom: 20px;
+}
+
+.case2 {
+    box-shadow: 6px 6px 10px 6px rgba(0, 0, 0, 0.4);
+    height: auto;
+	border-radius: 10px;
+	padding: 20px;
+	font-family: 'Laila', serif;
+	font-weight: bold;
+	font-size: 18px;
+}
+
+.case_connexion{
+	background-color: white;
+	box-shadow: 6px 6px 10px 6px rgba(0, 0, 0, 0.4);
+    height: 100%;
+	font-family: 'Laila', serif;
+	font-weight: bold;
+	font-size: 18px;
+	padding: 50px 0px 50px 0px;
+	margin-bottom: 100px;
+}
+
+.titre_co{
+	font-size: 50px;
+}
+
+.form_co {
+	width:80%;
+	display:block; 
+	margin:auto;
+}
+
+.lien {
+	color: rgb(194, 23, 42);
+}
+
+.lien:hover {
+	color: rgb(194, 23, 42);
+	text-decoration: none;
 }

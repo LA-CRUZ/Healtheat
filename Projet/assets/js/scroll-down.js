@@ -12,11 +12,5 @@ $(document).ready(function () {
   });
 });
 
-$(window).on("scroll", function() {
-  if($(window).scrollTop()) {
-    document.getElementById("test").style.backgroundColor = "rgb(255, 255, 255)";
-  }
-  else {
-    document.getElementById("test").style.backgroundColor = "rgb(255, 255, 255, 0)";
-  }
-})
+
+

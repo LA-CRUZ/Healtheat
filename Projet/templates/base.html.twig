@@ -2,14 +2,15 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <title>{% block title %}HEALTH EAT{% endblock %}</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">        
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        <link href="https://fonts.googleapis.com/css?family=Laila:400,700" rel="stylesheet"> 
+        <link href="https://fonts.googleapis.com/css?family=Laila:400,700" rel="stylesheet">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous"> 
 
         {% block stylesheets %}
 
@@ -30,19 +31,23 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="#"><img src="{{ asset('build/images/logo2.png') }}" alt="#" width="70px" height="60px"></a>
+				<a class="navbar-brand" href="{{ path('healtheat') }}"><img src="{{ asset('build/images/logo2.png') }}" alt="#" width="70px" height="60px"></a>
 			</div>
 			<div class="collapse navbar-collapse" id="navbar-collapse-main">
+            {% if not app.user %}
 				<ul class="nav navbar-nav navbar-right">
-					<li><a data-target="#"  href="index.html" class="active" style="font-family: 'Laila', serif;">Inscription
-                    </a></li>
+					<a href="{{ path('security_connexion') }}"><button class="btn  connexion" ><i class="far fa-user-circle"></i>  CONNEXION</button></a>
 				</ul>
                 <ul class="nav navbar-nav navbar-right">
-					<!--<li><a data-target="#"  href="index.html" class="active" style="font-family: 'Laila', serif;">Connexion</a></li>-->
-                    <button type="button" class="btn btn-primary btn-lg">Large</button>
+                    <a href="{{ path('security_inscription') }}"><button class="btn  connexion" ><i class="fab fa-wpforms"></i>  INSCRIPTION</button></a>
 				</ul>
-                <ul class="nav navbar-nav">
-                    <li><a data-target="#"  href="index.html" class="active" style="font-family: 'Laila', serif;">Accueil</a>
+            {% else %}
+                <ul class="nav navbar-nav navbar-right">
+					<a href="{{ path('security_logout') }}"><button class="btn  connexion" ><i class="far fa-user-circle"></i>  DÉCONNEXION</button></a>
+				</ul>
+            {% endif %}
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a data-target="#"  href="{{ path('healtheat') }}" class="active" style="font-family: 'Laila', serif;"  id="elem-menu">ACCUEIL</a>
                     </li>				
                 </ul>
 			</div>
@@ -53,7 +58,7 @@
             {% block body %}{% endblock %}
  
     <footer class="container-fluid text-center">
-        <img src="{{ asset('build/images/logo2.png') }}" alt="#" class="responsive">
+        <h1>LOGO</h1>
     </footer>
             
             {% block javascripts %}
