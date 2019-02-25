@@ -32,7 +32,7 @@ body {
 
 
 .navbar-default .navbar-nav li a{
-    color: rgb(194, 23, 42);
+    color: rgb(255, 255, 255);
     font-family: 'Laila', serif;
 }
 
@@ -155,7 +155,7 @@ footer{
 }
 
 .eqcss{
-	padding-bottom: 50px;
+	padding-bottom: 30px;
 }
 
 .eqcss hr {
@@ -236,7 +236,7 @@ footer{
 
 .case_connexion{
 	background-color: white;
-	box-shadow: 6px 6px 10px 6px rgba(0, 0, 0, 0.4);
+	/* box-shadow: 6px 6px 10px 6px rgba(0, 0, 0, 0.4); */
     height: 100%;
 	font-family: 'Laila', serif;
 	font-weight: bold;
@@ -262,4 +262,68 @@ footer{
 .lien:hover {
 	color: rgb(194, 23, 42);
 	text-decoration: none;
+}
+
+.badge-danger {
+	color: white;
+	background-color: red;
+}
+
+.form-error-message {
+	color: red;
+}
+
+#info_p p{
+	text-align: center;
+	color: rgb(194, 23, 42);
+	text-decoration: overline;
+}
+
+.case3{
+	box-shadow: 0px 6px 10px 6px rgba(0, 0, 0, 0.4);
+    height: auto;
+	padding: 20px;
+	font-family: 'Laila', serif;
+	font-weight: bold;
+	font-size: 28px;
+	margin-bottom: 30px;
+	color: rgb(194, 23, 42);
+}
+
+.hr_rouge{
+	background-color: rgb(194, 23, 42);
+}
+
+.btninfo {
+	color: rgb(194, 23, 42);
+	background-color: white;
+	height: 50px;
+	font-family: 'Laila', serif;
+	border-radius: 3rem;
+	font-weight: bold;
+	font-size: 20px;
+	padding-top: 7px;
+	margin: 10px 0px 0px 0px;
+	border-color: rgb(194, 23, 42);
+}
+
+.btninfo:hover{
+	color: white;
+	background-color: rgb(194, 23, 42);
+	height: 50px;
+	font-family: 'Laila', serif;
+	border-radius: 3rem;
+	font-weight: bold;
+	font-size: 20px;
+	padding-top: 7px;
+	margin: 10px 0px 0px 0px;
+	border-color: rgb(194, 23, 42);
+	transition: 0.2s;
+}
+
+.eqcss3 hr{
+	display: block;
+	background-color: rgb(49, 48, 48) ;
+	height: 1px;
+	border-color: rgb(54, 54, 54);
 }
