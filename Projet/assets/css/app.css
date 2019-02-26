@@ -1,5 +1,5 @@
 /* assets/css/app.css */
-/* font-family: 'Laila', serif; */
+/* font-family: 'Quicksand', sans-serif;*/
 html, body {
 	height: 100%;
 	width: 100%;
@@ -16,8 +16,8 @@ body {
 }
 
 .navbar {
-    font-family: 'Laila', serif;
-    font-size: 17px;
+	font-family: 'Quicksand', sans-serif;
+	font-size: 17px;
     font-weight: bold;  
     padding: 1% 0;
     position: fixed;
@@ -33,12 +33,12 @@ body {
 
 .navbar-default .navbar-nav li a{
     color: rgb(255, 255, 255);
-    font-family: 'Laila', serif;
+	font-family: 'Quicksand', sans-serif;
 }
 
 .navbar-default .navbar-nav li a:hover,.navbar-default .navbar-nav li a:active {
     color: white;
-	font-family: 'Laila', serif;
+	font-family: 'Quicksand', sans-serif;
 	transition: 0.5s;
 	text-decoration: overline;
 	
@@ -54,7 +54,7 @@ body {
 .landing-textp h1{
     font-size: 300%;
 	font-weight: 700;
-    font-family: 'Laila', serif;
+	font-family: 'Quicksand', sans-serif;
     color: white;
 }
 
@@ -83,7 +83,7 @@ body {
     color: white;
     font-size: 200%;
 	font-weight: 700;
-    font-family: 'Laila', serif;
+	font-family: 'Quicksand', sans-serif;
 }
 
 footer{
@@ -98,7 +98,7 @@ footer{
 	color: rgb(194, 23, 42);
 	background-color: white;
 	height: 40px;
-	font-family: 'Laila', serif;
+	font-family: 'Quicksand', sans-serif;
 	border-radius: 2rem;
 	font-weight: bold;
 	font-size: 13px;
@@ -111,7 +111,7 @@ footer{
 	color: white;
 	background-color: rgb(194, 23, 42);
 	height: 40px;
-	font-family: 'Laila', serif;
+	font-family: 'Quicksand', sans-serif;
 	border-radius: 2rem;
 	font-weight: bold;
 	font-size: 13px;
@@ -142,7 +142,7 @@ footer{
 
 .description h1{
 	color: rgb(194, 23, 42);
-	font-family: 'Laila', serif;
+	font-family: 'Quicksand', sans-serif;
 	text-align: center;
 	font-size: 40px;
 }
@@ -150,7 +150,7 @@ footer{
 .description p{
 	text-align: justify;
 	color: rgb(32, 32, 32);
-	font-family: 'Laila', serif;
+	font-family: 'Quicksand', sans-serif;
 	font-size: 20px;
 }
 
@@ -192,7 +192,7 @@ footer{
 	background-color: white;
 	height: 60px;
 	width: 200px;
-	font-family: 'Laila', serif;
+	font-family: 'Quicksand', sans-serif;
 	border-radius: 4rem;
 	font-weight: bold;
 	font-size: 13px;
@@ -206,7 +206,7 @@ footer{
 	background-color: rgb(194, 23, 42);
 	height: 60px;
 	width: 200px;
-	font-family: 'Laila', serif;
+	font-family: 'Quicksand', sans-serif;
 	border-radius: 4rem;
 	font-weight: bold;
 	font-size: 13px;
@@ -229,7 +229,7 @@ footer{
     height: auto;
 	border-radius: 10px;
 	padding: 20px;
-	font-family: 'Laila', serif;
+	font-family: 'Quicksand', sans-serif;
 	font-weight: bold;
 	font-size: 18px;
 }
@@ -238,7 +238,7 @@ footer{
 	background-color: white;
 	/* box-shadow: 6px 6px 10px 6px rgba(0, 0, 0, 0.4); */
     height: 100%;
-	font-family: 'Laila', serif;
+	font-family: 'Quicksand', sans-serif;
 	font-weight: bold;
 	font-size: 18px;
 	padding: 50px 0px 50px 0px;
@@ -283,7 +283,7 @@ footer{
 	box-shadow: 0px 6px 10px 6px rgba(0, 0, 0, 0.4);
     height: auto;
 	padding: 20px;
-	font-family: 'Laila', serif;
+	font-family: 'Quicksand', sans-serif;
 	font-weight: bold;
 	font-size: 28px;
 	margin-bottom: 30px;
@@ -298,7 +298,7 @@ footer{
 	color: rgb(194, 23, 42);
 	background-color: white;
 	height: 50px;
-	font-family: 'Laila', serif;
+	font-family: 'Quicksand', sans-serif;
 	border-radius: 3rem;
 	font-weight: bold;
 	font-size: 20px;
@@ -311,7 +311,7 @@ footer{
 	color: white;
 	background-color: rgb(194, 23, 42);
 	height: 50px;
-	font-family: 'Laila', serif;
+	font-family: 'Quicksand', sans-serif;
 	border-radius: 3rem;
 	font-weight: bold;
 	font-size: 20px;
