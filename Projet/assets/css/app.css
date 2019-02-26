@@ -1,5 +1,5 @@
 /* assets/css/app.css */
-/* font-family: 'Quicksand', sans-serif;*/
+/* font-family: 'Laila', serif; */
 html, body {
 	height: 100%;
 	width: 100%;
@@ -16,8 +16,8 @@ body {
 }
 
 .navbar {
-	font-family: 'Quicksand', sans-serif;
-	font-size: 17px;
+    font-family: 'Laila', serif;
+    font-size: 17px;
     font-weight: bold;  
     padding: 1% 0;
     position: fixed;
@@ -32,13 +32,13 @@ body {
 
 
 .navbar-default .navbar-nav li a{
-    color: rgb(255, 255, 255);
-	font-family: 'Quicksand', sans-serif;
+    color: rgb(194, 23, 42);
+    font-family: 'Laila', serif;
 }
 
 .navbar-default .navbar-nav li a:hover,.navbar-default .navbar-nav li a:active {
     color: white;
-	font-family: 'Quicksand', sans-serif;
+	font-family: 'Laila', serif;
 	transition: 0.5s;
 	text-decoration: overline;
 	
@@ -54,7 +54,7 @@ body {
 .landing-textp h1{
     font-size: 300%;
 	font-weight: 700;
-	font-family: 'Quicksand', sans-serif;
+    font-family: 'Laila', serif;
     color: white;
 }
 
@@ -78,12 +78,12 @@ body {
 
 .landing-text{
 	display: table-cell;
-	text-align: center;
+	/*text-align: center;*/
     vertical-align: middle;
     color: white;
     font-size: 200%;
 	font-weight: 700;
-	font-family: 'Quicksand', sans-serif;
+    font-family: 'Laila', serif;
 }
 
 footer{
@@ -98,10 +98,10 @@ footer{
 	color: rgb(194, 23, 42);
 	background-color: white;
 	height: 40px;
-	font-family: 'Quicksand', sans-serif;
+	font-family: 'Laila', serif;
 	border-radius: 2rem;
 	font-weight: bold;
-	font-size: 16px;
+	font-size: 13px;
 	padding-top: 7px;
 	margin: 5px 10px 0px 10px;
 	border-color: rgb(194, 23, 42);
@@ -111,10 +111,10 @@ footer{
 	color: white;
 	background-color: rgb(194, 23, 42);
 	height: 40px;
-	font-family: 'Quicksand', sans-serif;
+	font-family: 'Laila', serif;
 	border-radius: 2rem;
 	font-weight: bold;
-	font-size: 16px;
+	font-size: 13px;
 	padding-top: 7px;
 	margin: 5px 10px 0px 10px;
 	border-color: white;
@@ -142,7 +142,7 @@ footer{
 
 .description h1{
 	color: rgb(194, 23, 42);
-	font-family: 'Quicksand', sans-serif;
+	font-family: 'Laila', serif;
 	text-align: center;
 	font-size: 40px;
 }
@@ -150,12 +150,12 @@ footer{
 .description p{
 	text-align: justify;
 	color: rgb(32, 32, 32);
-	font-family: 'Quicksand', sans-serif;
+	font-family: 'Laila', serif;
 	font-size: 20px;
 }
 
 .eqcss{
-	padding-bottom: 30px;
+	padding-bottom: 50px;
 }
 
 .eqcss hr {
@@ -195,7 +195,7 @@ footer{
 	font-family: 'Quicksand', sans-serif;
 	border-radius: 4rem;
 	font-weight: bold;
-	font-size: 16px;
+	font-size: 13px;
 	padding-top: 7px;
 	margin: 20px 10px 0px 10px;
 	border: solid 3px rgb(194, 23, 42);
@@ -209,7 +209,7 @@ footer{
 	font-family: 'Quicksand', sans-serif;
 	border-radius: 4rem;
 	font-weight: bold;
-	font-size: 16px;
+	font-size: 13px;
 	padding-top: 7px;
 	margin: 20px 10px 0px 10px;
 	border-color: white;
@@ -229,16 +229,16 @@ footer{
     height: auto;
 	border-radius: 10px;
 	padding: 20px;
-	font-family: 'Quicksand', sans-serif;
+	font-family: 'Laila', serif;
 	font-weight: bold;
 	font-size: 18px;
 }
 
 .case_connexion{
 	background-color: white;
-	/* box-shadow: 6px 6px 10px 6px rgba(0, 0, 0, 0.4); */
+	box-shadow: 6px 6px 10px 6px rgba(0, 0, 0, 0.4);
     height: 100%;
-	font-family: 'Quicksand', sans-serif;
+	font-family: 'Laila', serif;
 	font-weight: bold;
 	font-size: 18px;
 	padding: 50px 0px 50px 0px;
@@ -255,6 +255,12 @@ footer{
 	margin:auto;
 }
 
+.form_perso {
+	width:40%;
+	display:block; 
+	margin:auto;
+}
+
 .lien {
 	color: rgb(194, 23, 42);
 }
@@ -262,68 +268,4 @@ footer{
 .lien:hover {
 	color: rgb(194, 23, 42);
 	text-decoration: none;
-}
-
-.badge-danger {
-	color: white;
-	background-color: red;
-}
-
-.form-error-message {
-	color: red;
-}
-
-#info_p p{
-	text-align: center;
-	color: rgb(194, 23, 42);
-	text-decoration: overline;
-}
-
-.case3{
-	box-shadow: 0px 6px 10px 6px rgba(0, 0, 0, 0.4);
-    height: auto;
-	padding: 20px;
-	font-family: 'Quicksand', sans-serif;
-	font-weight: bold;
-	font-size: 28px;
-	margin-bottom: 30px;
-	color: rgb(194, 23, 42);
-}
-
-.hr_rouge{
-	background-color: rgb(194, 23, 42);
-}
-
-.btninfo {
-	color: rgb(194, 23, 42);
-	background-color: white;
-	height: 50px;
-	font-family: 'Quicksand', sans-serif;
-	border-radius: 3rem;
-	font-weight: bold;
-	font-size: 20px;
-	padding-top: 7px;
-	margin: 10px 0px 0px 0px;
-	border-color: rgb(194, 23, 42);
-}
-
-.btninfo:hover{
-	color: white;
-	background-color: rgb(194, 23, 42);
-	height: 50px;
-	font-family: 'Quicksand', sans-serif;
-	border-radius: 3rem;
-	font-weight: bold;
-	font-size: 20px;
-	padding-top: 7px;
-	margin: 10px 0px 0px 0px;
-	border-color: rgb(194, 23, 42);
-	transition: 0.2s;
-}
-
-.eqcss3 hr{
-	display: block;
-	background-color: rgb(49, 48, 48) ;
-	height: 1px;
-	border-color: rgb(54, 54, 54);
 }

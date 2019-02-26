@@ -28,8 +28,8 @@ class InfoPersoType extends AbstractType
                     'Femme' => 'femme',
                 ],
                 'expanded' => true,
-                'label_attr' => [
-                    'class' => 'radio-inline',
+                'attr' => [
+                    'class' => 'radio-inline inline-block',
                 ],
             ])
             ->add('Age', TextType::class, [

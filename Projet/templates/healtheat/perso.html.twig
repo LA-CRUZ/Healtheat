@@ -9,19 +9,48 @@
 
 {% block body %}
 
-    <h1>Espace Personnel</h1>
+    <script>
+        function maFonction()
+        {
+            document.getElementById("test").style.backgroundColor = "rgb(255, 255, 255)";
+            document.getElementById("test").style.boxShadow = "1px 3px 12px rgb(0, 0, 0)";
+            document.getElementById("elem-menu").style.color = "rgb(194, 23, 42)";
+            document.getElementById("elem-menu2").style.color = "rgb(194, 23, 42)";
+            document.getElementById("elem-menu3").style.color = "rgb(194, 23, 42)";
+            document.getElementById("elem-menu4").style.color = "rgb(194, 23, 42)";
+            document.getElementById("elem-menu5").style.color = "rgb(194, 23, 42)";
+        }
+
+        maFonction();
+    </script>
+
+    <div id="homep">
+            <div class="landing-textp">
+                <div class="case_connexion">
+                    <div class=eqcss>
+                        <h2 class="titre_co">ESPACE PERSONNEL</h2>
+                        <hr align=center width="20%">
+                    </div>
 
     {{ form_start(form) }}
-
-        {{ form_row(form.Nom, {'label' : "Nom" })}}
-        {{ form_row(form.Prenom, {'label' : "Prenom" })}}
-        {{ form_row(form.Sexe, {'label' : "Sexe" })}}
-        {{ form_row(form.Age, {'label' : "Age" })}}
-        {{ form_row(form.Poids, {'label' : "Poids" })}}
-        {{ form_row(form.Taille, {'label' : "Taille" })}}
-        {{ form_row(form.tour_taille, {'label' : "Tour de Taille" })}}
-        {{ form_row(form.tour_hanche, {'label' : "Tour de Hanche" })}}
-        {{ form_row(form.temps_activite_physique, {'label' : "Temps D'activité Physique" })}}
+        {{ form_row(form.Nom, {'label' : "Nom" ,'attr':
+        {'placeholder': 'Nom', 'class': 'form_perso'}})}}
+        {{ form_row(form.Prenom, {'label' : "Prénom" ,'attr':
+        {'placeholder': 'Prénom', 'class': 'form_perso'}})}}
+        {{ form_row(form.Sexe, {'label' : "Sexe" ,'attr':
+        {'placeholder': 'Sexe', 'class': 'form_perso'}})}}
+        {{ form_row(form.Age, {'label' : "Age" ,'attr':
+        {'placeholder': 'Age', 'class': 'form_perso'}})}}
+        {{ form_row(form.Poids, {'label' : "Poids" ,'attr':
+        {'placeholder': 'Poids', 'class': 'form_perso'}})}}
+        {{ form_row(form.Taille, {'label' : "Taille" ,'attr':
+        {'placeholder': 'Taille', 'class': 'form_perso'}})}}
+        {{ form_row(form.tour_taille, {'label' : "Tour de taille" ,'attr':
+        {'placeholder': 'Tour de taille', 'class': 'form_perso'}})}}
+        {{ form_row(form.tour_hanche, {'label' : "Tour de hanche" ,'attr':
+        {'placeholder': 'Tour de hanche', 'class': 'form_perso'}})}}
+        {{ form_row(form.temps_activite_physique, {'label' : "Temps d'activité physique" ,'attr':
+        {'placeholder': 'Temps d\'activité physique', 'class': 'form_perso'}})}}
         <button type="button" class="btn btn-danger" data-toggle="collapse" data-target="#intolerance">Intolerance</button>
         <button type="button" class="btn btn-danger" data-toggle="collapse" data-target="#allergie">Allergie</button>
         <div id="intolerance" class="collapse">
@@ -32,8 +61,15 @@
         </div>
         <br>
         <br>
-        {{ form_row(form.enregistrer, {'label' : "enregister" })}}
+       <!-- {{ form_row(form.enregistrer, {'label' : "enregister" })}} -->
+        <button class="btn  fonction" type="submit">ENREGISTRER</button>
+
           
     {{ form_end(form) }}
+
+                
+            </div>
+        </div>
+    </div>
 
 {% endblock %}

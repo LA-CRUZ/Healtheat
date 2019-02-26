@@ -42,6 +42,33 @@
                     Vous n'avez pas remplit toutes les informations. Pour des performances optimales il est nécessaire de tout remplir.
                     <br>
                     Vous pouvez cliquer sur le bouton si dessous pour pouvoir compléter votre profil à 100%.
+                    <br>
+                    Information(s) manquante(s) :
+                    <br>
+                    {% if info_user.nom == NULL %}
+                        Nom <br>
+                    {% endif %}
+                    {% if info_user.prenom == NULL %}
+                        Prenom <br>
+                    {% endif %}
+                    {% if info_user.sexe == NULL %}
+                        Sexe <br>
+                    {% endif %}
+                    {% if info_user.age == NULL %}
+                        Age <br>
+                    {% endif %}
+                    {% if info_user.poids == NULL %}
+                        Poids <br>
+                    {% endif %}
+                    {% if info_user.taille == NULL %}
+                        Taille <br>
+                    {% endif %}
+                    {% if info_user.getTourTaille() == NULL %}
+                        Tour de Taille <br>
+                    {% endif %}
+                    {% if info_user.getTourHanche() == NULL %}
+                        Tour de Hanche <br>
+                    {% endif %}
                 </div>
                 {% endif %}
 
@@ -139,7 +166,7 @@
                             </div>
                             {% if info_user.intolerance != NULL %}
                             <p>INTOLERENCES</p>
-                            <ul>
+                            <ul class="list-unstyled">
                             {% for into in info_user.intolerance %}
                                 <li>{{ into.nom }}</li>
                             {% endfor %}
@@ -150,7 +177,7 @@
                             </div>
                             {% if info_user.allergie != NULL %}
                             <p>ALLERGIES</p>
-                            <ul>
+                            <ul class="list-unstyled">
                             {% for alle in info_user.allergie %}
                                 <li>{{ alle.nom }}</li>
                             {% endfor %}
