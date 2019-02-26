@@ -78,7 +78,7 @@ body {
 
 .landing-text{
 	display: table-cell;
-	text-align: center;
+	/*text-align: center;*/
     vertical-align: middle;
     color: white;
     font-size: 200%;
@@ -251,6 +251,12 @@ footer{
 
 .form_co {
 	width:80%;
+	display:block; 
+	margin:auto;
+}
+
+.form_perso {
+	width:40%;
 	display:block; 
 	margin:auto;
 }
