@@ -10,58 +10,20 @@
             document.getElementById("test").style.backgroundColor = "rgb(255, 255, 255)";
             document.getElementById("test").style.boxShadow = "1px 3px 12px rgb(0, 0, 0)";
             document.getElementById("test").style.transition = "1.5s";
-            document.getElementById("elem-menu").onmouseover = function () {
-                this.style.color = "rgb(194, 23, 42)";
-            }
-            document.getElementById("elem-menu2").onmouseover = function () {
-                this.style.color = "rgb(194, 23, 42)";
-            }
-            document.getElementById("elem-menu3").onmouseover = function () {
-                this.style.color = "rgb(194, 23, 42)";
-            }
-            document.getElementById("elem-menu4").onmouseover = function () {
-                this.style.color = "rgb(194, 23, 42)";
-            }
-            document.getElementById("elem-menu5").onmouseover = function () {
-                this.style.color = "rgb(194, 23, 42)";
-            }
+            document.getElementById("elem-menu").style.color = "rgb(194, 23, 42)";
+            document.getElementById("elem-menu2").style.color = "rgb(194, 23, 42)";
+            document.getElementById("elem-menu3").style.color = "rgb(194, 23, 42)";
+            document.getElementById("elem-menu4").style.color = "rgb(194, 23, 42)";
+            document.getElementById("elem-menu5").style.color = "rgb(194, 23, 42)";
         } else {
             document.getElementById("test").style.backgroundColor = "rgb(255, 255, 255, 0)";
             document.getElementById("test").style.boxShadow = "0px 0px 0px rgb(255, 255, 255)";
+            document.getElementById("elem-menu").style.color = "white";
+            document.getElementById("elem-menu2").style.color = "white";
+            document.getElementById("elem-menu3").style.color = "white";
+            document.getElementById("elem-menu4").style.color = "white";
+            document.getElementById("elem-menu5").style.color = "white";
             document.getElementById("test").style.transition = "1s";
-            document.getElementById("elem-menu").onmouseover = function () {
-                this.style.color = "white";
-            }
-            document.getElementById("elem-menu").onmouseout = function () {
-                this.style.color = "rgb(194, 23, 42)";
-            }
-            document.getElementById("elem-menu2").onmouseover = function () {
-                this.style.color = "white";
-            }
-            document.getElementById("elem-menu3").onmouseover = function () {
-                this.style.color = "white";
-            }
-            document.getElementById("elem-menu4").onmouseover = function () {
-                this.style.color = "white";
-            }
-            document.getElementById("elem-menu5").onmouseover = function () {
-                this.style.color = "white";
-            }
-            document.getElementById("elem-menu").onmouseout = function () {
-                this.style.color = "rgb(194, 23, 42)";
-            }
-            document.getElementById("elem-menu2").onmouseout = function () {
-                this.style.color = "rgb(194, 23, 42)";
-            }
-            document.getElementById("elem-menu3").onmouseout = function () {
-                this.style.color = "rgb(194, 23, 42)";
-            }
-            document.getElementById("elem-menu4").onmouseout = function () {
-                this.style.color = "rgb(194, 23, 42)";
-            }
-            document.getElementById("elem-menu5").onmouseout = function () {
-                this.style.color = "rgb(194, 23, 42)";
-            }
         }
     })
 </script>
@@ -106,7 +68,7 @@
     <div class="container">
         <div class="description">
             <div class="row">
-                <div class="col-sm-3 ">
+                <div class="col-sm-3">
                     <div class="case">
                         <img id="myImg" src="{{ asset('build/images/info.png') }}" alt="" style="width:100%;max-width:200px">
                         <h2>Profil Personnel</h2>
