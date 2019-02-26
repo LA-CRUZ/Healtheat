@@ -7,65 +7,190 @@
 
 {% block body %}
 
-    <h1>Espace Personnel</h1>
+    <script>
+        function maFonction()
+        {
+            document.getElementById("test").style.backgroundColor = "rgb(255, 255, 255)";
+            document.getElementById("test").style.boxShadow = "1px 3px 12px rgb(0, 0, 0)";
+            document.getElementById("elem-menu").style.color = "rgb(194, 23, 42)";
+            document.getElementById("elem-menu2").style.color = "rgb(194, 23, 42)";
+            document.getElementById("elem-menu3").style.color = "rgb(194, 23, 42)";
+            document.getElementById("elem-menu4").style.color = "rgb(194, 23, 42)";
+            document.getElementById("elem-menu5").style.color = "rgb(194, 23, 42)";
+        }
 
-    <div class="row">
-        <div class="col-sm-2"></div>
-        <div class="col-sm-4">
-            <h1>Info de {{ user.username }}</h1>
-            {% if info_user.nom != NULL %}
-                <p>nom : </p>{{ info_user.nom }} <br>
-            {% endif %}
-            {% if info_user.prenom != NULL %}
-                <p>prenom : </p>{{ info_user.prenom }} <br>
-            {% endif %}
-            {% if info_user.sexe != NULL %}
-                <p>sexe : </p>{{ info_user.sexe }} <br>
-            {% endif %}
-            {% if info_user.age != NULL %}
-                <p>age : </p>{{ info_user.age }} <br>
-            {% endif %}
-            {% if info_user.poids != NULL %}
-                <p>poids : </p>{{ info_user.poids }}  <p>kg</p><br>
-            {% endif %}
-            {% if info_user.taille != NULL %}
-                <p>taille : </p>{{ info_user.taille /100 }} <p>m</p><br>
-            {% endif %}
-            {% if info_user.imc != NULL %}
-                <p>imc : </p>{{ info_user.imc }} <br>
-            {% endif %}
-            {% if info_user.getTourTaille() != NULL %}
-                <p>tour de taille : </p>{{ info_user.getTourTaille() }} <p>cm</p> <br>
-            {% endif %}
-            {% if info_user.getTourHanche() != NULL %}
-                <p>tour de hanche : </p>{{ info_user.getTourHanche() }} <p>cm</p> <br>
-            {% endif %}
+        maFonction();
+    </script>
+
+    <div id="homep">
+    <div class="container">
+        <div class="description">
+            <div class="case_connexion">
+                <div class=eqcss>
+                    <h2 class="titre_co">ESPACE PERSONNEL</h2>
+                    <hr align=center width="20%">
+                </div>
+
+                <div class="case3">
+                {{ user.username }}
+                </div>
+
+                {% if not info_user.sexe or  not info_user.age or not info_user.poids or not info_user.taille or not info_user.getTourHanche() or not info_user.getTourTaille()%}
+                <div class="alert alert-danger alert-dismissible fade in">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    <strong><i class="fas fa-exclamation-circle"></i> ATTENTION <i class="fas fa-exclamation-circle"></i></strong><br><br>
+                    Vous n'avez pas remplit toutes les informations. Pour des performances optimales il est nécessaire de tout remplir.
+                    <br>
+                    Vous pouvez cliquer sur le bouton si dessous pour pouvoir compléter votre profil à 100%.
+                    <br>
+                    Information(s) manquante(s) :
+                    <br>
+                    {% if info_user.nom == NULL %}
+                        Nom <br>
+                    {% endif %}
+                    {% if info_user.prenom == NULL %}
+                        Prenom <br>
+                    {% endif %}
+                    {% if info_user.sexe == NULL %}
+                        Sexe <br>
+                    {% endif %}
+                    {% if info_user.age == NULL %}
+                        Age <br>
+                    {% endif %}
+                    {% if info_user.poids == NULL %}
+                        Poids <br>
+                    {% endif %}
+                    {% if info_user.taille == NULL %}
+                        Taille <br>
+                    {% endif %}
+                    {% if info_user.getTourTaille() == NULL %}
+                        Tour de Taille <br>
+                    {% endif %}
+                    {% if info_user.getTourHanche() == NULL %}
+                        Tour de Hanche <br>
+                    {% endif %}
+                </div>
+                {% endif %}
+
+                <div class="row">
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-10">
+                        <a href="{{ path('espace_perso') }}"><button class="btn  btninfo" ><i class="fas fa-pencil-alt"></i>  MODIFER MON PROFIL</button></a>
+                    </div>
+                    <div class="col-sm-1"></div>
+                </div>
+                <br><br>
+                <div class="row" >
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-3" id="info_p">
+                        <div class="case">
+                            <img src="{{ asset('build/images/info.png') }}" alt="" style="width:100%;max-width:100px">
+                            <br>
+                            <div class=eqcss>
+                            <hr align=center width="100%">
+                            </div>
+                            <p>NOM</p>
+                            {% if info_user.nom != NULL %}
+                                {{ info_user.nom }}
+                            {% endif %}
+                            <div class=eqcss3>
+                                <hr align=center width="80%">
+                            </div>
+                            <p>PRENOM</p>
+                            {% if info_user.prenom != NULL %}
+                                {{ info_user.prenom }}
+                            {% endif %}
+                            <div class=eqcss3>
+                                <hr align=center width="80%">
+                            </div>
+                            <p>SEXE</p>
+                            {% if info_user.sexe != NULL %}
+                                {{ info_user.sexe }}
+                            {% endif %}
+                            <div class=eqcss3>
+                                <hr align=center width="80%">
+                            </div>
+                            <p>AGE</p>
+                            {% if info_user.age != NULL %}
+                                {{ info_user.age }} ans
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="col-sm-4" id="info_p">
+                        <div class="case">
+                            <img src="{{ asset('build/images/info2.png') }}" alt="" style="width:100%;max-width:100px;">
+                            <br>
+                            <div class=eqcss>
+                            <hr align=center width="100%">
+                            </div>
+                                <p>POIDS</p>
+                            {% if info_user.poids != NULL %}
+                                {{ info_user.poids }} kg
+                            {% endif %}
+                            <div class=eqcss3>
+                                <hr align=center width="80%">
+                            </div>
+                            <p>TAILLE</p>
+                            {% if info_user.taille != NULL %}
+                                {{ info_user.taille /100 }} m
+                            {% endif %}
+                            <div class=eqcss3>
+                                <hr align=center width="80%">
+                            </div>
+                            <p>IMC</p>
+                            {% if info_user.imc != NULL %}
+                                {{ info_user.imc }}
+                            {% endif %}
+                            <div class=eqcss3>
+                                <hr align=center width="80%">
+                            </div>
+                            <p>TOUR DE TAILLE</p>
+                            {% if info_user.getTourTaille() != NULL %}
+                                {{ info_user.getTourTaille() }} cm
+                            {% endif %}
+                            <div class=eqcss3>
+                                <hr align=center width="80%">
+                            </div>
+                            <p>TOUR DE HANCHE</p>
+                            {% if info_user.getTourHanche() != NULL %}
+                                {{ info_user.getTourHanche() }} cm
+                            {% endif %}                            
+                        </div>
+                    </div>
+                    <div class="col-sm-3" id="info_p">
+                        <div class="case">
+                            <img src="{{ asset('build/images/info3.png') }}" alt="" style="width:100%;max-width:100px">
+                            <br>
+                            <div class=eqcss>
+                            <hr align=center width="100%">
+                            </div>
+                            {% if info_user.intolerance != NULL %}
+                            <p>INTOLERENCES</p>
+                            <ul class="list-unstyled">
+                            {% for into in info_user.intolerance %}
+                                <li>{{ into.nom }}</li>
+                            {% endfor %}
+                            </ul>
+                            {% endif %}
+                            <div class=eqcss3>
+                            <hr align=center width="100%">
+                            </div>
+                            {% if info_user.allergie != NULL %}
+                            <p>ALLERGIES</p>
+                            <ul class="list-unstyled">
+                            {% for alle in info_user.allergie %}
+                                <li>{{ alle.nom }}</li>
+                            {% endfor %}
+                            </ul>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="col-sm-1"></div>
+                </div>
+            </div>
         </div>
-        <div class="col-sm-4">
-        {% if info_user.intolerance != NULL %}
-            <h4>Intolerance :</h4>
-            <ul>
-            {% for into in info_user.intolerance %}
-                <li>{{ into.nom }}</li>
-            {% endfor %}
-            </ul>
-        {% endif %}
-        {% if info_user.allergie != NULL %}
-            <h4>Allergies :</h4>
-            <ul>
-            {% for alle in info_user.allergie %}
-                <li>{{ alle.nom }}</li>
-            {% endfor %}
-            </ul>
-        {% endif %}
-                
-        </div>
-        <div class="col-sm-2"></div>
     </div>
-    <div class="row">
-        <div class="col-3">
-            <a href={{ path('espace_perso') }} class="btn btn-primary" > test </a>
-        </div>
     </div>
+    
 
 {% endblock %}

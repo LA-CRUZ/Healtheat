@@ -45,6 +45,8 @@ class HealtheatController extends AbstractController
                 $IMC = $poids / ($taille * $taille);
 
                 $InfoUser->setImc($IMC);
+            } else {
+                $InfoUser->setImc(NULL);
             }
             $manager->persist($InfoUser);
             $manager->flush();
