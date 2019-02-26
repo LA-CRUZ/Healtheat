@@ -191,7 +191,7 @@ footer{
 	color: rgb(194, 23, 42);
 	background-color: white;
 	height: 60px;
-	width: 200px;
+	width: 90%;
 	font-family: 'Quicksand', sans-serif;
 	border-radius: 4rem;
 	font-weight: bold;
@@ -205,7 +205,7 @@ footer{
 	color: white;
 	background-color: rgb(194, 23, 42);
 	height: 60px;
-	width: 200px;
+	width: 90%;
 	font-family: 'Quicksand', sans-serif;
 	border-radius: 4rem;
 	font-weight: bold;
