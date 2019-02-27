@@ -91,14 +91,7 @@
                             </div>
                             <p>NOM</p>
                             {% if info_user.nom != NULL %}
-                                {{ info_user.nom }}
-                            {% endif %}
-                            <div class=eqcss3>
-                                <hr align=center width="80%">
-                            </div>
-                            <p>PRENOM</p>
-                            {% if info_user.prenom != NULL %}
-                                {{ info_user.prenom }}
+                                {{ info_user.nom }} {{ info_user.prenom }}
                             {% endif %}
                             <div class=eqcss3>
                                 <hr align=center width="80%">
@@ -141,20 +134,6 @@
                             {% if info_user.imc != NULL %}
                                 {{ info_user.imc }}
                             {% endif %}
-                            <div class=eqcss3>
-                                <hr align=center width="80%">
-                            </div>
-                            <p>TOUR DE TAILLE</p>
-                            {% if info_user.getTourTaille() != NULL %}
-                                {{ info_user.getTourTaille() }} cm
-                            {% endif %}
-                            <div class=eqcss3>
-                                <hr align=center width="80%">
-                            </div>
-                            <p>TOUR DE HANCHE</p>
-                            {% if info_user.getTourHanche() != NULL %}
-                                {{ info_user.getTourHanche() }} cm
-                            {% endif %}                            
                         </div>
                     </div>
                     <div class="col-sm-3" id="info_p">
