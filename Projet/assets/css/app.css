@@ -2,7 +2,7 @@
 /* font-family: 'Quicksand', sans-serif;*/
 html, body {
 	height: 100%;
-	width: 100%;
+	width: auto;
 }
 
 body {
@@ -19,7 +19,7 @@ body {
 	font-family: 'Quicksand', sans-serif;
 	font-size: 17px;
     font-weight: bold;  
-    padding: 1% 0;
+    /* padding: 1% 0; */
     position: fixed;
     border-bottom-width: 0px;
     background-color: rgba(0, 0, 0, 0);
@@ -27,7 +27,7 @@ body {
 
 .navbar-brand {
 	min-height: 55px;
-	padding: 0 15px 5px;
+	/* padding: 0 15px 5px; */
 }
 
 
@@ -87,7 +87,7 @@ body {
 }
 
 footer{
-    width: 100%;
+    width: auto;
 	background-color: white;
 	color: rgb(194, 23, 42);
 	padding: 3% 5% 5% 5%;
