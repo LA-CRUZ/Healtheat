@@ -1,0 +1,35 @@
+{% extends "base.html.twig" %}
+
+{% block stylesheet %}
+    {# {{ encore_entry_link_tags('') }}
+    <link rel="stylesheet" href="/build/InfoPersoForm.css"> #}
+{% endblock %}
+
+{% block body %}
+
+ <script>
+        function maFonction()
+        {
+            document.getElementById("test").style.backgroundColor = "rgb(255, 255, 255)";
+            document.getElementById("test").style.boxShadow = "1px 3px 12px rgb(0, 0, 0)";
+            document.getElementById("elem-menu").style.color = "rgb(194, 23, 42)";
+            document.getElementById("elem-menu2").style.color = "rgb(194, 23, 42)";
+            document.getElementById("elem-menu3").style.color = "rgb(194, 23, 42)";
+            document.getElementById("elem-menu4").style.color = "rgb(194, 23, 42)";
+            document.getElementById("elem-menu5").style.color = "rgb(194, 23, 42)";
+        }
+        maFonction();
+ </script>
+
+ <div id="homep">
+            <div class="landing-textp">
+                <div class="case_connexion">
+                    <div class=eqcss>
+                        <h2 class="titre_co">MON PROGRAMME</h2>
+                        <hr align=center width="20%">
+                    </div>
+                </div>
+            </div>
+</div>
+
+{% endblock %}

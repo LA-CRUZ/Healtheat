@@ -77,4 +77,15 @@ class HealtheatController extends AbstractController
             'user' => $this->getUser()
         ]);
     }
+
+    /**
+     * @Route("/programme", name = "mon_programme")
+     */
+    public function mon_programme()
+    {
+        return $this->render('healtheat/programme.html.twig', [
+            'controller_name' => 'HealtheatController',
+        ]);
+    }
+
 }
