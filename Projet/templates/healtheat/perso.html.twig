@@ -53,11 +53,17 @@
         {'placeholder': 'Temps d\'activité physique', 'class': 'form_perso'}})}}
         <button type="button" class="btn btn-danger" data-toggle="collapse" data-target="#intolerance">Intolerance</button>
         <button type="button" class="btn btn-danger" data-toggle="collapse" data-target="#allergie">Allergie</button>
-        <div id="intolerance" class="collapse">
-            {{ form_row(form.intolerance, {'label' : "Intolerance" })}}
-        </div>
-        <div id="allergie" class="collapse">
-            {{ form_row(form.allergie, {'label' : "Allergie" })}}
+        <div class="row">
+            <div class="col-sm-6">
+                <div id="intolerance" class="collapse col-sm-6">
+                {{ form_row(form.intolerance, {'label' : " " })}}
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div id="allergie" class="collapse col-sm-6">
+                    {{ form_row(form.allergie, {'label' : " " })}}
+                </div> 
+            </div>
         </div>
         <br>
         <br>
