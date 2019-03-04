@@ -270,6 +270,12 @@ footer{
 	margin:auto;
 }
 
+.form_perso {
+	width:40%;
+	display:block; 
+	margin:auto;
+}
+
 .lien {
 	color: rgb(194, 23, 42);
 }
