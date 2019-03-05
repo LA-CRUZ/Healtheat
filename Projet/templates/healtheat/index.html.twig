@@ -74,7 +74,7 @@
                         <h2 style="font-size:150%;">PROFIL</h2>
                         <p>Lorem ipsum dolor, sit amet sitee consectetur.</p>
                         {% if app.user %}
-                        <a href=""><button class="btn  fonction" >  MON ESPACE</button></a>
+                        <a href="{{ path('info_perso') }}"><button class="btn  fonction" >  MON ESPACE</button></a>
                         {% endif %}
                     </div>
                 </div>
@@ -85,7 +85,7 @@
                         <h2 style="font-size:150%;">SUIVI</h2>
                         <p>Lorem ipsum dolor, sit amet sitee consectetur.</p>
                         {% if app.user %}
-                        <a href=""><button class="btn  fonction" >  SUIVI</button></a>
+                        <a href="{{ path('suivi_perso') }}"><button class="btn  fonction" >  SUIVI</button></a>
                         {% endif %}
                     </div>
                 </div>
@@ -96,7 +96,7 @@
                         <h2 style="font-size:150%">PROGRAMMES</h2>
                         <p>Lorem ipsum dolor, sit amet sitee consectetur.</p>
                         {% if app.user %}
-                        <a href=""><button class="btn  fonction" >  PROGRAMMES</button></a>
+                        <a href="{{ path('mon_programme') }}"><button class="btn  fonction" >  PROGRAMMES</button></a>
                         {% endif %}
                     </div>
                 </div>
@@ -107,7 +107,7 @@
                         <h2 style="font-size:150%;">INVENTAIRE</h2>
                         <p>Lorem ipsum dolor, sit amet sitee consectetur.</p>
                         {% if app.user %}
-                        <a href=""><button class="btn  fonction" >  INVENTAIRE</button></a>
+                        <a href="{{ path('mon_inventaire') }}"><button class="btn  fonction" >  INVENTAIRE</button></a>
                         {% endif %}
                     </div>
                 </div>
