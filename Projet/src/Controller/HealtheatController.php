@@ -97,5 +97,17 @@ class HealtheatController extends AbstractController
             'controller_name' => 'HealtheatController',
         ]);
     }
+
+    /**
+    * @Route("/suivi", name = "suivi_perso")
+    */
+
+    public function suivi()
+    {
+        return $this->render('healtheat/suivi.html.twig', [
+        'controller_name' => 'HealtheatController',
+        ]);
+    }
+
 }
 
