@@ -1,0 +1,139 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}LES GRAPHES{% endblock %}
+
+{% block body %}
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"> </script>
+
+<script>
+        function maFonction()
+        {
+            document.getElementById("test").style.backgroundColor = "rgb(255, 255, 255)";
+            document.getElementById("test").style.boxShadow = "1px 3px 12px rgb(0, 0, 0)";
+            document.getElementById("elem-menu").style.color = "rgb(194, 23, 42)";
+            document.getElementById("elem-menu2").style.color = "rgb(194, 23, 42)";
+            document.getElementById("elem-menu3").style.color = "rgb(194, 23, 42)";
+            document.getElementById("elem-menu4").style.color = "rgb(194, 23, 42)";
+            document.getElementById("elem-menu5").style.color = "rgb(194, 23, 42)";
+        }
+
+        maFonction();
+    </script>
+
+    <div id="homep">
+            <div class="landing-textp">
+                <div class="case_connexion">
+                    <div class=eqcss>
+                        <h2 class="titre_co">SUIVI</h2>
+                        <hr align=center width="20%">
+                    </div>
+
+<div class="container">
+    <canvas id="myChart"></canvas>
+    <canvas id="myCHart2"></canvas>
+</div>
+
+<script>
+    let myChart = document.getElementById('myChart').getContext('2d');
+
+    let newChart = new Chart(myChart, {
+        type:'horizontalBar',
+        data:{
+            labels:['lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi', 'dimanche'],
+            datasets:[{
+                label:'Poids',
+                data:[
+                    98,
+                    96,
+                    99,
+                    95,
+                    99,
+                    100,
+                    102
+                ],
+                backgroundColor:[
+                    'rgba(255,99,132,1)',
+                    'rgba(54,162,235,1)',
+                    'rgba(255,206,86,1)',
+                    'rgba(75,192,192,1)',
+                    'rgba(153,102,255,1)',
+                    'rgba(255,159,64,1)',
+                    'rgba(132,99,132,1)',
+                ]
+            }]
+        },
+        options:{
+            scales: {
+                xAxes: [{
+                    //stacked: true,
+
+                    ticks: {
+                        display: true,
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    });
+
+</script>
+
+
+
+<script>
+    let myChart2 = document.getElementById('myChart2').getContext('2d');
+
+    let newChart = new Chart(myChart2, {
+        type:'bar',
+        data:{
+            labels:['lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi', 'dimanche'],
+            datasets:[{
+                label:'Poids',
+                data:[
+                    98,
+                    96,
+                    99,
+                    95,
+                    99,
+                    100,
+                    102
+                ],
+                backgroundColor:[
+                    'rgba(255,99,132,1)',
+                    'rgba(54,162,235,1)',
+                    'rgba(255,206,86,1)',
+                    'rgba(75,192,192,1)',
+                    'rgba(153,102,255,1)',
+                    'rgba(255,159,64,1)',
+                    'rgba(132,99,132,1)',
+                ]
+            }]
+        },
+        options:{
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    });
+
+</script>
+                </div>
+                
+            </div>
+            
+    </div>
+
+
+
+
+
+
+
+
+
+{% endblock %}
