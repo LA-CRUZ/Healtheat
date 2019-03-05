@@ -88,4 +88,14 @@ class HealtheatController extends AbstractController
         ]);
     }
 
+     /**
+     * @Route("/inventaire", name = "mon_inventaire")
+     */
+    public function mon_inventaire()
+    {
+        return $this->render('healtheat/inventaire.html.twig', [
+            'controller_name' => 'HealtheatController',
+        ]);
+    }
 }
+
