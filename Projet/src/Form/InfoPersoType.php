@@ -35,7 +35,7 @@ class InfoPersoType extends AbstractType
             ->add('Age', TextType::class, [
                 'required' => false,
             ])
-            ->add('Poids', TextType::class, [
+            ->add('l_poids', TextType::class, [
                 'required' => false,
             ])
             ->add('Taille', TextType::class, [

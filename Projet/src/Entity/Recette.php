@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -19,17 +21,17 @@ class Recette
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $Nom;
+    private $nom;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $Image;
+    private $image;
 
     /**
-     * @ORM\Column(type="array")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Produit", inversedBy="recettes")
      */
-    private $ingredient = [];
+    private $ingredient;
 
     /**
      * @ORM\Column(type="text")
@@ -64,7 +66,12 @@ class Recette
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $catégorie_repas;
+    private $categorie_repas;
+
+    public function __construct()
+    {
+        $this->ingredient = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -73,36 +80,50 @@ class Recette
 
     public function getNom(): ?string
     {
-        return $this->Nom;
+        return $this->nom;
     }
 
-    public function setNom(string $Nom): self
+    public function setNom(string $nom): self
     {
-        $this->Nom = $Nom;
+        $this->nom = $nom;
 
         return $this;
     }
 
     public function getImage(): ?string
     {
-        return $this->Image;
+        return $this->image;
     }
 
-    public function setImage(string $Image): self
+    public function setImage(string $image): self
     {
-        $this->Image = $Image;
+        $this->image = $image;
 
         return $this;
     }
 
-    public function getIngredient(): ?array
+    /**
+     * @return Collection|Produit[]
+     */
+    public function getIngredient(): Collection
     {
         return $this->ingredient;
     }
 
-    public function setIngredient(array $ingredient): self
+    public function addIngredient(Produit $ingredient): self
     {
-        $this->ingredient = $ingredient;
+        if (!$this->ingredient->contains($ingredient)) {
+            $this->ingredient[] = $ingredient;
+        }
+
+        return $this;
+    }
+
+    public function removeIngredient(Produit $ingredient): self
+    {
+        if ($this->ingredient->contains($ingredient)) {
+            $this->ingredient->removeElement($ingredient);
+        }
 
         return $this;
     }
@@ -179,14 +200,14 @@ class Recette
         return $this;
     }
 
-    public function getCatégorieRepas(): ?string
+    public function getCategorieRepas(): ?string
     {
-        return $this->catégorie_repas;
+        return $this->categorie_repas;
     }
 
-    public function setCatégorieRepas(string $catégorie_repas): self
+    public function setCategorieRepas(string $categorie_repas): self
     {
-        $this->catégorie_repas = $catégorie_repas;
+        $this->categorie_repas = $categorie_repas;
 
         return $this;
     }

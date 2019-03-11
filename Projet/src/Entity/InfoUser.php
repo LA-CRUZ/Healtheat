@@ -50,17 +50,6 @@ class InfoUser
     /**
      * @ORM\Column(type="integer", nullable=true)
      * @Assert\Range(
-     *      min = 0,
-     *      max = 300,
-     *      minMessage = "Veuillez rentrer un poids valide",
-     *      maxMessage = "Veuillez rentrer un poids valide"
-     * )
-     */
-    private $Poids;
-
-    /**
-     * @ORM\Column(type="integer", nullable=true)
-     * @Assert\Range(
      *      min = 50,
      *      max = 250,
      *      minMessage = "Veuillez rentrer une taille valide",
@@ -117,10 +106,27 @@ class InfoUser
      */
     private $allergie;
 
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     * @Assert\Range(
+     *      min = 40,
+     *      max = 300,
+     *      minMessage = "Veuillez rentrer un poids valide",
+     *      maxMessage = "Veuillez rentrer un poids valide"
+     * )
+     */
+    private $l_poids;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Poids", mappedBy="infoUser", orphanRemoval=true)
+     */
+    private $poids;
+
     public function __construct()
     {
         $this->intolerance = new ArrayCollection();
         $this->allergie = new ArrayCollection();
+        $this->poids = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -172,18 +178,6 @@ class InfoUser
     public function setAge(?int $Age): self
     {
         $this->Age = $Age;
-
-        return $this;
-    }
-
-    public function getPoids(): ?int
-    {
-        return $this->Poids;
-    }
-
-    public function setPoids(?int $Poids): self
-    {
-        $this->Poids = $Poids;
 
         return $this;
     }
@@ -295,6 +289,49 @@ class InfoUser
     {
         if ($this->allergie->contains($allergie)) {
             $this->allergie->removeElement($allergie);
+        }
+
+        return $this;
+    }
+
+    public function getLPoids(): ?int
+    {
+        return $this->l_poids;
+    }
+
+    public function setLPoids(?int $l_poids): self
+    {
+        $this->l_poids = $l_poids;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Poids[]
+     */
+    public function getPoids(): Collection
+    {
+        return $this->poids;
+    }
+
+    public function addPoid(Poids $poid): self
+    {
+        if (!$this->poids->contains($poid)) {
+            $this->poids[] = $poid;
+            $poid->setInfoUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removePoid(Poids $poid): self
+    {
+        if ($this->poids->contains($poid)) {
+            $this->poids->removeElement($poid);
+            // set the owning side to null (unless already changed)
+            if ($poid->getInfoUser() === $this) {
+                $poid->setInfoUser(null);
+            }
         }
 
         return $this;

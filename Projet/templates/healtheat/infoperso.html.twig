@@ -17,6 +17,14 @@
             document.getElementById("elem-menu3").style.color = "rgb(194, 23, 42)";
             document.getElementById("elem-menu4").style.color = "rgb(194, 23, 42)";
             document.getElementById("elem-menu5").style.color = "rgb(194, 23, 42)";
+
+            document.getElementById("snack").onclick(function() { 
+                Snackbar.show({
+                    text: 'Example notification text.',
+                    pos: 'bottom-left',
+                }); 
+            }); 
+                  
         }
 
         maFonction();
@@ -34,8 +42,12 @@
                 <div class="case3">
                 {{ user.username }}
                 </div>
-
-                {% if not info_user.sexe or  not info_user.age or not info_user.poids or not info_user.taille or not info_user.getTourHanche() or not info_user.getTourTaille()%}
+                {% for message in app.flashes('notice') %}
+                    <div class="flash-notice">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+                {% if not info_user.sexe or  not info_user.age or not info_user.getLPoids() or not info_user.taille or not info_user.getTourHanche() or not info_user.getTourTaille()%}
                 <div class="alert alert-danger alert-dismissible fade in">
                     <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
                     <strong><i class="fas fa-exclamation-circle"></i> ATTENTION <i class="fas fa-exclamation-circle"></i></strong><br><br>
@@ -57,7 +69,7 @@
                     {% if info_user.age == NULL %}
                         Age <br>
                     {% endif %}
-                    {% if info_user.poids == NULL %}
+                    {% if info_user.getLPoids() == NULL %}
                         Poids <br>
                     {% endif %}
                     {% if info_user.taille == NULL %}
@@ -117,8 +129,8 @@
                             <hr align=center width="100%">
                             </div>
                                 <p>POIDS</p>
-                            {% if info_user.poids != NULL %}
-                                {{ info_user.poids }} kg
+                            {% if info_user.getLPoids() != NULL %}
+                                {{ info_user.getLPoids() }} kg
                             {% endif %}
                             <div class=eqcss3>
                                 <hr align=center width="80%">

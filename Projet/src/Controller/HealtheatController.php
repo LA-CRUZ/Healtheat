@@ -2,9 +2,11 @@
 
 namespace App\Controller;
 
+use DateTime;
+use App\Entity\Poids;
+
 use App\Entity\InfoUser;
 use App\Form\InfoPersoType;
-
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\Routing\Annotation\Route;
@@ -36,18 +38,38 @@ class HealtheatController extends AbstractController
         $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid()) {
-
-            if($InfoUser->getPoids() != NULL && $InfoUser->getTaille() != NULL)
+            $this->addFlash(
+                'notice',
+                'Vos changement on été sauvegardé !'
+            );
+            if($InfoUser->getLPoids() != NULL)
             {
-                $poids = $InfoUser->getPoids();
-                $taille = $InfoUser->getTaille();
-                $taille = $taille / 100;
-                $IMC = $poids / ($taille * $taille);
+                    $dernierPoids = $InfoUser->getPoids()->last();
+                    if($dernierPoids != FALSE){
+                        $dernierPoids = $dernierPoids->getPoids();
+                    }
+                    if($dernierPoids == FALSE or $dernierPoids != $InfoUser->getLPoids()){
+                        $newpoids = new Poids();
+                        $date = new DateTime();
+                        $newpoids->setInfoUser($InfoUser);
+                        $newpoids->setPoids($InfoUser->getLPoids());
+                        $newpoids->setDate($date);
+                        $manager->persist($newpoids);
+                        $manager->flush();
+                    }
 
-                $InfoUser->setImc($IMC);
-            } else {
-                $InfoUser->setImc(NULL);
-            }
+                if($InfoUser->getTaille() != NULL){
+                    $poids = $InfoUser->getLPoids();
+                    $taille = $InfoUser->getTaille();
+                    $taille = $taille / 100;
+                    $IMC = $poids / ($taille * $taille);
+                    $IMC = round($IMC,2);
+
+                    $InfoUser->setImc($IMC);
+                } else {
+                    $InfoUser->setImc(NULL);
+                }
+            } 
             $manager->persist($InfoUser);
             $manager->flush();
             if($form->get('enregistrer')->isClicked()){
