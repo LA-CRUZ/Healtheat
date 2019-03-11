@@ -99,4 +99,37 @@ class HealtheatController extends AbstractController
             'user' => $this->getUser()
         ]);
     }
+
+    /**
+     * @Route("/programme", name = "mon_programme")
+     */
+    public function mon_programme()
+    {
+        return $this->render('healtheat/programme.html.twig', [
+            'controller_name' => 'HealtheatController',
+        ]);
+    }
+
+     /**
+     * @Route("/inventaire", name = "mon_inventaire")
+     */
+    public function mon_inventaire()
+    {
+        return $this->render('healtheat/inventaire.html.twig', [
+            'controller_name' => 'HealtheatController',
+        ]);
+    }
+
+    /**
+    * @Route("/suivi", name = "suivi_perso")
+    */
+
+    public function suivi_perso()
+    {
+        return $this->render('healtheat/suivi.html.twig', [
+        'controller_name' => 'HealtheatController',
+        ]);
+    }
+
 }
+

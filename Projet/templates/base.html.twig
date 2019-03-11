@@ -16,6 +16,8 @@
         <link rel="stylesheet" type="text/css" href="dist/snackbar.min.css" /> <script src="dist/snackbar.min.js"></script>
                 
         
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
 
         {% block stylesheets %}
 
@@ -37,7 +39,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="{{ path('healtheat') }}"><img src="{{ asset('build/images/LOGO_HE.png') }}" alt="#" width="90px" height="90px" style="margin:-20px 0px"></a>
+				<a class="navbar-brand" href="{{ path('healtheat') }}"><img src="{{ asset('build/images/LOGO_HE.png') }}" alt="#" width="55px" height="55px" style="margin:2% 2%"></a>
 			</div>
 			<div class="collapse navbar-collapse" id="navbar-collapse-main">
             {% if not app.user %}
@@ -56,9 +58,9 @@
                     <li><a data-target="#"  href="{{ path('healtheat') }}" class="e_menu"   id="elem-menu">ACCUEIL</a></li>
             {% if app.user %}	
                     <li><a data-target="#"  href="{{ path('info_perso') }}" class="e_menu"  id="elem-menu2">MON COMPTE</a></li>	
-                    <li><a data-target="#"  href="{{ path('healtheat') }}" class="e_menu"  id="elem-menu3">SUIVI</a></li>		
-                    <li><a data-target="#"  href="{{ path('healtheat') }}" class="e_menu"  id="elem-menu4">PROGRAMMES</a></li>		
-                    <li><a data-target="#"  href="{{ path('healtheat') }}" class="e_menu"  id="elem-menu5">INVENTAIRE</a></li>    
+                    <li><a data-target="#"  href="{{ path('suivi_perso') }}" class="e_menu"  id="elem-menu3">SUIVI</a></li>		
+                    <li><a data-target="#"  href="{{ path('mon_programme') }}" class="e_menu"  id="elem-menu4">PROGRAMMES</a></li>		
+                    <li><a data-target="#"  href="{{ path('mon_inventaire') }}" class="e_menu"  id="elem-menu5">INVENTAIRE</a></li>    
                     {% endif %}            		
                 </ul>
 			</div>
@@ -69,7 +71,24 @@
             {% block body %}{% endblock %}
  
     <footer class="container-fluid text-center">
-        <h1>LOGO</h1>
+    <div class="row">
+        <div class="col-sm-3">
+            <h3><i class="fas fa-users"></i></h3>
+            <h4>ALVES Mickael</h4>
+            <h4>AUDART Lucas</h4>
+            <h4>MARGOTIN Camille</h4>
+            <h4>TIRVAUDEY Florent</h4>
+
+
+        </div>    
+        <div class="col-sm-6">
+            <img src="{{ asset('build/images/LOGO_HE.png') }}" alt="#" width="150px" height="150px" style="margin-top: 5%">
+        </div> 
+        <div class="col-sm-3">
+            <h3><i class="material-icons">textsms</i></h3>
+            <h4>Projet de 3ème année d'informatique</h4>
+        </div> 
+    </div>
     </footer>
             
             {% block javascripts %}

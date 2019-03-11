@@ -27,7 +27,7 @@ class InfoPersoType extends AbstractType
                     'Homme' => 'homme',
                     'Femme' => 'femme',
                 ],
-                'expanded' => true,
+                'expanded' => false,
                 'attr' => [
                     'class' => 'radio-inline inline-block',
                 ],
