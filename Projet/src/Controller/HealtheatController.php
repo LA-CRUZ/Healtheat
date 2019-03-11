@@ -126,10 +126,23 @@ class HealtheatController extends AbstractController
 
     public function suivi_perso()
     {
+        $repository = $this->getDoctrine()->getRepository(InfoUser::class);
+
+        $id = $this->getUser()->getId();
+
+        $info = $repository->find($id);
+
+        $taille = $info->getTaille();
+
+        $taille = $taille / 100;
+
+        $dataPoids = $info->getPoids();
+
         return $this->render('healtheat/suivi.html.twig', [
-        'controller_name' => 'HealtheatController',
+        'infouser' => $info,
+        'datapoids' => $dataPoids,
+        'tailleuser' => $taille,
         ]);
     }
-
 }
 

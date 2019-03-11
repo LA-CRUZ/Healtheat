@@ -195,9 +195,34 @@
                                 <hr align=center width="100%">
                                 </div>
                                 <br>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel voluptatibus repellendus debitis non excepturi molestias asperiores pariatur veniam, vero nihil consequuntur, itaque iste cum maxime? Iure nostrum voluptas quos rerum?
-                                Sapiente fuga tempore non magnam voluptatem modi id qui veritatis, beatae debitis, adipisci ipsam pariatur accusamus alias quidem amet aspernatur repellat ex? Similique necessitatibus possimus consequatur suscipit molestias officiis quasi!
-                                Reprehenderit laudantium sunt unde voluptates ad id magnam alias tempore ratione, delectus enim voluptatum eos, doloremque ipsam blanditiis debitis exercitationem illum odit quam dolore porro iste ullam minus? Deserunt, magni!
+                                <p>Tour de taille</p>
+                                {% if info_user.getTourTaille() != NULL %}
+                                    {{ info_user.getTourTaille() }}
+                                {% endif %}
+                                <p>Tour de hanche</p>
+                                {% if info_user.getTourHanche() != NULL %}
+                                    {{ info_user.getTourHanche() }}
+                                {% endif %}
+                                <p>Rapport Taille Hanche</p>
+                                {% if info_user.getTourTaille() != NULL and info_user.getTourHanche() != NULL %}
+                                    {{ info_user.getTourTaille() / info_user.getTourHanche() }}
+                                    {% if (info_user.getTourTaille() / info_user.getTourHanche() > 1 and info_user.sexe == 'homme') or 
+                                          (info_user.getTourTaille() / info_user.getTourHanche() > 0.85 and info_user.sexe == 'femme') %}
+                                            <p> Risque pour la santé élevé </p>
+                                    
+                                    {% else %}
+                                        {% if (info_user.getTourTaille() / info_user.getTourHanche() > 0.95 and info_user.sexe == 'homme') or 
+                                              (info_user.getTourTaille() / info_user.getTourHanche() > 0.80 and info_user.sexe == 'femme') %}
+                                                <p> Risque pour la santé modéré </p>
+                                        
+                                        {% else %}
+                                            {% if (info_user.getTourTaille() / info_user.getTourHanche() > 1 and info_user.sexe == 'homme') or 
+                                                  (info_user.getTourTaille() / info_user.getTourHanche() > 0.85 and info_user.sexe == 'femme') %}
+                                                    <p> Aucun risque </p>
+                                            {% endif %}
+                                        {% endif %}
+                                    {% endif %} 
+                                {% endif %}
                             </div>
                         </div>
                     </div>
