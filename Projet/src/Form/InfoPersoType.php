@@ -72,7 +72,7 @@ class InfoPersoType extends AbstractType
             ])
             ->add('enregistrer', SubmitType::class, [
                 'attr' => [
-                    'class' => 'btn btn-primary'
+                    'class' => 'btn fonction'
                 ]
             ])
         ;
