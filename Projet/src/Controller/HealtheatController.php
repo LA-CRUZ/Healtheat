@@ -7,6 +7,7 @@ use App\Entity\Poids;
 
 use App\Entity\InfoUser;
 use App\Form\InfoPersoType;
+use App\Entity\TempsEffortPhy;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\Routing\Annotation\Route;
@@ -29,6 +30,11 @@ class HealtheatController extends AbstractController
      */
     public function perso(Request $request, ObjectManager $manager)
     {
+        if($this->getUser()->getId() == NULL){
+            return $this->render('security/connexion.html.twig', [
+                'controller_name' => 'Healtheat_Controller',
+            ]);
+        }
         $id = $this->getUser()->getId();
 
         $InfoUser = $manager->getRepository(InfoUser::class)->find($id);
@@ -42,15 +48,15 @@ class HealtheatController extends AbstractController
                 'notice',
                 'Vos changement on été sauvegardé !'
             );
+            $date = new DateTime();
             if($InfoUser->getLPoids() != NULL)
             {
                     $dernierPoids = $InfoUser->getPoids()->last();
                     if($dernierPoids != FALSE){
                         $dernierPoids = $dernierPoids->getPoids();
                     }
-                    if($dernierPoids == FALSE or $dernierPoids != $InfoUser->getLPoids()){
+                    if($dernierPoids == FALSE or $InfoUser->getPoids()->last()->getDate()->diff($date)->format('%d') > 0){
                         $newpoids = new Poids();
-                        $date = new DateTime();
                         $newpoids->setInfoUser($InfoUser);
                         $newpoids->setPoids($InfoUser->getLPoids());
                         $newpoids->setDate($date);
@@ -69,6 +75,14 @@ class HealtheatController extends AbstractController
                 } else {
                     $InfoUser->setImc(NULL);
                 }
+            }
+            if($InfoUser->getLTemps() != NULL and $InfoUser->getTempsActivitePhysique()->last()->getDate()->diff($date)->format('%d') > 0){
+                $newtemps = new TempsEffortPhy();
+                $newtemps->setInfoUser($InfoUser);
+                $newtemps->setTemps($InfoUser->getLTemps());
+                $newtemps->setDate($date);
+                $manager->persist($newtemps);
+                $manager->flush();
             } 
             $manager->persist($InfoUser);
             $manager->flush();
@@ -88,6 +102,11 @@ class HealtheatController extends AbstractController
      */
     public function info_perso()
     {
+        if($this->getUser()->getId() == NULL){
+            return $this->render('security/connexion.html.twig', [
+                'controller_name' => 'Healtheat_Controller',
+            ]);
+        }
         $repository = $this->getDoctrine()->getRepository(InfoUser::class);
 
         $id = $this->getUser()->getId();
@@ -126,6 +145,11 @@ class HealtheatController extends AbstractController
 
     public function suivi_perso()
     {
+        if($this->getUser()->getId() == NULL){
+            return $this->render('security/connexion.html.twig', [
+                'controller_name' => 'Healtheat_Controller',
+            ]);
+        }
         $repository = $this->getDoctrine()->getRepository(InfoUser::class);
 
         $id = $this->getUser()->getId();
