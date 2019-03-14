@@ -163,11 +163,16 @@ class HealtheatController extends AbstractController
         $dataPoids = $info->getPoids();
         $dataTemps = $info->getTempsActivitePhysique();
 
+        $imc_bas = 18.5;
+        $imc_haut = 25;
+
         return $this->render('healtheat/suivi.html.twig', [
         'infouser' => $info,
         'datapoids' => $dataPoids,
         'datatemps' => $dataTemps,
         'tailleuser' => $taille,
+        'imcbas' => $imc_bas,
+        'imchaut' => $imc_haut,
         ]);
     }
 }
