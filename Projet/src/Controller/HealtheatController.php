@@ -51,18 +51,12 @@ class HealtheatController extends AbstractController
             $date = new DateTime();
             if($InfoUser->getLPoids() != NULL)
             {
-                    $dernierPoids = $InfoUser->getPoids()->last();
-                    if($dernierPoids != FALSE){
-                        $dernierPoids = $dernierPoids->getPoids();
-                    }
-                    if($dernierPoids == FALSE or $InfoUser->getPoids()->last()->getDate()->diff($date)->format('%d') > 0){
                         $newpoids = new Poids();
                         $newpoids->setInfoUser($InfoUser);
                         $newpoids->setPoids($InfoUser->getLPoids());
                         $newpoids->setDate($date);
                         $manager->persist($newpoids);
                         $manager->flush();
-                    }
 
                 if($InfoUser->getTaille() != NULL){
                     $poids = $InfoUser->getLPoids();
@@ -76,7 +70,7 @@ class HealtheatController extends AbstractController
                     $InfoUser->setImc(NULL);
                 }
             }
-            if($InfoUser->getLTemps() != NULL and $InfoUser->getTempsActivitePhysique()->last()->getDate()->diff($date)->format('%d') > 0){
+            if($InfoUser->getLTemps() != NULL){
                 $newtemps = new TempsEffortPhy();
                 $newtemps->setInfoUser($InfoUser);
                 $newtemps->setTemps($InfoUser->getLTemps());
