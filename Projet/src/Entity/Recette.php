@@ -49,16 +49,6 @@ class Recette
     private $temps_prep;
 
     /**
-     * @ORM\Column(type="integer")
-     */
-    private $temps_cuisson;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $appareil;
-
-    /**
      * @ORM\Column(type="string", length=255)
      */
     private $type_repas;
@@ -66,7 +56,7 @@ class Recette
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $categorie_repas;
+    private $tags;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -169,30 +159,6 @@ class Recette
         return $this;
     }
 
-    public function getTempsCuisson(): ?int
-    {
-        return $this->temps_cuisson;
-    }
-
-    public function setTempsCuisson(int $temps_cuisson): self
-    {
-        $this->temps_cuisson = $temps_cuisson;
-
-        return $this;
-    }
-
-    public function getAppareil(): ?string
-    {
-        return $this->appareil;
-    }
-
-    public function setAppareil(string $appareil): self
-    {
-        $this->appareil = $appareil;
-
-        return $this;
-    }
-
     public function getTypeRepas(): ?string
     {
         return $this->type_repas;
@@ -205,18 +171,6 @@ class Recette
         return $this;
     }
 
-    public function getCategorieRepas(): ?string
-    {
-        return $this->categorie_repas;
-    }
-
-    public function setCategorieRepas(string $categorie_repas): self
-    {
-        $this->categorie_repas = $categorie_repas;
-
-        return $this;
-    }
-
     public function getDifficulte(): ?string
     {
         return $this->difficulte;
@@ -225,6 +179,18 @@ class Recette
     public function setDifficulte(string $difficulte): self
     {
         $this->difficulte = $difficulte;
+
+        return $this;
+    }
+
+    public function getTags(): ?string
+    {
+        return $this->tags;
+    }
+
+    public function setTags(string $tags): self
+    {
+        $this->tags = $tags;
 
         return $this;
     }
