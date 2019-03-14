@@ -68,6 +68,11 @@ class Recette
      */
     private $categorie_repas;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $difficulte;
+
     public function __construct()
     {
         $this->ingredient = new ArrayCollection();
@@ -208,6 +213,18 @@ class Recette
     public function setCategorieRepas(string $categorie_repas): self
     {
         $this->categorie_repas = $categorie_repas;
+
+        return $this;
+    }
+
+    public function getDifficulte(): ?string
+    {
+        return $this->difficulte;
+    }
+
+    public function setDifficulte(string $difficulte): self
+    {
+        $this->difficulte = $difficulte;
 
         return $this;
     }

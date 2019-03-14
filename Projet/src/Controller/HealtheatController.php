@@ -161,10 +161,12 @@ class HealtheatController extends AbstractController
         $taille = $taille / 100;
 
         $dataPoids = $info->getPoids();
+        $dataTemps = $info->getTempsActivitePhysique();
 
         return $this->render('healtheat/suivi.html.twig', [
         'infouser' => $info,
         'datapoids' => $dataPoids,
+        'datatemps' => $dataTemps,
         'tailleuser' => $taille,
         ]);
     }

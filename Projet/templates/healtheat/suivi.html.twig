@@ -118,31 +118,39 @@
 
         </script>
 
-        {# <script>
+        <script>
             var myChart3 = document.getElementById('myChart3').getContext('2d');
 
             let newChart3 = new Chart(myChart3, {
-                type:'pie',
+                type:'line',
                 data:{
-                    labels:['lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi', 'dimanche'],
+                    labels:[{% for date in datatemps %}'{{date.date.format('Y-m-d')}}',{% endfor %}],
                     datasets:[{
-                        label:'Poids',
-                        data:[98,96,99,95,99,100,102],
-                        backgroundColor:[
-                            'rgba(255,99,132,1)',
-                            'rgba(54,162,235,1)',
-                            'rgba(255,206,86,1)',
-                            'rgba(75,192,192,1)',
-                            'rgba(153,102,255,1)',
-                            'rgba(255,159,64,1)',
-                            'rgba(132,99,132,1)',
-                        ]
+                        label:'Temps d\'activité physique',
+
+                        data: [{% for temps in datatemps %}{{temps.temps}},{% endfor %}],
+
+                        backgroundColor: 'rgba(255,159,64,1)',
+                        borderColor: 'rgba(255,159,64,1)',
+
+                        fill : false,
                     }]
+                },
+                options:{
+                    scales: {
+                        yAxes: [{
+
+                            ticks: {
+                                display: true,
+                                beginAtZero: true
+                            }
+                        }]
+                    }
                 }
                 
             });
 
-        </script> #}
+        </script>
 </div>
 
 
