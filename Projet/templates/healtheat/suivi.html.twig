@@ -34,26 +34,43 @@
     <canvas id="myChart2"></canvas>
     <canvas id="myChart3"></canvas>
     
-        {# <script>
+        <script>
             var myChart = document.getElementById('myChart').getContext('2d');
 
             let newChart = new Chart(myChart, {
-                type:'horizontalBar',
+                type:'line',
                 data:{
-                    labels:['lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi', 'dimanche'],
-                    datasets:[{
-                        label:'Poids',
-                        data:[98,96,99,95,99,100,102],
-                        backgroundColor:[
-                            'rgba(255,99,132,1)',
-                            'rgba(54,162,235,1)',
-                            'rgba(255,206,86,1)',
-                            'rgba(75,192,192,1)',
-                            'rgba(153,102,255,1)',
-                            'rgba(255,159,64,1)',
-                            'rgba(132,99,132,1)',
-                        ]
+                    labels:[{% for date in datapoids %}'{{date.date.format('Y-m-d')}}',{% endfor %}],
+                    datasets:[
+                    {
+                        label:'Imc',
+
+                        data: [{% for poids in datapoids %}{{poids.poids / (tailleuser * tailleuser )}},{% endfor %}],
+
+                        backgroundColor: 'rgba(75,192,192,1)',
+                        borderColor: 'rgba(75,192,192,1)',
+
+                        fill : false,
+                    },{
+                        label:'Imc-bas',
+
+                        data: [ {% for poids in datapoids %} {{ imcbas }},{% endfor %} ],
+
+                        backgroundColor: 'rgba(75,192,192,1)',
+                        borderColor: 'rgba(75,192,192,1)',
+
+                        fill : false,
+                    },{
+                        label:'Imc-haut',
+
+                        data: [ {% for poids in datapoids %} {{ imchaut }},{% endfor %} ],
+
+                        backgroundColor: 'rgba(75,192,192,1)',
+                        borderColor: 'rgba(75,192,192,1)',
+
+                        fill : false,
                     }]
+
                 },
                 options:{
                     scales: {
@@ -68,7 +85,7 @@
                 }
             });
 
-        </script> #}
+        </script>
 
         {# {{datapoids[1].poids}} {{infouser.taille}} #}
 
@@ -86,15 +103,6 @@
 
                         backgroundColor: 'rgba(170,36,74,1)',
                         borderColor: 'rgba(170,36,74,1)',
-
-                        fill : false,
-                    },{
-                        label:'Imc',
-
-                        data: [{% for poids in datapoids %}{{poids.poids / (tailleuser * tailleuser )}},{% endfor %}],
-
-                        backgroundColor: 'rgba(75,192,192,1)',
-                        borderColor: 'rgba(75,192,192,1)',
 
                         fill : false,
                     }]
