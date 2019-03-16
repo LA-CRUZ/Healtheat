@@ -6,6 +6,7 @@ use League\Csv\Reader;
 use App\Entity\Recette;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Style\SymfonyStyle;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -29,6 +30,24 @@ class CsvImportCommand extends Command
         $this  
             ->setName('csv:import')
             ->setDescription('Importe un fichier CSV')
+            ->addOption(
+                'recette',
+                'r',
+                InputOption::VALUE_NONE,
+                'Importe les recettes'
+            )
+            ->addOption(
+                'ingredient',
+                'i',
+                InputOption::VALUE_NONE,
+                'Importe les ingredients'
+            )
+            ->addOption(
+                'all',
+                'a',
+                InputOption::VALUE_NONE,
+                'Importe tout'
+            )
         ;
     }
 
@@ -36,35 +55,77 @@ class CsvImportCommand extends Command
     {
         $io = new SymfonyStyle($input, $output);
 
-        $io->title('Tentative d\'importation ...');
+        if($input->getOption('recette')){
 
-        // $recette->setNom('Fromage au pates');
-        // $recette->setImage('une très belle photo');
-        // $recette->setDescription('Mettez tout d\'abord le fromage, puis les pates, et c\'est parti');
-        // $recette->setKcal(2345);
-        // $recette->setTempsPrep(20);
-        // $recette->setTypeRepas('Dejeuner/dinner');
-        // $recette->setCategorieRepas('Vegan');
-        // $recette->setDifficulte('Facile');
+            $io->title('Importation des recettes');
 
-        $reader = Reader::createFromPath('%kernel.root_dir%/../src/Data/Recette.csv');
+            $reader = Reader::createFromPath('%kernel.root_dir%/../src/Data/Recette.csv');
 
-        $results = $reader->fetchAssoc();
+            $results = $reader->fetchAssoc();
 
-        foreach ($results as $row){
+            foreach ($results as $row){
 
-            $kcal = rand(300, 1200);
-            $recette = (new Recette())
-                ->setNom($row['nom'])
-                ->setImage($row['image'])
-                ->setDescription($row['description'])
-                ->setKcal($kcal)
-                ->setTempsPrep($row['temps'])
-                ->setTypeRepas($row['type'])
-                ->setTags($row['tags'])
-                ->setDifficulte($row['difficulte'])
-            ;
-            $this->manager->persist($recette);
+                $kcal = rand(300, 1200);
+                $recette = (new Recette())
+                    ->setNom($row['nom'])
+                    ->setImage($row['image'])
+                    ->setDescription($row['description'])
+                    ->setKcal($kcal)
+                    ->setTempsPrep($row['temps'])
+                    ->setTypeRepas($row['type'])
+                    ->setTags($row['tags'])
+                    ->setDifficulte($row['difficulte'])
+                ;
+                $this->manager->persist($recette);
+            }
+        }
+        if($input->getOption('ingredient')){
+
+            $io->title('Importation des ingredients');
+
+            $reader = Reader::createFromPath('%kernel.root_dir%/../src/Data/Recette.csv');
+
+            $results = $reader->fetchAssoc();
+
+            foreach ($results as $row){
+
+                // $kcal = rand(300, 1200);
+                // $recette = (new Recette())
+                //     ->setNom($row['nom'])
+                //     ->setImage($row['image'])
+                //     ->setDescription($row['description'])
+                //     ->setKcal($kcal)
+                //     ->setTempsPrep($row['temps'])
+                //     ->setTypeRepas($row['type'])
+                //     ->setTags($row['tags'])
+                //     ->setDifficulte($row['difficulte'])
+                // ;
+                // $this->manager->persist($recette);
+            }
+        }
+        if($input->getOption('all')){
+
+            $io->title('Importation des recettes et des ingredients');
+
+            $reader = Reader::createFromPath('%kernel.root_dir%/../src/Data/Recette.csv');
+
+            $results = $reader->fetchAssoc();
+
+            foreach ($results as $row){
+
+                // $kcal = rand(300, 1200);
+                // $recette = (new Recette())
+                //     ->setNom($row['nom'])
+                //     ->setImage($row['image'])
+                //     ->setDescription($row['description'])
+                //     ->setKcal($kcal)
+                //     ->setTempsPrep($row['temps'])
+                //     ->setTypeRepas($row['type'])
+                //     ->setTags($row['tags'])
+                //     ->setDifficulte($row['difficulte'])
+                // ;
+                // $this->manager->persist($recette);
+            }
         }
 
         $this->manager->flush();
