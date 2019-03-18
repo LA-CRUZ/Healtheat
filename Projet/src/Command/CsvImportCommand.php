@@ -55,7 +55,12 @@ class CsvImportCommand extends Command
     {
         $io = new SymfonyStyle($input, $output);
 
-        if($input->getOption('recette')){
+        if($input->getOption('recette') == false and $input->getOption('ingredient') == false and $input->getOption('all') == false)
+            $choix = $io->choice('Selectionnez le jeu de donnée à importer', ['recette', 'ingredient', 'all'], 'all');
+        else
+            $choix = '';
+
+        if($input->getOption('recette') || $choix == 'recette'){
 
             $io->title('Importation des recettes');
 
@@ -79,7 +84,7 @@ class CsvImportCommand extends Command
                 $this->manager->persist($recette);
             }
         }
-        if($input->getOption('ingredient')){
+        if($input->getOption('ingredient') || $choix == 'ingredient'){
 
             $io->title('Importation des ingredients');
 
@@ -103,7 +108,7 @@ class CsvImportCommand extends Command
                 // $this->manager->persist($recette);
             }
         }
-        if($input->getOption('all')){
+        if($input->getOption('all') || $choix == 'all'){
 
             $io->title('Importation des recettes et des ingredients');
 
