@@ -260,6 +260,26 @@ footer{
 	text-decoration: none;
 }
 
+.case_tour {
+	height: auto;
+	width: 40%;
+	/*margin-bottom: 20px;*/
+	position: relative;
+	left:410px;
+	text-align: center;
+	cursor: pointer;
+}
+
+.gauche {
+	position: relative;
+	left: 280px;
+}
+
+.droite {
+	position: relative;
+	right: 500px;
+}
+
 .titre_co{
 	font-size: 50px;
 }
@@ -385,4 +405,3 @@ footer{
 	height : auto;
 	margin-top : 100px;
 }
-
