@@ -1,0 +1,147 @@
+{% extends "base.html.twig" %}
+
+{% block stylesheet %}
+    {{ encore_entry_link_tags('') }}
+    <link rel="stylesheet" href="/build/InfoPersoForm.css">
+{% endblock %}
+
+{% block body %}
+
+    <script>
+        function maFonction()
+        {
+            document.getElementById("test").style.backgroundColor = "rgb(255, 255, 255)";
+            document.getElementById("test").style.boxShadow = "1px 3px 12px rgb(0, 0, 0)";
+            document.getElementById("elem-menu").style.color = "rgb(194, 23, 42)";
+            document.getElementById("elem-menu2").style.color = "rgb(194, 23, 42)";
+            document.getElementById("elem-menu3").style.color = "rgb(194, 23, 42)";
+            document.getElementById("elem-menu4").style.color = "rgb(194, 23, 42)";
+            document.getElementById("elem-menu5").style.color = "rgb(194, 23, 42)";
+                  
+        }
+
+        maFonction();
+
+        {# function saisir_poid(){
+        Swal.fire({
+            title: 'Saisissez votre poid',
+            html:
+                '<input id="swal-input1" class="swal2-input">' +
+                '<input id="swal-input2" class="swal2-input">',
+            type: 'question',
+            heightAuto:false,
+            showConfirmButton: false,
+            backdrop:'rgb(0,0,0,0.92)',
+            width:'500px',
+            confirmButtonText: 'Valider',
+            progressSteps: ['1', '2']
+            timer: 2000
+            })
+        } #}
+
+        {# function saisir_poid(){
+            Swal.mixin({
+            customClass: {
+                confirmButton: 'mick',
+                cancelButton: 'mick'
+            },
+            buttonsStyling: false,
+            showCancelButton: true,
+            width:'500px',
+            type:'question',
+            confirmButtonText: 'CONTINUER',
+            cancelButtonText: 'PLUS TARD',
+            backdrop:'rgb(0,0,0,0.92)',
+            }).queue([
+            { // Si il veut modifier maintenant ou une autre fois
+                title: '<h1>ATTENTION</h1>',
+                type:'warning',
+                html:
+                    '<p class="testalert">Les informations que vous avez renseignez sur le site pour votre suivi personnel ne sont plus à jour, voulez vous les mettre à jour maintenant ou plus tard ?</p>'
+            },
+            { // Si il a pas indiqué depuis 1 semaine
+                title: 'Votre poid après une semaine de programme ?',
+                confirmButtonText: 'SUIVANT',
+                html: 
+                    '<input id="swal-input1" class="swal-input">',
+            },
+            { // Si il a pas indiqué depuis 1 semaine
+                title: 'Votre temps d\'activité physique cette semaine ?',
+                confirmButtonText: 'TERMINER',
+                html: 
+                    '<input id="swal-input2" class="swal-input">',
+            },
+            ]).then((result) => {
+            if (result.value) {
+                Swal.fire({
+                title: 'Informations enregistrés !',
+                type: 'success',
+                backdrop:false,
+                position:'bottom-end',
+                heightAuto:false,
+                showConfirmButton: false,
+                timer: 2000,
+                html:
+                    JSON.stringify(result.value)
+                })
+            }
+            })
+        } #}
+
+    function saisir_poid2(){
+        Swal.mixin({
+        customClass: {
+                confirmButton: 'mick',
+                cancelButton: 'mick'
+        },
+        buttonsStyling: false,
+        showCancelButton: true,
+        width:'500px',
+        type:'question',
+        input:'text',
+        confirmButtonText: 'CONTINUER',
+        cancelButtonText: 'PLUS TARD',
+        backdrop:'rgb(0,0,0,0.92)'
+        }).queue([
+        {   // Si il veut modifier maintenant ou une autre fois
+            title: '<h1>ATTENTION</h1>',
+            type:'warning',
+            html:
+                    '<p class="testalert">Les informations que vous avez renseignez sur le site pour votre suivi personnel ne sont plus à jour, voulez vous les mettre à jour maintenant ou plus tard ?</p>',
+            input:null
+        },
+        {   // Si il a pas indiqué depuis 1 semaine
+            input:'text',
+            title: 'Votre poid après une semaine de programme ?',
+            confirmButtonText: 'SUIVANT',
+        },
+        {   // Si il a pas indiqué depuis 1 semaine
+            input:'text',
+            title: 'Votre temps d\'activité physique cette semaine ?',
+            confirmButtonText: 'TERMINER',
+        },
+        ]).then((result) => {
+        if (result.value) {
+            Swal.fire({
+            title: 'Informations enregistrés !',
+            type: 'success',
+            backdrop:false,
+            position:'bottom-end',
+            heightAuto:false,
+            showConfirmButton: false,
+            timer: 2000,
+            html:
+                console.log(result.value),
+            })
+        }
+        })
+    }
+
+    </script>
+
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+     <button onclick="saisir_poid2()">Click me</button> 
+
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+{% endblock %}

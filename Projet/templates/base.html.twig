@@ -13,11 +13,11 @@
         <link href="https://fonts.googleapis.com/css?family=Quicksand:700" rel="stylesheet">        
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
         <link rel="shortcut icon" type="image/png" href="{{ asset('build/images/LOGO_HE.png') }}"/>
-        <link rel="stylesheet" type="text/css" href="dist/snackbar.min.css" /> <script src="dist/snackbar.min.js"></script>
-                
         
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+        <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
 
         {% block stylesheets %}
 
@@ -27,77 +27,77 @@
 
         {% endblock %}
     
+        {% block javascripts %}
+            {{ encore_entry_script_tags('app') }}
+
+            <script src="/build/runtime.js"></script>
+            <script src="/build/scroll-down.js"></script>
+            <script src="/build/test.js"></script>
+            <script src="/build/app.js"></script>
+                    
+        {% endblock %}
+
     </head>
     <body>  
-
-    <nav class="navbar navbar-default navbar-fixed-top" role="navigation" id="test">
-		<div class="container-fluid ">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-main">
-					<span class="sr-only">Toggle navigation</span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				</button>
-				<a class="navbar-brand" href="{{ path('healtheat') }}"><img src="{{ asset('build/images/LOGO_HE.png') }}" alt="#" width="55px" height="55px" style="margin:2% 2%"></a>
-			</div>
-			<div class="collapse navbar-collapse" id="navbar-collapse-main">
-            {% if not app.user %}
-				<ul class="nav navbar-nav navbar-right">
-					<a href="{{ path('security_connexion') }}"><button class="btn  connexion" ><i class="far fa-user-circle"></i>  CONNEXION</button></a>
-				</ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <a href="{{ path('security_inscription') }}"><button class="btn  connexion" ><i class="fab fa-wpforms"></i>  INSCRIPTION</button></a>
-				</ul>
-            {% else %}
-                <ul class="nav navbar-nav navbar-right">
-					<a href="{{ path('security_logout') }}"><button class="btn  connexion" ><i class="far fa-user-circle"></i>  DÉCONNEXION</button></a>
-				</ul>
-            {% endif %}
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a data-target="#"  href="{{ path('healtheat') }}" class="e_menu"   id="elem-menu">ACCUEIL</a></li>
-            {% if app.user %}	
-                    <li><a data-target="#"  href="{{ path('info_perso') }}" class="e_menu"  id="elem-menu2">MON COMPTE</a></li>	
-                    <li><a data-target="#"  href="{{ path('suivi_perso') }}" class="e_menu"  id="elem-menu3">SUIVI</a></li>		
-                    <li><a data-target="#"  href="{{ path('mon_programme') }}" class="e_menu"  id="elem-menu4">PROGRAMMES</a></li>		
-                    <li><a data-target="#"  href="{{ path('mon_inventaire') }}" class="e_menu"  id="elem-menu5">INVENTAIRE</a></li>    
-                    {% endif %}            		
-                </ul>
-			</div>
-		</div>
-	</nav>
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation" id="test">
+            <div class="container-fluid ">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-main">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="{{ path('healtheat') }}"><img src="{{ asset('build/images/LOGO_HE.png') }}" alt="#" width="55px" height="55px" style="margin:2% 2%"></a>
+                </div>
+                <div class="collapse navbar-collapse" id="navbar-collapse-main">
+                {% if not app.user %}
+                    <ul class="nav navbar-nav navbar-right">
+                        <a href="{{ path('security_connexion') }}"><button class="btn connexion" ><i class="far fa-user-circle"></i>  CONNEXION</button></a>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <a href="{{ path('security_inscription') }}"><button class="btn connexion" ><i class="fab fa-wpforms"></i>  INSCRIPTION</button></a>
+                    </ul>
+                {% else %}
+                    <ul class="nav navbar-nav navbar-right">
+                        <a href="{{ path('security_logout') }}"><button class="btn connexion" ><i class="far fa-user-circle"></i>  DÉCONNEXION</button></a>
+                    </ul>
+                {% endif %}
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a data-target="#"  href="{{ path('healtheat') }}" class="e_menu"   id="elem-menu">ACCUEIL</a></li>
+                {% if app.user %}	
+                        <li><a data-target="#"  href="{{ path('info_perso') }}" class="e_menu"  id="elem-menu2">MON COMPTE</a></li>	
+                        <li><a data-target="#"  href="{{ path('suivi_perso') }}" class="e_menu"  id="elem-menu3">SUIVI</a></li>		
+                        <li><a data-target="#"  href="{{ path('mon_programme') }}" class="e_menu"  id="elem-menu4">PROGRAMMES</a></li>		
+                        <li><a data-target="#"  href="{{ path('mon_inventaire') }}" class="e_menu"  id="elem-menu5">INVENTAIRE</a></li>    
+                        {% endif %}            		
+                    </ul>
+                </div>
+            </div>
+        </nav>
 
         
-            {% block body %}{% endblock %}
+        {% block body %}{% endblock %}
  
-    <footer class="container-fluid text-center">
-    <div class="row">
-        <div class="col-sm-3">
-            <h3><i class="fas fa-users"></i></h3>
-            <h4>ALVES Mickael</h4>
-            <h4>AUDART Lucas</h4>
-            <h4>MARGOTIN Camille</h4>
-            <h4>TIRVAUDEY Florent</h4>
+        <footer class="container-fluid text-center">
+        <div class="row">
+            <div class="col-sm-3">
+                <h3><i class="fas fa-users"></i></h3>
+                <h4>ALVES Mickael</h4>
+                <h4>AUDART Lucas</h4>
+                <h4>MARGOTIN Camille</h4>
+                <h4>TIRVAUDEY Florent</h4>
 
 
-        </div>    
-        <div class="col-sm-6">
-            <img src="{{ asset('build/images/LOGO_HE.png') }}" alt="#" width="150px" height="150px" style="margin-top: 5%">
-        </div> 
-        <div class="col-sm-3">
-            <h3><i class="material-icons">textsms</i></h3>
-            <h4>Projet de 3ème année d'informatique</h4>
-        </div> 
-    </div>
-    </footer>
-            
-            {% block javascripts %}
-                {{ encore_entry_script_tags('app') }}
-
-                <script src="/build/runtime.js"></script>
-                <script src="/build/scroll-down.js"></script>
-                <script src="/build/app.js"></script>
-                
-            {% endblock %}
+            </div>    
+            <div class="col-sm-6">
+                <img src="{{ asset('build/images/LOGO_HE.png') }}" alt="#" width="150px" height="150px" style="margin-top: 5%">
+            </div> 
+            <div class="col-sm-3">
+                <h3><i class="material-icons">textsms</i></h3>
+                <h4>Projet de 3ème année d'informatique</h4>
+            </div> 
+        </div>
+        </footer>     
     </body>
 </html>

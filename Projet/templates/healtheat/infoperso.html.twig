@@ -28,6 +28,18 @@
         }
 
         maFonction();
+
+        function alert_enregistrer(txt){
+        Swal.fire({
+            title: txt,
+            type: 'success',
+            backdrop:false,
+            position:'bottom-end',
+            heightAuto:false,
+            showConfirmButton: false,
+            timer: 2000
+            })
+        }
     </script>
 
     <div id="homep">
@@ -38,14 +50,13 @@
                     <h2 class="titre_co">ESPACE PERSONNEL</h2>
                     <hr align=center width="20%">
                 </div>
-
                 <div class="case3">
                 {{ user.username }}
                 </div>
                 {% for message in app.flashes('notice') %}
-                    <div class="flash-notice">
-                        {{ message }}
-                    </div>
+                    <script>
+                        alert_enregistrer('Changements sauvegardés !')
+                    </script>
                 {% endfor %}
                 {% if not info_user.sexe or  not info_user.age or not info_user.getLPoids() or not info_user.taille or not info_user.getTourHanche() or not info_user.getTourTaille()%}
                 <div class="alert alert-danger alert-dismissible fade in">

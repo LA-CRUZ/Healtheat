@@ -20,6 +20,7 @@ Encore
      */
     .addEntry('app', './assets/js/app.js')
     .addEntry('scroll-down', './assets/js/scroll-down.js')
+    .addEntry('test', './assets/js/test.js')
     //.addEntry('page1', './assets/js/page1.js')
     //.addEntry('page2', './assets/js/page2.js')
 

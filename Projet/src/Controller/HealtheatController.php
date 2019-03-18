@@ -46,7 +46,7 @@ class HealtheatController extends AbstractController
         if($form->isSubmitted() && $form->isValid()) {
             $this->addFlash(
                 'notice',
-                'Vos changement on été sauvegardé !'
+                'Vos changement ont été sauvegardé !'
             );
             $date = new DateTime();
             if($InfoUser->getLPoids() != NULL)
@@ -167,6 +167,16 @@ class HealtheatController extends AbstractController
         'tailleuser' => $taille,
         'imcbas' => $imc_bas,
         'imchaut' => $imc_haut,
+        ]);
+    }
+
+    /**
+     * @Route("/test", name = "page_test")
+     */
+    public function page_test()
+    {
+        return $this->render('healtheat/page_test.html.twig', [
+            'controller_name' => 'HealtheatController',
         ]);
     }
 }
