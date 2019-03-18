@@ -121,12 +121,18 @@ class InfoUser
      */
     private $l_temps;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Ingredient")
+     */
+    private $inventaire;
+
     public function __construct()
     {
         $this->intolerance = new ArrayCollection();
         $this->allergie = new ArrayCollection();
         $this->poids = new ArrayCollection();
         $this->temps_activite_physique = new ArrayCollection();
+        $this->inventaire = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -364,6 +370,32 @@ class InfoUser
     public function setLTemps(?int $l_temps): self
     {
         $this->l_temps = $l_temps;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Ingredient[]
+     */
+    public function getInventaire(): Collection
+    {
+        return $this->inventaire;
+    }
+
+    public function addInventaire(Ingredient $inventaire): self
+    {
+        if (!$this->inventaire->contains($inventaire)) {
+            $this->inventaire[] = $inventaire;
+        }
+
+        return $this;
+    }
+
+    public function removeInventaire(Ingredient $inventaire): self
+    {
+        if ($this->inventaire->contains($inventaire)) {
+            $this->inventaire->removeElement($inventaire);
+        }
 
         return $this;
     }
