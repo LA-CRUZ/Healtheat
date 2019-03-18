@@ -86,17 +86,6 @@ class InfoUser
     private $tour_hanche;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
-     * @Assert\Range(
-     *      min = 0,
-     *      max = 1440,
-     *      minMessage = "Veuillez rentrer un temps valide",
-     *      maxMessage = "Veuillez rentrer un temps valide"
-     * )
-     */
-    private $temps_activite_physique;
-
-    /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Intolerance")
      */
     private $intolerance;
@@ -122,11 +111,22 @@ class InfoUser
      */
     private $poids;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\TempsEffortPhy", mappedBy="infoUser", orphanRemoval=true)
+     */
+    private $temps_activite_physique;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $l_temps;
+
     public function __construct()
     {
         $this->intolerance = new ArrayCollection();
         $this->allergie = new ArrayCollection();
         $this->poids = new ArrayCollection();
+        $this->temps_activite_physique = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -214,18 +214,6 @@ class InfoUser
     public function setTourHanche(?int $tour_hanche): self
     {
         $this->tour_hanche = $tour_hanche;
-
-        return $this;
-    }
-
-    public function getTempsActivitePhysique(): ?int
-    {
-        return $this->temps_activite_physique;
-    }
-
-    public function setTempsActivitePhysique(?int $temps_activite_physique): self
-    {
-        $this->temps_activite_physique = $temps_activite_physique;
 
         return $this;
     }
@@ -333,6 +321,49 @@ class InfoUser
                 $poid->setInfoUser(null);
             }
         }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|TempsEffortPhy[]
+     */
+    public function getTempsActivitePhysique(): Collection
+    {
+        return $this->temps_activite_physique;
+    }
+
+    public function addTempsActivitePhysique(TempsEffortPhy $tempsActivitePhysique): self
+    {
+        if (!$this->temps_activite_physique->contains($tempsActivitePhysique)) {
+            $this->temps_activite_physique[] = $tempsActivitePhysique;
+            $tempsActivitePhysique->setInfoUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeTempsActivitePhysique(TempsEffortPhy $tempsActivitePhysique): self
+    {
+        if ($this->temps_activite_physique->contains($tempsActivitePhysique)) {
+            $this->temps_activite_physique->removeElement($tempsActivitePhysique);
+            // set the owning side to null (unless already changed)
+            if ($tempsActivitePhysique->getInfoUser() === $this) {
+                $tempsActivitePhysique->setInfoUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getLTemps(): ?int
+    {
+        return $this->l_temps;
+    }
+
+    public function setLTemps(?int $l_temps): self
+    {
+        $this->l_temps = $l_temps;
 
         return $this;
     }

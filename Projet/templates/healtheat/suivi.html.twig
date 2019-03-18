@@ -28,6 +28,82 @@
                         <h2 class="titre_co">MON SUIVI</h2>
                         <hr align=center width="20%">
                     </div>
+    
+    <div class="row">    
+        {# <canvas id="myChart2"></canvas>
+        <canvas id="myChart3"></canvas> #}
+        <div class="col-sm-1"></div>
+        <div class="col-sm-10">
+            <div class="case_supp" data-target="#target1" data-toggle="collapse">
+                <div class="row">
+                    <div class="col-sm-11">
+                        <a style="font-size:100%;">Graphique Poid</a>
+                    </div>
+                    <div class="col-sm-1">
+                        <a>
+                            <i class="fas fa-caret-down" style="font-size:150%;"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="collapse" id="target1">
+                    <div class="eqcss3">
+                        <hr align="center" width="100%"></div>
+                        <br>
+                            <canvas id="myChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+        <div class="col-sm-1"></div>
+    </div>
+    <div class="row">    
+        <div class="col-sm-1"></div>
+        <div class="col-sm-10">
+            <div class="case_supp" data-target="#target2" data-toggle="collapse">
+                <div class="row">
+                    <div class="col-sm-11">
+                        <a style="font-size:100%;">Graphique IMC</a>
+                    </div>
+                    <div class="col-sm-1">
+                        <a>
+                            <i class="fas fa-caret-down" style="font-size:150%;"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="collapse" id="target2">
+                    <div class="eqcss3">
+                        <hr align="center" width="100%"></div>
+                        <br>
+                            <canvas id="myChart2"></canvas>
+                        </div>
+                    </div>
+                </div>
+        <div class="col-sm-1"></div>
+    </div>
+    <div class="row">    
+        <div class="col-sm-1"></div>
+        <div class="col-sm-10">
+            <div class="case_supp" data-target="#target3" data-toggle="collapse">
+                <div class="row">
+                    <div class="col-sm-11">
+                        <a style="font-size:100%;">Graphique Sport</a>
+                    </div>
+                    <div class="col-sm-1">
+                        <a>
+                            <i class="fas fa-caret-down" style="font-size:150%;"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="collapse" id="target3">
+                    <div class="eqcss3">
+                        <hr align="center" width="100%"></div>
+                        <br>
+                            <canvas id="myChart3"></canvas>
+                        </div>
+                    </div>
+                </div>
+        <div class="col-sm-1"></div>
+    </div>
+        
 
 <div class="container">
     <canvas id="myChart"></canvas>
@@ -38,22 +114,39 @@
             var myChart = document.getElementById('myChart').getContext('2d');
 
             let newChart = new Chart(myChart, {
-                type:'horizontalBar',
+                type:'line',
                 data:{
-                    labels:['lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi', 'dimanche'],
-                    datasets:[{
-                        label:'Poids',
-                        data:[98,96,99,95,99,100,102],
-                        backgroundColor:[
-                            'rgba(255,99,132,1)',
-                            'rgba(54,162,235,1)',
-                            'rgba(255,206,86,1)',
-                            'rgba(75,192,192,1)',
-                            'rgba(153,102,255,1)',
-                            'rgba(255,159,64,1)',
-                            'rgba(132,99,132,1)',
-                        ]
+                    labels:[{% for date in datapoids %}'{{date.date.format('Y-m-d')}}',{% endfor %}],
+                    datasets:[
+                    {
+                        label:'Imc',
+
+                        data: [{% for poids in datapoids %}{{poids.poids / (tailleuser * tailleuser )}},{% endfor %}],
+
+                        backgroundColor: 'rgba(75,192,192,1)',
+                        borderColor: 'rgba(75,192,192,1)',
+
+                        fill : false,
+                    },{
+                        label:'Imc-bas',
+
+                        data: [ {% for poids in datapoids %} {{ imcbas }},{% endfor %} ],
+
+                        backgroundColor: 'rgba(75,192,192,1)',
+                        borderColor: 'rgba(75,192,192,1)',
+
+                        fill : false,
+                    },{
+                        label:'Imc-haut',
+
+                        data: [ {% for poids in datapoids %} {{ imchaut }},{% endfor %} ],
+
+                        backgroundColor: 'rgba(75,192,192,1)',
+                        borderColor: 'rgba(75,192,192,1)',
+
+                        fill : false,
                     }]
+
                 },
                 options:{
                     scales: {
@@ -69,32 +162,25 @@
             });
 
         </script>
+
+        {# {{datapoids[1].poids}} {{infouser.taille}} #}
+
         <script>
             var myChart2 = document.getElementById('myChart2').getContext('2d');
 
             let newChart2 = new Chart(myChart2, {
-                type:'bar',
+                type:'line',
                 data:{
-                    labels:['janvier', 'février', 'mars', 'avril', 'mai', 'juin', 'juillet', 'août', 'septembre', 'octobre', 'novembre', 'décembre' ],
+                    labels:[{% for date in datapoids %}'{{date.date.format('Y-m-d')}}',{% endfor %}],
                     datasets:[{
-                        label:'Poids par mois',
+                        label:'Poids',
 
-                        data:[120,96,144,102,133,95,75,60,86,90,101,122],
+                        data: [{% for poids in datapoids %}{{poids.poids}},{% endfor %}],
 
-                        backgroundColor:[
-                            'rgba(255,99,132,1)',
-                            'rgba(54,162,235,1)',
-                            'rgba(255,206,86,1)',
-                            'rgba(75,192,192,1)',
-                            'rgba(153,102,255,1)',
-                            'rgba(255,159,64,1)',
-                            'rgba(132,99,132,1)',
-                            'rgba(130,54,25,1)',
-                            'rgba(132,200,0,1)',
-                            'rgba(12,95,182,1)',
-                            'rgba(139,0,182,1)',
-                            'rgba(170,36,74,1)',
-                        ]
+                        backgroundColor: 'rgba(170,36,74,1)',
+                        borderColor: 'rgba(170,36,74,1)',
+
+                        fill : false,
                     }]
                 },
 
@@ -120,22 +206,30 @@
             var myChart3 = document.getElementById('myChart3').getContext('2d');
 
             let newChart3 = new Chart(myChart3, {
-                type:'pie',
+                type:'line',
                 data:{
-                    labels:['lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi', 'dimanche'],
+                    labels:[{% for date in datatemps %}'{{date.date.format('Y-m-d')}}',{% endfor %}],
                     datasets:[{
-                        label:'Poids',
-                        data:[98,96,99,95,99,100,102],
-                        backgroundColor:[
-                            'rgba(255,99,132,1)',
-                            'rgba(54,162,235,1)',
-                            'rgba(255,206,86,1)',
-                            'rgba(75,192,192,1)',
-                            'rgba(153,102,255,1)',
-                            'rgba(255,159,64,1)',
-                            'rgba(132,99,132,1)',
-                        ]
+                        label:'Temps d\'activité physique',
+
+                        data: [{% for temps in datatemps %}{{temps.temps}},{% endfor %}],
+
+                        backgroundColor: 'rgba(255,159,64,1)',
+                        borderColor: 'rgba(255,159,64,1)',
+
+                        fill : false,
                     }]
+                },
+                options:{
+                    scales: {
+                        yAxes: [{
+
+                            ticks: {
+                                display: true,
+                                beginAtZero: true
+                            }
+                        }]
+                    }
                 }
                 
             });

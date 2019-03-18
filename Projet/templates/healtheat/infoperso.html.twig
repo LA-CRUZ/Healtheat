@@ -28,6 +28,18 @@
         }
 
         maFonction();
+
+        function alert_enregistrer(txt){
+        Swal.fire({
+            title: txt,
+            type: 'success',
+            backdrop:false,
+            position:'bottom-end',
+            heightAuto:false,
+            showConfirmButton: false,
+            timer: 2000
+            })
+        }
     </script>
 
     <div id="homep">
@@ -38,14 +50,13 @@
                     <h2 class="titre_co">ESPACE PERSONNEL</h2>
                     <hr align=center width="20%">
                 </div>
-
                 <div class="case3">
                 {{ user.username }}
                 </div>
                 {% for message in app.flashes('notice') %}
-                    <div class="flash-notice">
-                        {{ message }}
-                    </div>
+                    <script>
+                        alert_enregistrer('Changements sauvegardés !')
+                    </script>
                 {% endfor %}
                 {% if not info_user.sexe or  not info_user.age or not info_user.getLPoids() or not info_user.taille or not info_user.getTourHanche() or not info_user.getTourTaille()%}
                 <div class="alert alert-danger alert-dismissible fade in">
@@ -195,9 +206,34 @@
                                 <hr align=center width="100%">
                                 </div>
                                 <br>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel voluptatibus repellendus debitis non excepturi molestias asperiores pariatur veniam, vero nihil consequuntur, itaque iste cum maxime? Iure nostrum voluptas quos rerum?
-                                Sapiente fuga tempore non magnam voluptatem modi id qui veritatis, beatae debitis, adipisci ipsam pariatur accusamus alias quidem amet aspernatur repellat ex? Similique necessitatibus possimus consequatur suscipit molestias officiis quasi!
-                                Reprehenderit laudantium sunt unde voluptates ad id magnam alias tempore ratione, delectus enim voluptatum eos, doloremque ipsam blanditiis debitis exercitationem illum odit quam dolore porro iste ullam minus? Deserunt, magni!
+                                <p>Tour de taille</p>
+                                {% if info_user.getTourTaille() != NULL %}
+                                    {{ info_user.getTourTaille() }}
+                                {% endif %}
+                                <p>Tour de hanche</p>
+                                {% if info_user.getTourHanche() != NULL %}
+                                    {{ info_user.getTourHanche() }}
+                                {% endif %}
+                                <p>Rapport Taille Hanche</p>
+                                {% if info_user.getTourTaille() != NULL and info_user.getTourHanche() != NULL %}
+                                    {{ info_user.getTourTaille() / info_user.getTourHanche() }}
+                                    {% if (info_user.getTourTaille() / info_user.getTourHanche() > 1 and info_user.sexe == 'homme') or 
+                                          (info_user.getTourTaille() / info_user.getTourHanche() > 0.85 and info_user.sexe == 'femme') %}
+                                            <p> Risque pour la santé élevé </p>
+                                    
+                                    {% else %}
+                                        {% if (info_user.getTourTaille() / info_user.getTourHanche() > 0.95 and info_user.sexe == 'homme') or 
+                                              (info_user.getTourTaille() / info_user.getTourHanche() > 0.80 and info_user.sexe == 'femme') %}
+                                                <p> Risque pour la santé modéré </p>
+                                        
+                                        {% else %}
+                                            {% if (info_user.getTourTaille() / info_user.getTourHanche() > 1 and info_user.sexe == 'homme') or 
+                                                  (info_user.getTourTaille() / info_user.getTourHanche() > 0.85 and info_user.sexe == 'femme') %}
+                                                    <p> Aucun risque </p>
+                                            {% endif %}
+                                        {% endif %}
+                                    {% endif %} 
+                                {% endif %}
                             </div>
                         </div>
                     </div>

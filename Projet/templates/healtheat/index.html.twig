@@ -26,7 +26,56 @@
             document.getElementById("test").style.transition = "1s";
         }
     })
+
+    {# const Toast = Swal.mixin({
+    toast: true,
+    position: 'bottom-end',
+    showConfirmButton: false,
+    timer: 3000
+    });
+
+
+    function alert_connexion2(){
+    Toast.fire({
+        type: 'success',
+        title: 'Vous êtes connecté !'
+        })
+    }   #}
+
+
+    function alert_connexion(){
+    Swal.fire({
+        title: 'Vous êtes connecté !',
+        type: 'success',
+        backdrop:false,
+        position:'bottom-end',
+        heightAuto:false,
+        showConfirmButton: false,
+        timer: 2000
+        })
+    }
+
+    function alert_deconnexion(){
+    Swal.fire({
+        title: 'Vous êtes déconnecté !',
+        type: 'warning',
+        backdrop:false,
+        position:'bottom-end',
+        heightAuto:false,
+        showConfirmButton: false,
+        timer: 2000
+        })
+    }
+
+
+
 </script>
+
+    {% if app.user %}
+        <script>alert_connexion()</script>
+    {% else %}
+        <script>alert_deconnexion()</script>
+    {% endif %}
 
     <div id="home">
             <div class="landing-text">
@@ -56,6 +105,7 @@
                         Facere incidunt dolore repellendus laborum expedita, sapiente quas. Sapiente, autem recusandae, itaque quis ducimus dolorum non, animi temporibus eum aspernatur fuga facere quasi quod rem minus fugiat nisi? At, quam!
                         Unde magnam facilis quisquam iste odit cumque animi harum sit consectetur perferendis id error beatae nam commodi minima accusamus fugit, voluptatibus nulla? Quae tempore fuga saepe at ipsam possimus aperiam!
                         Excepturi quo maiores quia fuga, amet reiciendis repellendus sunt impedit blanditiis quae voluptatem corrupti dicta minima eaque itaque cum. Libero quisquam, eaque tempora quidem blanditiis dolorem porro voluptate.</p>
+                        
 					</div>
 				</div>
             </div>
@@ -127,4 +177,9 @@
     <div id="home2">
 	</div>
 
+    
+
+    
+
 {% endblock %}
+

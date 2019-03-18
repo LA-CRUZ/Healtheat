@@ -47,7 +47,7 @@ class InfoPersoType extends AbstractType
             ->add('tour_hanche', TextType::class, [
                 'required' => false,
             ])
-            ->add('temps_activite_physique', TextType::class, [
+            ->add('l_temps', TextType::class, [
                 'required' => false,
             ])
             ->add('intolerance', EntityType::class, [

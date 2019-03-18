@@ -7,6 +7,7 @@ use App\Entity\Poids;
 
 use App\Entity\InfoUser;
 use App\Form\InfoPersoType;
+use App\Entity\TempsEffortPhy;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\Routing\Annotation\Route;
@@ -29,6 +30,11 @@ class HealtheatController extends AbstractController
      */
     public function perso(Request $request, ObjectManager $manager)
     {
+        if($this->getUser()->getId() == NULL){
+            return $this->render('security/connexion.html.twig', [
+                'controller_name' => 'Healtheat_Controller',
+            ]);
+        }
         $id = $this->getUser()->getId();
 
         $InfoUser = $manager->getRepository(InfoUser::class)->find($id);
@@ -40,23 +46,17 @@ class HealtheatController extends AbstractController
         if($form->isSubmitted() && $form->isValid()) {
             $this->addFlash(
                 'notice',
-                'Vos changement on été sauvegardé !'
+                'Vos changement ont été sauvegardé !'
             );
+            $date = new DateTime();
             if($InfoUser->getLPoids() != NULL)
             {
-                    $dernierPoids = $InfoUser->getPoids()->last();
-                    if($dernierPoids != FALSE){
-                        $dernierPoids = $dernierPoids->getPoids();
-                    }
-                    if($dernierPoids == FALSE or $dernierPoids != $InfoUser->getLPoids()){
                         $newpoids = new Poids();
-                        $date = new DateTime();
                         $newpoids->setInfoUser($InfoUser);
                         $newpoids->setPoids($InfoUser->getLPoids());
                         $newpoids->setDate($date);
                         $manager->persist($newpoids);
                         $manager->flush();
-                    }
 
                 if($InfoUser->getTaille() != NULL){
                     $poids = $InfoUser->getLPoids();
@@ -69,6 +69,14 @@ class HealtheatController extends AbstractController
                 } else {
                     $InfoUser->setImc(NULL);
                 }
+            }
+            if($InfoUser->getLTemps() != NULL){
+                $newtemps = new TempsEffortPhy();
+                $newtemps->setInfoUser($InfoUser);
+                $newtemps->setTemps($InfoUser->getLTemps());
+                $newtemps->setDate($date);
+                $manager->persist($newtemps);
+                $manager->flush();
             } 
             $manager->persist($InfoUser);
             $manager->flush();
@@ -88,6 +96,11 @@ class HealtheatController extends AbstractController
      */
     public function info_perso()
     {
+        if($this->getUser()->getId() == NULL){
+            return $this->render('security/connexion.html.twig', [
+                'controller_name' => 'Healtheat_Controller',
+            ]);
+        }
         $repository = $this->getDoctrine()->getRepository(InfoUser::class);
 
         $id = $this->getUser()->getId();
@@ -126,10 +139,45 @@ class HealtheatController extends AbstractController
 
     public function suivi_perso()
     {
+        if($this->getUser()->getId() == NULL){
+            return $this->render('security/connexion.html.twig', [
+                'controller_name' => 'Healtheat_Controller',
+            ]);
+        }
+        $repository = $this->getDoctrine()->getRepository(InfoUser::class);
+
+        $id = $this->getUser()->getId();
+
+        $info = $repository->find($id);
+
+        $taille = $info->getTaille();
+
+        $taille = $taille / 100;
+
+        $dataPoids = $info->getPoids();
+        $dataTemps = $info->getTempsActivitePhysique();
+
+        $imc_bas = 18.5;
+        $imc_haut = 25;
+
         return $this->render('healtheat/suivi.html.twig', [
-        'controller_name' => 'HealtheatController',
+        'infouser' => $info,
+        'datapoids' => $dataPoids,
+        'datatemps' => $dataTemps,
+        'tailleuser' => $taille,
+        'imcbas' => $imc_bas,
+        'imchaut' => $imc_haut,
         ]);
     }
 
+    /**
+     * @Route("/test", name = "page_test")
+     */
+    public function page_test()
+    {
+        return $this->render('healtheat/page_test.html.twig', [
+            'controller_name' => 'HealtheatController',
+        ]);
+    }
 }
 
