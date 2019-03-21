@@ -299,38 +299,6 @@ footer{
 	cursor: pointer;
 }
 
-.gauche{
-	position: relative;
-	left: 170px;
-}
-
-.droite{
-	position: relative;
-	right: 390px;
-	color:rgb(194, 23, 42);
-}
-
-.gauche_imc{
-	position: relative;
-	left: 95px;
-}
-
-.droite_imc{
-	position: relative;
-	right: 75px;
-	color:rgb(194, 23, 42);
-}
-
-#target2{
-	position: relative;
-	right:120px;
-}
-
-#target3{
-	position: relative;
-	right:120px;
-}
-
 .titre_co{
 	font-size: 50px;
 }
