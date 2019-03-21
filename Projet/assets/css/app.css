@@ -270,14 +270,25 @@ footer{
 	cursor: pointer;
 }
 
-.gauche {
+.gauche{
 	position: relative;
 	left: 170px;
 }
 
-.droite {
+.droite{
 	position: relative;
 	right: 390px;
+	color:rgb(194, 23, 42);
+}
+
+.gauche_imc{
+	position: relative;
+	left: 95px;
+}
+
+.droite_imc{
+	position: relative;
+	right: 75px;
 	color:rgb(194, 23, 42);
 }
 
