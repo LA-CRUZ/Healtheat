@@ -153,7 +153,19 @@
                             <div class=eqcss3>
                                 <hr align=center width="80%">
                             </div>
-                            <p>IMC</p>
+                            <div data-toggle="collapse" data-target="#target4">
+                                <div class="row">
+                                    <div class="col-sm-6 gauche_imc">
+                                        <p>IMC</p> 
+                                    </div> 
+                                    <div class="col-sm-6 droite_imc">
+                                        <i class="fas fa-info-circle" style="font-size:140%;"></i>                
+                                        <div id="target4" class="collapse">
+                                            <texte>Indice de Masse Corporelle permet de déterminer la corpulence d'une personne</texte>
+                                        </div>
+                                    </div> 
+                                </div> 
+                            </div>
                             {% if info_user.imc != NULL %}
                                 {{ info_user.imc }}
                             {% endif %}
