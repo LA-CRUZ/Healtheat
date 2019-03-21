@@ -24,7 +24,7 @@
         maFonction();
     </script>
 
-    <div id="homep">
+    <div id="homep" class="container-fluid">
             <div class="landing-textp">
                 <div class="case_connexion">
                     <div class=eqcss>
@@ -34,63 +34,53 @@
 
 <div class="row" id="info_p">
     {{ form_start(form) }}
-        <div class="col-sm-6">
-            <p>NOM</p>
-            {{ form_row(form.Nom, {'label' : " " ,'attr':
-            {'placeholder': 'Nom', 'class': 'form_perso'}})}}
-            </br>
-            <p>PRENOM</p>
-            {{ form_row(form.Prenom, {'label' : " " ,'attr':
-            {'placeholder': 'Prénom', 'class': 'form_perso'}})}}
-            </br>
-            <p>SEXE</p>
-            {{ form_row(form.Sexe, {'label' : " " ,'attr':
-            {'placeholder': 'Sexe', 'class': 'form_perso'}})}}
-            </br>
-            <p>AGE</p>
-            {{ form_row(form.Age, {'label' : " " ,'attr':
-            {'placeholder': 'Age', 'class': 'form_perso'}})}}            
-            </br>
-            <p>POIDS</p>
-            {{ form_row(form.l_poids, {'label' : " " ,'attr':
-            {'placeholder': 'Poids', 'class': 'form_perso'}})}}
+        <div class="col-sm-1"></div>
+        <div class="col-sm-5">
+            <div class="case">
+                <img src="{{ asset('build/images/info.png') }}" alt="" style="width:100%;max-width:100px">
+                <br>
+                <div class=eqcss>
+                <hr align=center width="100%">
+                </div>
+                <p>NOM</p>
+                {{ form_row(form.Nom, {'label' : " " ,'attr':
+                {'placeholder': 'Nom', 'class': 'form_perso'}})}}
+                </br>
+                <p>PRENOM</p>
+                {{ form_row(form.Prenom, {'label' : " " ,'attr':
+                {'placeholder': 'Prénom', 'class': 'form_perso'}})}}
+                </br>
+                <p>SEXE</p>
+                {{ form_row(form.Sexe, {'label' : " " ,'attr':
+                {'placeholder': 'Sexe', 'class': 'form_perso'}})}}
+                </br>
+                <p>AGE</p>
+                {{ form_row(form.Age, {'label' : " " ,'attr':
+                {'placeholder': 'Age', 'class': 'form_perso'}})}}  
+                <br>
+                <a href=""><button class="btn  fonction" >  MODIFIER MON MOT DE PASSE</button></a>
+            </div>
         </div>
-        <div class="col-sm-6">
+        <div class="col-sm-5">
+        <div class="case">
+            <img src="{{ asset('build/images/info2.png') }}" alt="" style="width:100%;max-width:100px;">
+            <br>
+            <div class=eqcss>
+            <hr align=center width="100%">
+            </div>
             <p>TAILLE</p>
             {{ form_row(form.Taille, {'label' : " " ,'attr':
             {'placeholder': 'Taille', 'class': 'form_perso'}})}}
             </br>
-            <div class="row">
-                <div class="col-sm-6 gauche">
-                    <p>TOUR DE TAILLE</p>  
-                </div>
-                <div class="col-sm-6 droite">
-                    <div class="case_tour" data-toggle="collapse" data-target="#target3">
-                            <i class="fas fa-info-circle" style="font-size:140%;" style="color:red;"></i>                                
-                           {# <a><i class="fas fa-caret-down" style="font-size:150%;"  style="color:red;"></i></a>#}
-                        <div id="target3" class="collapse">
-                            <img src="{{ asset('build/images/tourDeTaille.jpg')}}">
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <p>POIDS</p>
+            {{ form_row(form.l_poids, {'label' : " " ,'attr':
+            {'placeholder': 'Poids', 'class': 'form_perso'}})}}
+            </br>
+            <p>TOUR DE TAILLE</p>  
             {{ form_row(form.tour_taille, {'label' : " " ,'attr':
             {'placeholder': 'Tour de taille', 'class': 'form_perso'}})}}
             </br>
-            <div class="row">
-                <div class="col-sm-6 gauche">
-                    <p>TOUR DE HANCHE</p>  
-                </div>
-                <div class="col-sm-6 droite">
-                    <div class="case_tour" data-toggle="collapse" data-target="#target2">
-                            <i class="fas fa-info-circle" style="font-size:140%;"></i>                                
-                            {#<a><i class="fas fa-caret-down" style="font-size:150%;"></i></a>#}
-                        <div id="target2" class="collapse">
-                            <img src="{{ asset('build/images/tourDeHanche.jpg') }}">
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <p>TOUR DE HANCHE</p>  
             {{ form_row(form.tour_hanche, {'label' : " " ,'attr':
             {'placeholder': 'Tour de hanche', 'class': 'form_perso'}})}}
             </br>
@@ -100,8 +90,8 @@
             </br>
             <p>INTOLERANCE ET ALLERGIE</p>
             </br>
-            <button type="button" class="btn btn-danger" data-toggle="collapse" data-target="#intolerance">Intolerance</button>
-            <button type="button" class="btn btn-danger" data-toggle="collapse" data-target="#allergie">Allergie</button>
+            <button type="button" class="btn fonction2" data-toggle="collapse" data-target="#intolerance">Intolerance <i class="fas fa-caret-down" style="font-size:100%;"></i></button>
+            <button type="button" class="btn fonction2" data-toggle="collapse" data-target="#allergie">Allergie <i class="fas fa-caret-down" style="font-size:100%;"></i></button>
             <div class="row">
                 <div class="col-sm-6">
                     <div id="intolerance" class="collapse col-sm-6">
@@ -115,6 +105,8 @@
                 </div>
             </div>
         </div>
+        </div>
+        <div class="col-sm-1"></div>
         <br>
         <br>
         {{ form_row(form.enregistrer, {'label' : "ENREGISTRER" })}}  

@@ -216,6 +216,35 @@ footer{
 	transition: 0.2s;
 }
 
+.fonction2 {
+	color: rgb(194, 23, 42);
+	background-color: white;
+	height: 60px;
+	width: 45%;
+	font-family: 'Quicksand', sans-serif;
+	border-radius: 4rem;
+	font-weight: bold;
+	font-size: 16px;
+	padding-top: 7px;
+	margin: 20px 10px 0px 10px;
+	border: solid 3px rgb(194, 23, 42);
+}
+
+.fonction2:hover {
+	color: white;
+	background-color: rgb(194, 23, 42);
+	height: 60px;
+	width: 45%;
+	font-family: 'Quicksand', sans-serif;
+	border-radius: 4rem;
+	font-weight: bold;
+	font-size: 16px;
+	padding-top: 7px;
+	margin: 20px 10px 0px 10px;
+	border-color: white;
+	transition: 0.2s;
+}
+
 .case {
     box-shadow: 6px 6px 10px 6px rgba(0, 0, 0, 0.4);
     height: auto;
@@ -323,6 +352,10 @@ footer{
 
 .form-error-message {
 	color: red;
+}
+
+#info_p{
+	text-align:center;
 }
 
 #info_p p{

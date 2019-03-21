@@ -139,7 +139,7 @@
                             <div class=eqcss>
                             <hr align=center width="100%">
                             </div>
-                                <p>POIDS</p>
+                            <p>POIDS</p>
                             {% if info_user.getLPoids() != NULL %}
                                 {{ info_user.getLPoids() }} kg
                             {% endif %}
@@ -202,38 +202,57 @@
                                 </div>
                             </div>
                             <div id="target1" class="collapse">
-                                <div class=eqcss3>
-                                <hr align=center width="100%">
-                                </div>
-                                <br>
-                                <p>Tour de taille</p>
-                                {% if info_user.getTourTaille() != NULL %}
-                                    {{ info_user.getTourTaille() }}
-                                {% endif %}
-                                <p>Tour de hanche</p>
-                                {% if info_user.getTourHanche() != NULL %}
-                                    {{ info_user.getTourHanche() }}
-                                {% endif %}
-                                <p>Rapport Taille Hanche</p>
-                                {% if info_user.getTourTaille() != NULL and info_user.getTourHanche() != NULL %}
-                                    {{ info_user.getTourTaille() / info_user.getTourHanche() }}
-                                    {% if (info_user.getTourTaille() / info_user.getTourHanche() > 1 and info_user.sexe == 'homme') or 
-                                          (info_user.getTourTaille() / info_user.getTourHanche() > 0.85 and info_user.sexe == 'femme') %}
-                                            <p> Risque pour la santé élevé </p>
-                                    
-                                    {% else %}
-                                        {% if (info_user.getTourTaille() / info_user.getTourHanche() > 0.95 and info_user.sexe == 'homme') or 
-                                              (info_user.getTourTaille() / info_user.getTourHanche() > 0.80 and info_user.sexe == 'femme') %}
-                                                <p> Risque pour la santé modéré </p>
-                                        
-                                        {% else %}
-                                            {% if (info_user.getTourTaille() / info_user.getTourHanche() > 1 and info_user.sexe == 'homme') or 
-                                                  (info_user.getTourTaille() / info_user.getTourHanche() > 0.85 and info_user.sexe == 'femme') %}
-                                                    <p> Aucun risque </p>
+                                <div id="info_p">
+                                    <div class=eqcss3>
+                                    <hr align=center width="100%">
+                                    </div>
+                                    <br>
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <p>Tour de taille</p>
+                                            {% if info_user.getTourTaille() != NULL %}
+                                                {{ info_user.getTourTaille() }}
                                             {% endif %}
+                                        </div>
+                                        <div class="col-sm-4">
+                                        <p>Tour de hanche</p>
+                                        {% if info_user.getTourHanche() != NULL %}
+                                            {{ info_user.getTourHanche() }}
                                         {% endif %}
-                                    {% endif %} 
-                                {% endif %}
+                                        </div>
+                                        <div class="col-sm-4">
+                                        <p>Rapport Taille Hanche</p>
+                                        </div>
+                                        {% if info_user.getTourTaille() != NULL and info_user.getTourHanche() != NULL %}
+                                            {{ info_user.getTourTaille() / info_user.getTourHanche() }}
+                                            {% if (info_user.getTourTaille() / info_user.getTourHanche() > 1 and info_user.sexe == 'homme') or 
+                                                (info_user.getTourTaille() / info_user.getTourHanche() > 0.85 and info_user.sexe == 'femme') %} 
+                                                    <br><br>
+                                                    <div class="alert alert-danger" role="alert">
+                                                        Danger
+                                                    </div>
+                                            
+                                            {% else %}
+                                                {% if (info_user.getTourTaille() / info_user.getTourHanche() > 0.95 and info_user.sexe == 'homme') or 
+                                                    (info_user.getTourTaille() / info_user.getTourHanche() > 0.80 and info_user.sexe == 'femme') %}
+                                                        <br><br>
+                                                        <div class="alert alert-info" role="alert">
+                                                            Ok
+                                                        </div>
+                                                
+                                                {% else %}
+                                                    {% if (info_user.getTourTaille() / info_user.getTourHanche() < 1 and info_user.sexe == 'homme') or 
+                                                        (info_user.getTourTaille() / info_user.getTourHanche() < 0.85 and info_user.sexe == 'femme') %}
+                                                            <br><br>
+                                                            <div class="alert alert-success" role="alert">
+                                                                Ez
+                                                            </div>
+                                                    {% endif %}
+                                                {% endif %}
+                                            {% endif %} 
+                                        {% endif %}
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
