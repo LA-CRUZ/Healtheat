@@ -29,11 +29,6 @@ class Recette
     private $image;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Produit", inversedBy="recettes")
-     */
-    private $ingredient;
-
-    /**
      * @ORM\Column(type="text")
      */
     private $description;
@@ -62,6 +57,11 @@ class Recette
      * @ORM\Column(type="string", length=255)
      */
     private $difficulte;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\IngredCSV", mappedBy="recette", orphanRemoval=true)
+     */
+    private $ingredient;
 
     public function __construct()
     {
@@ -93,32 +93,6 @@ class Recette
     public function setImage(string $image): self
     {
         $this->image = $image;
-
-        return $this;
-    }
-
-    /**
-     * @return Collection|Produit[]
-     */
-    public function getIngredient(): Collection
-    {
-        return $this->ingredient;
-    }
-
-    public function addIngredient(Produit $ingredient): self
-    {
-        if (!$this->ingredient->contains($ingredient)) {
-            $this->ingredient[] = $ingredient;
-        }
-
-        return $this;
-    }
-
-    public function removeIngredient(Produit $ingredient): self
-    {
-        if ($this->ingredient->contains($ingredient)) {
-            $this->ingredient->removeElement($ingredient);
-        }
 
         return $this;
     }
@@ -191,6 +165,37 @@ class Recette
     public function setTags(string $tags): self
     {
         $this->tags = $tags;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|IngredCSV[]
+     */
+    public function getIngredient(): Collection
+    {
+        return $this->ingredient;
+    }
+
+    public function addIngredient(IngredCSV $ingredient): self
+    {
+        if (!$this->ingredient->contains($ingredient)) {
+            $this->ingredient[] = $ingredient;
+            $ingredient->setRecette($this);
+        }
+
+        return $this;
+    }
+
+    public function removeIngredient(IngredCSV $ingredient): self
+    {
+        if ($this->ingredient->contains($ingredient)) {
+            $this->ingredient->removeElement($ingredient);
+            // set the owning side to null (unless already changed)
+            if ($ingredient->getRecette() === $this) {
+                $ingredient->setRecette(null);
+            }
+        }
 
         return $this;
     }

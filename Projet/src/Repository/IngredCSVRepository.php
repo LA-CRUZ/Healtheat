@@ -2,25 +2,25 @@
 
 namespace App\Repository;
 
-use App\Entity\Inventaire;
+use App\Entity\IngredCSV;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
 /**
- * @method Inventaire|null find($id, $lockMode = null, $lockVersion = null)
- * @method Inventaire|null findOneBy(array $criteria, array $orderBy = null)
- * @method Inventaire[]    findAll()
- * @method Inventaire[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method IngredCSV|null find($id, $lockMode = null, $lockVersion = null)
+ * @method IngredCSV|null findOneBy(array $criteria, array $orderBy = null)
+ * @method IngredCSV[]    findAll()
+ * @method IngredCSV[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class InventaireRepository extends ServiceEntityRepository
+class IngredCSVRepository extends ServiceEntityRepository
 {
     public function __construct(RegistryInterface $registry)
     {
-        parent::__construct($registry, Inventaire::class);
+        parent::__construct($registry, IngredCSV::class);
     }
 
     // /**
-    //  * @return Inventaire[] Returns an array of Inventaire objects
+    //  * @return IngredCSV[] Returns an array of IngredCSV objects
     //  */
     /*
     public function findByExampleField($value)
@@ -37,7 +37,7 @@ class InventaireRepository extends ServiceEntityRepository
     */
 
     /*
-    public function findOneBySomeField($value): ?Inventaire
+    public function findOneBySomeField($value): ?IngredCSV
     {
         return $this->createQueryBuilder('i')
             ->andWhere('i.exampleField = :val')
