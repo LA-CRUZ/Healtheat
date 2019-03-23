@@ -93,6 +93,11 @@ footer{
     box-shadow: 1px 3px 12px rgb(46, 45, 45);
 }
 
+footer h4{
+	color: rgb(32, 32, 32);
+	font-weight: bold;
+}
+
 .connexion {
 	color: rgb(194, 23, 42);
 	background-color: white;
@@ -173,6 +178,13 @@ footer{
 
 .eqcss h1 {
 	color: rgb(194, 23, 42);
+}
+
+.eqcss4 hr {
+	display: block;
+  	background-color: rgb(194, 23, 42) ;
+  	height: 2px;
+  	border-color: rgb(194, 23, 42);
 }
 
 #home2{
@@ -465,4 +477,39 @@ footer{
 .icon_suivi {
 	margin-right: 50px;
 	font-size: 40px;
+}
+
+.icon_footer {
+	color: rgb(194, 23, 42);
+	font-size:40px;
+}
+/* .testheight Not required - unless testing ;) */
+.testheight {
+  height:1200px;
+  font-size:20px;
+  text-align:center;
+  padding:100px 20px;
+}
+.scrolltop {
+	color: white;
+	font-size: 50px;
+	width:100%;
+	bottom: 0;
+	right: 0;
+	text-align: right;
+}
+.scrollt {
+	position:absolute;
+	color: rgb(194, 23, 42);
+	right:20px;
+	bottom:20px;
+	padding:20px;
+	text-align: center;
+	margin: 0 0 0 0;
+	cursor:pointer;
+	transition: 0.1s;		
+}
+.scrollt:hover {
+	font-size: 55px;
+	transition: 0.1s;	
 }
