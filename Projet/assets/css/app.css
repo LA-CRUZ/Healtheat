@@ -440,3 +440,23 @@ footer{
 	margin: 10px 20px 10px 20px;
 	border-color: rgb(194, 23, 42);
 }
+
+.aide_normal{
+	text-align: justify;
+	color: rgb(84, 84, 85);
+	font-size: 15px;
+	font-weight: bold;
+}
+
+.aide_titre {
+	text-align: center;
+	color: rgb(194, 23, 42);
+	text-decoration: overline;	
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.icon_aide {
+	cursor: pointer;
+	margin-left: 10px;
+}
