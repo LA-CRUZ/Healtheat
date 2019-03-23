@@ -30,222 +30,220 @@
                         <h2 class="titre_co">MON SUIVI</h2>
                         <hr align=center width="20%">
                     </div>
-    
-    <div class="row">    
-        {# <canvas id="myChart2"></canvas>
-        <canvas id="myChart3"></canvas> #}
-        <div class="col-sm-1"></div>
-        <div class="col-sm-10">
-            <div class="case_supp" data-target="#target1" data-toggle="collapse">
-                <div class="row">
-                    <div class="col-sm-11">
-                        <a style="font-size:100%;">Graphique Poid</a>
-                    </div>
-                    <div class="col-sm-1">
-                        <a>
-                            <i class="fas fa-caret-down" style="font-size:150%;"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="collapse" id="target1">
-                    <div class="eqcss3">
-                        <hr align="center" width="100%"></div>
-                        <br>
-                            <canvas id="myChart"></canvas>
+
+                    <div class="detail">
+                        <div class="row">
+                            <div class="col-sm-1"></div>
+                            <div class="col-sm-10">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit placeat consequuntur corrupti modi, accusantium quidem repellat perferendis ducimus praesentium autem iusto voluptas earum vero possimus suscipit facere, ut nesciunt fugit.Impedit laborum dignissimos libero eum necessitatibus, cumque saepe sequi fugiat quos odio sint delectus corporis nostrum illo et harum fugit velit maxime recusandae eligendi qui totam ea expedita consequuntur! Iure.
+                            </div>
+                            <div class="col-sm-1"></div>
                         </div>
                     </div>
-                </div>
-        <div class="col-sm-1"></div>
-    </div>
-    <div class="row">    
-        <div class="col-sm-1"></div>
-        <div class="col-sm-10">
-            <div class="case_supp" data-target="#target2" data-toggle="collapse">
-                <div class="row">
-                    <div class="col-sm-11">
-                        <a style="font-size:100%;">Graphique IMC</a>
+                    <br><br>
+                    <div class="row">    
+                        <div class="col-sm-1"></div>
+                        <div class="col-sm-10">
+                            <div class="case_supp">
+                                <div class="row pointer" data-target="#target2" data-toggle="collapse">
+                                    <div class="col-sm-11">
+                                        <a style="font-size:150%;"><i class="fas fa-weight icon_suivi"></i>Graphique Poids</a>
+                                    </div>
+                                    <div class="col-sm-1">
+                                        <a>
+                                            <i class="fas fa-caret-down" style="font-size:150%;"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="collapse" id="target2">
+                                    <div class="eqcss3">
+                                        <hr align="center" width="100%"></div>
+                                        <br>
+                                            <canvas id="myChart2"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                        <div class="col-sm-1"></div>
                     </div>
-                    <div class="col-sm-1">
-                        <a>
-                            <i class="fas fa-caret-down" style="font-size:150%;"></i>
-                        </a>
+                    <div class="row">    
+                        <div class="col-sm-1"></div>
+                        <div class="col-sm-10">
+                            <div class="case_supp">
+                                <div class="row pointer" data-target="#target1" data-toggle="collapse">
+                                    <div class="col-sm-11">
+                                        <a style="font-size:150%;"><i class="fas fa-chart-line icon_suivi"></i>Graphique IMC</a>
+                                    </div>
+                                    <div class="col-sm-1">
+                                        <a>
+                                            <i class="fas fa-caret-down" style="font-size:150%;"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="collapse" id="target1">
+                                    <div class="eqcss3">
+                                        <hr align="center" width="100%"></div>
+                                        <br>
+                                            <canvas id="myChart"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                        <div class="col-sm-1"></div>
                     </div>
-                </div>
-                <div class="collapse" id="target2">
-                    <div class="eqcss3">
-                        <hr align="center" width="100%"></div>
-                        <br>
-                            <canvas id="myChart2"></canvas>
-                        </div>
+                    <div class="row">    
+                        <div class="col-sm-1"></div>
+                        <div class="col-sm-10">
+                            <div class="case_supp">
+                                <div class="row pointer" data-target="#target3" data-toggle="collapse">
+                                    <div class="col-sm-11">
+                                        <a style="font-size:150%;"><i class="fas fa-running icon_suivi"></i>Graphique Sport</a>
+                                    </div>
+                                    <div class="col-sm-1">
+                                        <a>
+                                            <i class="fas fa-caret-down" style="font-size:150%;"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="collapse" id="target3">
+                                    <div class="eqcss3">
+                                        <hr align="center" width="100%"></div>
+                                        <br>
+                                            <canvas id="myChart3"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                        <div class="col-sm-1"></div>
                     </div>
-                </div>
-        <div class="col-sm-1"></div>
-    </div>
-    <div class="row">    
-        <div class="col-sm-1"></div>
-        <div class="col-sm-10">
-            <div class="case_supp" data-target="#target3" data-toggle="collapse">
-                <div class="row">
-                    <div class="col-sm-11">
-                        <a style="font-size:100%;">Graphique Sport</a>
+
+                    <div class="container">                     
+                          <script>
+                                var myChart = document.getElementById('myChart').getContext('2d');
+
+                                let newChart = new Chart(myChart, {
+                                    type:'line',
+                                    data:{
+                                        labels:[{% for date in datapoids %}'{{date.date.format('Y-m-d')}}',{% endfor %}],
+                                        datasets:[
+                                        {
+                                            label:'Imc',
+
+                                            data: [{% for poids in datapoids %}{{poids.poids / (tailleuser * tailleuser )}},{% endfor %}],
+
+                                            backgroundColor: 'rgba(75,192,192,1)',
+                                            borderColor: 'rgba(75,192,192,1)',
+
+                                            fill : false,
+                                        },{
+                                            label:'Imc-bas',
+
+                                            data: [ {% for poids in datapoids %} {{ imcbas }},{% endfor %} ],
+
+                                            backgroundColor: 'rgba(75,192,192,1)',
+                                            borderColor: 'rgba(75,192,192,1)',
+
+                                            fill : false,
+                                        },{
+                                            label:'Imc-haut',
+
+                                            data: [ {% for poids in datapoids %} {{ imchaut }},{% endfor %} ],
+
+                                            backgroundColor: 'rgba(75,192,192,1)',
+                                            borderColor: 'rgba(75,192,192,1)',
+
+                                            fill : false,
+                                        }]
+
+                                    },
+                                    options:{
+                                        scales: {
+                                            xAxes: [{
+
+                                                ticks: {
+                                                    display: true,
+                                                    beginAtZero: true
+                                                }
+                                            }]
+                                        }
+                                    }
+                                });
+
+                            </script>
+
+                            {# {{datapoids[1].poids}} {{infouser.taille}} #}
+
+                            <script>
+                                var myChart2 = document.getElementById('myChart2').getContext('2d');
+
+                                let newChart2 = new Chart(myChart2, {
+                                    type:'line',
+                                    data:{
+                                        labels:[{% for date in datapoids %}'{{date.date.format('Y-m-d')}}',{% endfor %}],
+                                        datasets:[{
+                                            label:'Poids',
+
+                                            data: [{% for poids in datapoids %}{{poids.poids}},{% endfor %}],
+
+                                            backgroundColor: 'rgba(170,36,74,1)',
+                                            borderColor: 'rgba(170,36,74,1)',
+
+                                            fill : false,
+                                        }]
+                                    },
+
+                                options:{
+                                        scales: {
+                                            yAxes: [{
+
+                                                ticks: {
+                                                    display: true,
+                                                    beginAtZero: true
+                                                }
+                                            }]
+                                        }
+                                    }
+
+                                    
+                                    
+                                });
+
+                            </script>
+
+                            <script>
+                                var myChart3 = document.getElementById('myChart3').getContext('2d');
+
+                                let newChart3 = new Chart(myChart3, {
+                                    type:'line',
+                                    data:{
+                                        labels:[{% for date in datatemps %}'{{date.date.format('Y-m-d')}}',{% endfor %}],
+                                        datasets:[{
+                                            label:'Temps d\'activité physique',
+
+                                            data: [{% for temps in datatemps %}{{temps.temps}},{% endfor %}],
+
+                                            backgroundColor: 'rgba(255,159,64,1)',
+                                            borderColor: 'rgba(255,159,64,1)',
+
+                                            fill : false,
+                                        }]
+                                    },
+                                    options:{
+                                        scales: {
+                                            yAxes: [{
+
+                                                ticks: {
+                                                    display: true,
+                                                    beginAtZero: true
+                                                }
+                                            }]
+                                        }
+                                    }
+                                    
+                                });
+
+                            </script>
                     </div>
-                    <div class="col-sm-1">
-                        <a>
-                            <i class="fas fa-caret-down" style="font-size:150%;"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="collapse" id="target3">
-                    <div class="eqcss3">
-                        <hr align="center" width="100%"></div>
-                        <br>
-                            <canvas id="myChart3"></canvas>
-                        </div>
-                    </div>
-                </div>
-        <div class="col-sm-1"></div>
-    </div>
-        
-
-<div class="container">
-    <canvas id="myChart"></canvas>
-    <canvas id="myChart2"></canvas>
-    <canvas id="myChart3"></canvas>
-    
-        <script>
-            var myChart = document.getElementById('myChart').getContext('2d');
-
-            let newChart = new Chart(myChart, {
-                type:'line',
-                data:{
-                    labels:[{% for date in datapoids %}'{{date.date.format('Y-m-d')}}',{% endfor %}],
-                    datasets:[
-                    {
-                        label:'Imc',
-
-                        data: [{% for poids in datapoids %}{{poids.poids / (tailleuser * tailleuser )}},{% endfor %}],
-
-                        backgroundColor: 'rgba(75,192,192,1)',
-                        borderColor: 'rgba(75,192,192,1)',
-
-                        fill : false,
-                    },{
-                        label:'Imc-bas',
-
-                        data: [ {% for poids in datapoids %} {{ imcbas }},{% endfor %} ],
-
-                        backgroundColor: 'rgba(75,192,192,1)',
-                        borderColor: 'rgba(75,192,192,1)',
-
-                        fill : false,
-                    },{
-                        label:'Imc-haut',
-
-                        data: [ {% for poids in datapoids %} {{ imchaut }},{% endfor %} ],
-
-                        backgroundColor: 'rgba(75,192,192,1)',
-                        borderColor: 'rgba(75,192,192,1)',
-
-                        fill : false,
-                    }]
-
-                },
-                options:{
-                    scales: {
-                        xAxes: [{
-
-                            ticks: {
-                                display: true,
-                                beginAtZero: true
-                            }
-                        }]
-                    }
-                }
-            });
-
-        </script>
-
-        {# {{datapoids[1].poids}} {{infouser.taille}} #}
-
-        <script>
-            var myChart2 = document.getElementById('myChart2').getContext('2d');
-
-            let newChart2 = new Chart(myChart2, {
-                type:'line',
-                data:{
-                    labels:[{% for date in datapoids %}'{{date.date.format('Y-m-d')}}',{% endfor %}],
-                    datasets:[{
-                        label:'Poids',
-
-                        data: [{% for poids in datapoids %}{{poids.poids}},{% endfor %}],
-
-                        backgroundColor: 'rgba(170,36,74,1)',
-                        borderColor: 'rgba(170,36,74,1)',
-
-                        fill : false,
-                    }]
-                },
-
-            options:{
-                    scales: {
-                        yAxes: [{
-
-                            ticks: {
-                                display: true,
-                                beginAtZero: true
-                            }
-                        }]
-                    }
-                }
-
-                
-                
-            });
-
-        </script>
-
-        <script>
-            var myChart3 = document.getElementById('myChart3').getContext('2d');
-
-            let newChart3 = new Chart(myChart3, {
-                type:'line',
-                data:{
-                    labels:[{% for date in datatemps %}'{{date.date.format('Y-m-d')}}',{% endfor %}],
-                    datasets:[{
-                        label:'Temps d\'activité physique',
-
-                        data: [{% for temps in datatemps %}{{temps.temps}},{% endfor %}],
-
-                        backgroundColor: 'rgba(255,159,64,1)',
-                        borderColor: 'rgba(255,159,64,1)',
-
-                        fill : false,
-                    }]
-                },
-                options:{
-                    scales: {
-                        yAxes: [{
-
-                            ticks: {
-                                display: true,
-                                beginAtZero: true
-                            }
-                        }]
-                    }
-                }
-                
-            });
-
-        </script>
-</div>
-
-
-            </div>
-            
-        </div>
-                
-    </div>
-            
+            </div>          
+        </div>               
+    </div>           
 </div>
 
 

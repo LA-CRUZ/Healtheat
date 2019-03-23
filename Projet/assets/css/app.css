@@ -90,7 +90,6 @@ footer{
     width: 100%;
 	background-color: white;
 	color: rgb(194, 23, 42);
-	padding: 3% 5% 5% 5%;
     box-shadow: 1px 3px 12px rgb(46, 45, 45);
 }
 
@@ -281,7 +280,6 @@ footer{
 	padding: 20px;
 	margin-bottom: 20px;
 	text-align: left;
-	cursor: pointer;
 }
 
 .case_supp a, .case_supp a:hover{
@@ -458,4 +456,13 @@ footer{
 .icon_aide {
 	cursor: pointer;
 	margin-left: 10px;
+}
+
+.pointer{
+	cursor: pointer;
+}
+
+.icon_suivi {
+	margin-right: 50px;
+	font-size: 40px;
 }
