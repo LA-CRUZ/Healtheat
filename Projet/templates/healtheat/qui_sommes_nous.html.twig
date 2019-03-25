@@ -1,0 +1,88 @@
+{% extends "base.html.twig" %}
+
+{% block stylesheet %}
+    {{ encore_entry_link_tags('') }}
+    <link rel="stylesheet" href="/build/InfoPersoForm.css">
+{% endblock %}
+
+{% block body %}
+
+<script>
+        function maFonction()
+        {
+            document.getElementById("test").style.backgroundColor = "rgb(255, 255, 255)";
+            document.getElementById("test").style.boxShadow = "1px 3px 12px rgb(0, 0, 0)";
+            document.getElementById("elem-menu").style.color = "rgb(194, 23, 42)";
+            document.getElementById("elem-menu2").style.color = "rgb(194, 23, 42)";
+            document.getElementById("elem-menu3").style.color = "rgb(194, 23, 42)";
+            document.getElementById("elem-menu4").style.color = "rgb(194, 23, 42)";
+            document.getElementById("elem-menu5").style.color = "rgb(194, 23, 42)";
+            document.getElementById("elem-menu6").style.color = "rgb(194, 23, 42)";
+
+            document.getElementById("snack").onclick(function() { 
+                Snackbar.show({
+                    text: 'Example notification text.',
+                    pos: 'bottom-left',
+                }); 
+            }); 
+                  
+        }
+        maFonction();
+        </script>
+
+          <div id="homep">
+            <div class="landing-textp">
+                <div class="case_connexion">
+                    <div class= eqcss>
+                        <h2 class="titre_co">L'EQUIPE</h2>
+                        <hr align = center width="20%">
+
+                        <div class="container-fluid">
+        <div class="description">
+            <div class="row">
+                <div class="col-sm-3">
+                    <div class="case">
+                        <img id="myImg" src="{{ asset('build/images/info.png') }}" alt="" style="width:100%;max-width:200px">
+                        <h2 style="font-size:150%;">MICKAEL ALVES</h2>
+                        <p>Lorem ipsum dolor, sit amet sitee consectetur.</p>
+                    </div>
+                </div>
+                
+                <div class="col-sm-3 ">
+                    <div class="case">
+                        <img id="myImg" src="{{ asset('build/images/info.png') }}" alt="" style="width:100%;max-width:200px">
+                        <h2 style="font-size:150%;">CAMILLE MARGOTTIN</h2>
+                        <p>Lorem ipsum dolor, sit amet sitee consectetur.</p>
+                    </div>
+                </div>
+               
+                <div class="col-sm-3 ">
+                    <div class="case">
+                        <img id="myImg" src="{{ asset('build/images/info.png') }}" alt="" style="width:100%;max-width:200px">
+                        <h2 style="font-size:150%">LUCAS AUDART</h2>
+                        <p>Lorem ipsum dolor, sit amet sitee consectetur.</p>
+                    </div>
+                </div>
+                    
+                <div class="col-sm-3 ">
+                    <div class="case">
+                        <img id="myImg" src="{{ asset('build/images/info.png') }}" alt="" style="width:100%;max-width:200px">
+                        <h2 style="font-size:150%;">FLORENT TIRVAUDEY</h2>
+                        <p>Lorem ipsum dolor, sit amet sitee consectetur.</p>
+                    </div>
+                </div>
+			</div>
+
+                    </div>
+                </div>
+            </div>
+</div>
+
+
+
+
+     
+   
+
+
+{% endblock %}
