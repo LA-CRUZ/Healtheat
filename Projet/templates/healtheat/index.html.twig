@@ -80,16 +80,11 @@
 						<br>
 					</div>
 					<div class="col-sm-7 ">
-						<h1>DESCRIPTION PROJET</h1>
+						<h1>Bienvenue sur votre diététicien en ligne</h1>
 						<div class=eqcss>
 			                <hr align=center width="70%">
 		                </div>
-						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci fugiat obcaecati voluptatibus, delectus est minima, assumenda sed modi voluptate ducimus illum? Expedita sint error optio aperiam exercitationem soluta, fugiat cupiditate.
-                        Magni soluta doloribus, dolorem praesentium corporis laboriosam nesciunt, possimus facilis, consectetur odit facere? Voluptatibus minima pariatur nam alias veritatis, expedita voluptate nemo deserunt placeat quis atque omnis nobis, eum nulla.
-                        Facere incidunt dolore repellendus laborum expedita, sapiente quas. Sapiente, autem recusandae, itaque quis ducimus dolorum non, animi temporibus eum aspernatur fuga facere quasi quod rem minus fugiat nisi? At, quam!
-                        Unde magnam facilis quisquam iste odit cumque animi harum sit consectetur perferendis id error beatae nam commodi minima accusamus fugit, voluptatibus nulla? Quae tempore fuga saepe at ipsam possimus aperiam!
-                        Excepturi quo maiores quia fuga, amet reiciendis repellendus sunt impedit blanditiis quae voluptatem corrupti dicta minima eaque itaque cum. Libero quisquam, eaque tempora quidem blanditiis dolorem porro voluptate.</p>
-                        
+						<p>Votre diététicien vous accompagne dans votre objectif personnel comme perde du poids ou prendre de la masse.</br></br> Retrouver toutes vos informations personnelles dans profil à modifier chaque semaine avec votre évolution. Combiné à une activité sportive, vous pouvez suivre votre évolution dans l'onglet suivi.</br></br>Toutes les semaines votre diététicien vous genère un programme alimentaire adapté à votre régime ainsi qu'aux aliments de votre frigo.</p>
 					</div>
 				</div>
             </div>
@@ -106,9 +101,9 @@
                     <div class="case">
                         <img id="myImg" src="{{ asset('build/images/info.png') }}" alt="" style="width:100%;max-width:200px">
                         <h2 style="font-size:150%;">PROFIL</h2>
-                        <p>Lorem ipsum dolor, sit amet sitee consectetur.</p>
+                        <p>Gérer vos Informations personnelles au cours du temps.</p>
                         {% if app.user %}
-                        <a href="{{ path('info_perso') }}"><button class="btn  fonction" >  MON ESPACE</button></a>
+                        <a href="{{ path('info_perso') }}"><button class="btn  fonction" >  PROFIL</button></a>
                         {% endif %}
                     </div>
                 </div>
@@ -117,7 +112,7 @@
                     <div class="case">
                         <img id="myImg" src="{{ asset('build/images/graphe.png') }}" alt="" style="width:100%;max-width:200px">
                         <h2 style="font-size:150%;">SUIVI</h2>
-                        <p>Lorem ipsum dolor, sit amet sitee consectetur.</p>
+                        <p>Affiche l'évolution du poids, de l'IMC et de l'activité physique au fil du temps.</p>
                         {% if app.user %}
                         <a href="{{ path('suivi_perso') }}"><button class="btn  fonction" >  SUIVI</button></a>
                         {% endif %}
@@ -128,7 +123,7 @@
                     <div class="case">
                         <img id="myImg" src="{{ asset('build/images/nourriture.png') }}" alt="" style="width:100%;max-width:200px">
                         <h2 style="font-size:150%">PROGRAMMES</h2>
-                        <p>Lorem ipsum dolor, sit amet sitee consectetur.</p>
+                        <p>Vos programmes alimentaires pour une semaine.</p>
                         {% if app.user %}
                         <a href="{{ path('mon_programme') }}"><button class="btn  fonction" >  PROGRAMMES</button></a>
                         {% endif %}
@@ -139,7 +134,7 @@
                     <div class="case">
                         <img id="myImg" src="{{ asset('build/images/inventaire.png') }}" alt="" style="width:100%;max-width:200px">
                         <h2 style="font-size:150%;">INVENTAIRE</h2>
-                        <p>Lorem ipsum dolor, sit amet sitee consectetur.</p>
+                        <p>Répertorie les aliments qui se trouvent dans votre frigo.</p>
                         {% if app.user %}
                         <a href="{{ path('mon_inventaire') }}"><button class="btn  fonction" >  INVENTAIRE</button></a>
                         {% endif %}
