@@ -30,7 +30,7 @@ class HealtheatController extends AbstractController
      */
     public function perso(Request $request, ObjectManager $manager)
     {
-        if($this->getUser()->getId() == NULL){
+        if($this->getUser() == NULL){
             return $this->render('security/connexion.html.twig', [
                 'controller_name' => 'Healtheat_Controller',
             ]);
@@ -96,7 +96,7 @@ class HealtheatController extends AbstractController
      */
     public function info_perso()
     {
-        if($this->getUser()->getId() == NULL){
+        if($this->getUser() == NULL){
             return $this->render('security/connexion.html.twig', [
                 'controller_name' => 'Healtheat_Controller',
             ]);
@@ -118,6 +118,12 @@ class HealtheatController extends AbstractController
      */
     public function mon_programme()
     {
+        if($this->getUser() == NULL){
+            return $this->render('security/connexion.html.twig', [
+                'controller_name' => 'Healtheat_Controller',
+            ]);
+        }
+
         return $this->render('healtheat/programme.html.twig', [
             'controller_name' => 'HealtheatController',
         ]);
@@ -128,6 +134,12 @@ class HealtheatController extends AbstractController
      */
     public function mon_inventaire()
     {
+        if($this->getUser() == NULL){
+            return $this->render('security/connexion.html.twig', [
+                'controller_name' => 'Healtheat_Controller',
+            ]);
+        }
+
         return $this->render('healtheat/inventaire.html.twig', [
             'controller_name' => 'HealtheatController',
         ]);
@@ -139,7 +151,7 @@ class HealtheatController extends AbstractController
 
     public function suivi_perso()
     {
-        if($this->getUser()->getId() == NULL){
+        if($this->getUser() == NULL){
             return $this->render('security/connexion.html.twig', [
                 'controller_name' => 'Healtheat_Controller',
             ]);
@@ -199,5 +211,23 @@ class HealtheatController extends AbstractController
             'dateTemps' => $dateTemps,
         ]);
     }
-}
+
+    /**
+     * @Route("/InfoCrea", name = "qui_sommes_nous")
+     */
+    public function qui_sommes_nous()
+    {
+        if($this->getUser() == NULL){
+            return $this->render('security/connexion.html.twig', [
+                'controller_name' => 'Healtheat_Controller',
+            ]);
+        }
+
+        return $this->render('healtheat/qui_sommes_nous.html.twig', [
+            'controller_name' => 'HealtheatController',
+        ]);
+    }
+} 
+
+
 
