@@ -141,6 +141,18 @@
 
     <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
+    {% if dateTemps | date('%d') >= 6 %}
+        {{ dateTemps |date('%d') }}
+    {% endif %}
+    
+    <br>
+
+    {% if datePoids | date('%d') >= 80 %}
+        {{ datePoids |date('%d') }}
+    {% endif %}
+    
+    
+
      <button onclick="saisir_poid2()">Click me</button> 
 
     <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>

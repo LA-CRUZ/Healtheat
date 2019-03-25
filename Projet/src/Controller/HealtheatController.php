@@ -175,8 +175,28 @@ class HealtheatController extends AbstractController
      */
     public function page_test()
     {
+        $repository = $this->getDoctrine()->getRepository(InfoUser::class);
+
+        $date = new DateTime();
+
+        $id = $this->getUser()->getId();
+
+        $info = $repository->find($id);
+
+        if ($info->getPoids()->last() != NULL) 
+            $datePoids = $info->getPoids()->last()->getDate()->diff($date);
+        else   
+            $datePoids = NULL;
+
+        if ($info->getTempsActivitePhysique()->last() != NULL) 
+            $dateTemps = $info->getTempsActivitePhysique()->last()->getDate()->diff($date);
+        else   
+            $dateTemps = NULL;
+
+
         return $this->render('healtheat/page_test.html.twig', [
-            'controller_name' => 'HealtheatController',
+            'datePoids' => $datePoids,
+            'dateTemps' => $dateTemps,
         ]);
     }
 }
