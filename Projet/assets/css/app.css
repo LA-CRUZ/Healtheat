@@ -152,7 +152,7 @@ footer h4{
 }
 
 .description p{
-	text-align: justify;
+	text-align: center;
 	color: rgb(32, 32, 32);
 	font-family: 'Quicksand', sans-serif;
 	font-size: 20px;
