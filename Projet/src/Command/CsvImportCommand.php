@@ -4,6 +4,7 @@ namespace App\Command;
 
 use League\Csv\Reader;
 use App\Entity\Recette;
+use App\Entity\IngredCSV;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputOption;
@@ -88,25 +89,32 @@ class CsvImportCommand extends Command
 
             $io->title('Importation des ingredients');
 
-            $reader = Reader::createFromPath('%kernel.root_dir%/../src/Data/Recette.csv');
+            $reader = Reader::createFromPath('%kernel.root_dir%/../src/Data/ingredcsv.csv');
+
+            $repository = $this->getDoctrine()->getRepository(Recette::class);
 
             $results = $reader->fetchAssoc();
 
             foreach ($results as $row){
 
-                // $kcal = rand(300, 1200);
-                // $recette = (new Recette())
-                //     ->setNom($row['nom'])
-                //     ->setImage($row['image'])
-                //     ->setDescription($row['description'])
-                //     ->setKcal($kcal)
-                //     ->setTempsPrep($row['temps'])
-                //     ->setTypeRepas($row['type'])
-                //     ->setTags($row['tags'])
-                //     ->setDifficulte($row['difficulte'])
-                // ;
-                // $this->manager->persist($recette);
+                $recetteString = $row['recette'];
+
+                $recette = $repository->findOneBy([
+                    'nom' => $recetteString
+                ]);
+
+                if($recette != NULL){
+                    $ingredCSV = (new IngredCSV())
+                        ->setIngredientString($row['ingredient'])
+                        ->setRecette($recette)
+                    ;
+                    $this->manager->persist($ingredCSV);
+                }
             }
+
+            $reader2 = Reader::createFromPath('%kernel.root_dir%/../src/Data/ingred .csv');
+
+            $results2 = $reader->fetchAssoc();
         }
         if($input->getOption('all') || $choix == 'all'){
 
