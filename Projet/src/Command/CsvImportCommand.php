@@ -112,7 +112,7 @@ class CsvImportCommand extends Command
                 }
             }
 
-            $reader2 = Reader::createFromPath('%kernel.root_dir%/../src/Data/ingred.csv');
+            $reader2 = Reader::createFromPath('%kernel.root_dir%/../src/Data/ingred .csv');
 
             $results2 = $reader->fetchAssoc();
         }
