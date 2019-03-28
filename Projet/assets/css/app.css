@@ -537,10 +537,16 @@ footer h4{
 	font-size: 20px;
 	padding-top: 7px;
 	margin: 5px 10px 0px 10px;
-	border-color: white;
+	border-color: rgb(0, 125, 183);
 	transition: 0.2s;
 }
 
 .linkedin i{
-	font-size: 18px;
+	font-size: 22px;
+}
+
+.linkedin:hover i{
+	font-size: 22px;
+	transition: 1s;
+	transform: rotate(360deg); /* Équivalent à rotateZ(45deg) */
 }
