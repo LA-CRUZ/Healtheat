@@ -267,7 +267,7 @@
                                         {% endif %}
                                         </div>
                                         <div class="col-sm-4">
-                                        <p>Rapport Taille Hanche <i onclick="aide()" class="fas fa-question-circle icon_aide"></i></p>
+                                        <p>Rapport<i onclick="aide()" class="fas fa-question-circle icon_aide"></i></p>
                                         </div>
                                         {% if info_user.getTourTaille() != NULL and info_user.getTourHanche() != NULL %}
                                             {{ info_user.getTourTaille() / info_user.getTourHanche() }}
@@ -283,7 +283,7 @@
                                                     (info_user.getTourTaille() / info_user.getTourHanche() > 0.80 and info_user.sexe == 'femme') %}
                                                         <br><br>
                                                         <div class="alert alert-info" role="alert">
-                                                            Ok
+                                                            Normal
                                                         </div>
                                                 
                                                 {% else %}
@@ -291,7 +291,7 @@
                                                         (info_user.getTourTaille() / info_user.getTourHanche() < 0.85 and info_user.sexe == 'femme') %}
                                                             <br><br>
                                                             <div class="alert alert-success" role="alert">
-                                                                Ez
+                                                                Bien
                                                             </div>
                                                     {% endif %}
                                                 {% endif %}
