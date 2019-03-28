@@ -69,6 +69,8 @@ class HealtheatController extends AbstractController
                 } else {
                     $InfoUser->setImc(NULL);
                 }
+            } else {
+                $InfoUser->setImc(NULL);
             }
             if($InfoUser->getLTemps() != NULL){
                 $newtemps = new TempsEffortPhy();
@@ -222,6 +224,7 @@ class HealtheatController extends AbstractController
                 'controller_name' => 'Healtheat_Controller',
             ]);
         }
+            
 
         return $this->render('healtheat/qui_sommes_nous.html.twig', [
             'controller_name' => 'HealtheatController',
