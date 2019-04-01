@@ -193,10 +193,8 @@ class HealtheatController extends AbstractController
                 $programme->addRecette($recette);
                 $i++;
             }
-            var_dump($id);
         }
 
-        sleep(10);
         $manager->persist($programme);
         $manager->flush();
 
