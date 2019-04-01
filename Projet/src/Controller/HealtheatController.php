@@ -5,7 +5,9 @@ namespace App\Controller;
 use DateTime;
 use App\Entity\Poids;
 
+use App\Entity\Recette;
 use App\Entity\InfoUser;
+use App\Entity\Programmes;
 use App\Form\InfoPersoType;
 use App\Entity\TempsEffortPhy;
 use Symfony\Component\HttpFoundation\Request;
@@ -18,10 +20,34 @@ class HealtheatController extends AbstractController
     /**
      * @Route("/", name="healtheat")
      */
-    public function index()
+    public function index(Request $requete, ObjectManager $manager)
     {
+        // $id = $this->getUser()->getId();
+
+        // $InfoUser = $manager->getRepository(InfoUser::class)->find($id);
+
+        // $date = new DateTime();
+
+        // if ($InfoUser->getPoids()->last() != NULL) 
+        //     $datePoids = $InfoUser->getPoids()->last()->getDate()->diff($date);
+        // else   
+        //     $datePoids = NULL;
+
+        // if ($InfoUser->getTempsActivitePhysique()->last() != NULL) 
+        //     $dateTemps = $InfoUser->getTempsActivitePhysique()->last()->getDate()->diff($date);
+        // else   
+        //     $dateTemps = NULL;
+
+        // if($requete->isXMLHttpRequest()){
+        //     $poids = $request->get('poids');
+        //     $sport = $request->get('sport');
+
+        //     var_dump($poids);
+        // }
+
         return $this->render('healtheat/index.html.twig', [
-            'controller_name' => 'HealtheatController',
+        //    'datePoids' => $datePoids,
+        //    'dateTemps' => $dateTemps
         ]);
     }
 
@@ -43,12 +69,13 @@ class HealtheatController extends AbstractController
 
         $form->handleRequest($request);
 
+        $date = new DateTime();
+
         if($form->isSubmitted() && $form->isValid()) {
             $this->addFlash(
                 'notice',
                 'Vos changement ont été sauvegardé !'
             );
-            $date = new DateTime();
             if($InfoUser->getLPoids() != NULL)
             {
                         $newpoids = new Poids();
@@ -88,7 +115,6 @@ class HealtheatController extends AbstractController
         }
 
         return $this->render('healtheat/perso.html.twig', [
-            'controller_name' => 'HealtheatController', 
             'form' => $form->createView()
         ]);
     }
@@ -128,6 +154,52 @@ class HealtheatController extends AbstractController
 
         return $this->render('healtheat/programme.html.twig', [
             'controller_name' => 'HealtheatController',
+        ]);
+    }
+
+
+    /**
+     * @Route("/generer", name="generer_programme")
+     */
+    public function generer_programme(ObjectManager $manager)
+    {
+        if($this->getUser() == NULL){
+            return $this->render('security/connexion.html.twig', [
+                'controller_name' => 'Healtheat_Controller',
+            ]);
+        }
+
+        $repositoryRecette = $manager->getRepository(Recette::class);
+        $repositoryUser = $manager->getRepository(InfoUser::class);
+
+        $iduser = $this->getUser()->getId();
+
+        $user = $repositoryUser->find($iduser);
+
+        $programme = new Programmes();
+
+        $i = 0;
+
+        $programme->setUtilisateur($user);
+
+        while($i < 21){
+            $recette = new Recette();
+
+            $id = rand(1, 111);
+
+            $recette = $repositoryRecette->find($id);
+
+            if(!$programme->getRecette()->contains($recette)){
+                $programme->addRecette($recette);
+                $i++;
+            }
+        }
+
+        $manager->persist($programme);
+        $manager->flush();
+
+        return $this->render('healtheat/programme.html.twig', [
+            'controller_name' => 'HealtheatController'
         ]);
     }
 

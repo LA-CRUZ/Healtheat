@@ -53,14 +53,67 @@
         })
     }
 
+    function saisir_poids(){
+        Swal.mixin({
+        customClass: {
+                confirmButton: 'mick',
+                cancelButton: 'mick'
+        },
+        buttonsStyling: false,
+        showCancelButton: true,
+        width:'500px',
+        type:'question',
+        input:'text',
+        confirmButtonText: 'CONTINUER',
+        cancelButtonText: 'PLUS TARD',
+        backdrop:'rgb(0,0,0,0.92)'
+        }).queue([
+        {   // Si il veut modifier maintenant ou une autre fois
+            title: '<h1>ATTENTION</h1>',
+            type:'warning',
+            html:
+                    '<p class="testalert">Les informations que vous avez renseignez sur le site pour votre suivi personnel ne sont plus à jour, voulez vous les mettre à jour maintenant ou plus tard ?</p>',
+            input:null
+        },
+        {   // Si il a pas indiqué depuis 1 semaine
+            input:'text',
+            title: 'Votre poid après une semaine de programme ?',
+            confirmButtonText: 'SUIVANT',
+        },
+        {   // Si il a pas indiqué depuis 1 semaine
+            input:'text',
+            title: 'Votre temps d\'activité physique cette semaine ?',
+            confirmButtonText: 'TERMINER',
+        },
+        ]).then((result) => {
+        if (result.value) {
+            Swal.fire({
+            title: 'Informations enregistrés !',
+            type: 'success',
+            backdrop:false,
+            position:'bottom-end',
+            heightAuto:false,
+            showConfirmButton: false,
+            timer: 2000,
+            html:
+                console.log(result.value),
+            })
+        }
+        })
+    }
 
 
 </script>
 
-    {# {% if app.user %}
-            <script>alert_connexion()</script>
-    {% else %}        
-            <script>alert_deconnexion()</script>
+
+    {# {% if dateTemps | date('%d') >= 6 %}
+        <script>saisir_poids()</script>    
+    {% endif %}
+    
+    <br>
+
+    {% if datePoids | date('%d') >= 6 %}
+        <script>saisir_poids()</script>
     {% endif %} #}
 
     <div id="home">
