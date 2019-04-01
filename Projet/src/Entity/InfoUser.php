@@ -126,6 +126,11 @@ class InfoUser
      */
     private $inventaire;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Programmes", mappedBy="utilisateur", orphanRemoval=true)
+     */
+    private $programmes;
+
     public function __construct()
     {
         $this->intolerance = new ArrayCollection();
@@ -133,6 +138,7 @@ class InfoUser
         $this->poids = new ArrayCollection();
         $this->temps_activite_physique = new ArrayCollection();
         $this->inventaire = new ArrayCollection();
+        $this->programmes = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -395,6 +401,37 @@ class InfoUser
     {
         if ($this->inventaire->contains($inventaire)) {
             $this->inventaire->removeElement($inventaire);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Programmes[]
+     */
+    public function getProgrammes(): Collection
+    {
+        return $this->programmes;
+    }
+
+    public function addProgramme(Programmes $programme): self
+    {
+        if (!$this->programmes->contains($programme)) {
+            $this->programmes[] = $programme;
+            $programme->setUtilisateur($this);
+        }
+
+        return $this;
+    }
+
+    public function removeProgramme(Programmes $programme): self
+    {
+        if ($this->programmes->contains($programme)) {
+            $this->programmes->removeElement($programme);
+            // set the owning side to null (unless already changed)
+            if ($programme->getUtilisateur() === $this) {
+                $programme->setUtilisateur(null);
+            }
         }
 
         return $this;

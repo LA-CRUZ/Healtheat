@@ -19,18 +19,19 @@ class Programmes
     private $id;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\ManyToOne(targetEntity="App\Entity\InfoUser", inversedBy="programmes")
+     * @ORM\JoinColumn(nullable=false)
      */
-    private $id_u;
+    private $utilisateur;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Repas", mappedBy="id_programme")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Recette")
      */
-    private $Repas;
+    private $Recette;
 
     public function __construct()
     {
-        $this->Repas = new ArrayCollection();
+        $this->Recette = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -38,44 +39,39 @@ class Programmes
         return $this->id;
     }
 
-    public function getIdU(): ?int
+    public function getUtilisateur(): ?InfoUser
     {
-        return $this->id_u;
+        return $this->utilisateur;
     }
 
-    public function setIdU(int $id_u): self
+    public function setUtilisateur(?InfoUser $utilisateur): self
     {
-        $this->id_u = $id_u;
+        $this->utilisateur = $utilisateur;
 
         return $this;
     }
 
     /**
-     * @return Collection|Repas[]
+     * @return Collection|Recette[]
      */
-    public function getRepas(): Collection
+    public function getRecette(): Collection
     {
-        return $this->Repas;
+        return $this->Recette;
     }
 
-    public function addRepa(Repas $repa): self
+    public function addRecette(Recette $recette): self
     {
-        if (!$this->Repas->contains($repa)) {
-            $this->Repas[] = $repa;
-            $repa->setIdProgramme($this);
+        if (!$this->Recette->contains($recette)) {
+            $this->Recette[] = $recette;
         }
 
         return $this;
     }
 
-    public function removeRepa(Repas $repa): self
+    public function removeRecette(Recette $recette): self
     {
-        if ($this->Repas->contains($repa)) {
-            $this->Repas->removeElement($repa);
-            // set the owning side to null (unless already changed)
-            if ($repa->getIdProgramme() === $this) {
-                $repa->setIdProgramme(null);
-            }
+        if ($this->Recette->contains($recette)) {
+            $this->Recette->removeElement($recette);
         }
 
         return $this;
