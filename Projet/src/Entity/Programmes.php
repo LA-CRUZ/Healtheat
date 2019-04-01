@@ -29,6 +29,11 @@ class Programmes
      */
     private $Recette;
 
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $date_debut;
+
     public function __construct()
     {
         $this->Recette = new ArrayCollection();
@@ -73,6 +78,18 @@ class Programmes
         if ($this->Recette->contains($recette)) {
             $this->Recette->removeElement($recette);
         }
+
+        return $this;
+    }
+
+    public function getDateDebut(): ?\DateTimeInterface
+    {
+        return $this->date_debut;
+    }
+
+    public function setDateDebut(\DateTimeInterface $date_debut): self
+    {
+        $this->date_debut = $date_debut;
 
         return $this;
     }
