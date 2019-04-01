@@ -210,9 +210,7 @@ class HealtheatController extends AbstractController
         $manager->persist($programme);
         $manager->flush();
 
-        return $this->render('healtheat/programme.html.twig', [
-            'controller_name' => 'HealtheatController'
-        ]);
+        return $this->redirectToRoute('mon_programme');
     }
 
      /**
