@@ -1,18 +1,21 @@
+- Accès inscription et connexion quand déja connecté.
+- Changer position "L'équipe" le mettre dans le footer.
 - Programmes recettes.
+OK Design Programme.
 - Rajouter recettes sur accueil.
 OK Scrapping aliments.
 - Inventaire.
 - Fixtures.
 ~ Entrer le poid par semaine.
-- Gérer les erreurs dans les formulaires quand le type n'est pas le bon.
-- Mettre unités formulaires.
+- Gérer les erreurs dans les formulaires quand le type n'est pas le bon. !!!
+OK Mettre unités formulaires.
 OK Finir le Footer. (bouton up, ...).
 OK Faire le designe de la page de suivi.
 OK Problème collapse espace perso. 
-- IMC présent quand le poid ou la taille est effacé.
+OK IMC présent quand le poid ou la taille est effacé.
 - Ajout de quelques images.
 - Se renseigner pour le changement de mot de passe.
-- Se renseigner sur le mot de passe oublié.
+X Se renseigner sur le mot de passe oublié.
 OK Collapse d'aide dans l'espace perso.
 OK Remplir les textes du site.
 OK Faire la page " Qui sommes nous ? "
