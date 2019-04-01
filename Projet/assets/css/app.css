@@ -86,17 +86,7 @@ body {
 	font-family: 'Quicksand', sans-serif;
 }
 
-footer{
-    width: 100%;
-	background-color: white;
-	color: rgb(194, 23, 42);
-    box-shadow: 1px 3px 12px rgb(46, 45, 45);
-}
 
-footer h4{
-	color: rgb(32, 32, 32);
-	font-weight: bold;
-}
 
 .connexion {
 	color: rgb(194, 23, 42);
@@ -198,6 +188,28 @@ footer h4{
   	border-color: rgb(58, 58, 58);
 }
 
+footer{
+    width: 100%;
+	background-color: white;
+	color: rgb(194, 23, 42);
+    box-shadow: 1px 3px 12px rgb(46, 45, 45);
+}
+
+footer h4{
+	color: rgb(32, 32, 32);
+	font-weight: bold;
+}
+
+footer a{
+	color: rgb(194, 23, 42);
+	font-size:20px;
+}
+
+footer a:hover{
+	color: rgb(194, 23, 42);
+	font-size:20px;
+}
+
 #home2{
 	background: url(../images/baniere2.jpg) no-repeat center center fixed;
 	display: table;
@@ -206,8 +218,6 @@ footer h4{
 	width: 100%;
 	background-size: cover;
 }
-
-#myImg { padding-top: 90px;}
 
 .fonction {
 	color: rgb(194, 23, 42);
@@ -654,3 +664,4 @@ footer h4{
 .img_rece{
 	border: solid 2px rgb(194, 23, 42);
 }
+

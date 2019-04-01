@@ -144,7 +144,7 @@ class HealtheatController extends AbstractController
     /**
      * @Route("/programme", name = "mon_programme")
      */
-    public function mon_programme()
+    public function mon_programme(ObjectManager $manager)
     {
         if($this->getUser() == NULL){
             return $this->render('security/connexion.html.twig', [
@@ -152,8 +152,16 @@ class HealtheatController extends AbstractController
             ]);
         }
 
+        $repository = $manager->getRepository(Programmes::class);
+        $repositoryUser = $manager->getRepository(InfoUser::class);
+
+        $user = $this->getUser();
+        $InfoUser = $repositoryUser->find($user->getId());
+
+        $programme = $InfoUser->getProgrammes()->last();
+
         return $this->render('healtheat/programme.html.twig', [
-            'controller_name' => 'HealtheatController',
+            'programmes' => $programme,
         ]);
     }
 
@@ -169,6 +177,8 @@ class HealtheatController extends AbstractController
             ]);
         }
 
+        $date = new DateTime();
+
         $repositoryRecette = $manager->getRepository(Recette::class);
         $repositoryUser = $manager->getRepository(InfoUser::class);
 
@@ -177,6 +187,8 @@ class HealtheatController extends AbstractController
         $user = $repositoryUser->find($iduser);
 
         $programme = new Programmes();
+
+        $programme->setDateDebut($date);
 
         $i = 0;
 
