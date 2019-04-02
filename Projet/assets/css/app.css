@@ -583,7 +583,7 @@ footer a:hover{
 
 .style_titre{
 	color: rgb(194, 23, 42);
-	font-size: 19px;
+	font-size: 20px;
 	text-decoration: overline;
 }
 
@@ -626,34 +626,9 @@ footer a:hover{
 	transform: rotate(360deg); /* Équivalent à rotateZ(45deg) */
 }
 
-.type_r{
-	color: rgb(194, 23, 42);
-	font-size: 40px;
-}
-
-.type_r p{
-	text-decoration: overline;	
-}
-
 .info_recette i{
 	padding-right: 15px;
 }
-
-/* .btnjour {
-	color: rgb(194, 23, 42);
-	background-color: white;
-	height: 40px;
-	font-family: 'Quicksand', sans-serif;
-	border-radius: 2rem;
-	font-weight: bold;
-	font-size: 16px;
-	padding-top: 7px;
-	border-color: rgb(194, 23, 42);
-} */
-
-/* .test{
-	padding: 10px 0 10px 0;
-} */
 
 .eqcssre hr {
 	display: block;
@@ -672,6 +647,7 @@ footer a:hover{
 	border: solid 2px rgb(194, 23, 42);
 }
 
-.qui{
-	cursor: pointer;
+.detail_r i{
+	color: rgb(194, 23, 42);
+	padding-right: 15px;
 }
