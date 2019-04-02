@@ -578,6 +578,7 @@ footer a:hover{
 	font-weight: bold;
 	font-size: 36px;
 	text-decoration: overline;
+	text-transform: uppercase;
 }
 
 .style_titre{
@@ -587,27 +588,27 @@ footer a:hover{
 }
 
 .btn_recette{
-	color: rgb(194, 23, 42);
-	background-color: white;
-	height: 40px;
+	color: white;
+	background-color: rgb(194, 23, 42);
+	height: 38px;
 	width: 100%;
 	font-family: 'Quicksand', sans-serif;
 	border-radius: 2rem;
 	font-weight: bold;
-	font-size: 16px;
+	font-size: 17px;
 	padding-top: 7px;
 	margin: 5px 10px 0px 10px;
 	border-color: rgb(194, 23, 42);
 }
 
 .btn_recette:hover {
-	color: white;
-	background-color: rgb(194, 23, 42);
-	height: 40px;
+	color: rgb(194, 23, 42);
+	background-color: white;
+	height: 38px;
 	font-family: 'Quicksand', sans-serif;
 	border-radius: 3rem;
 	font-weight: bold;
-	font-size: 16px;
+	font-size: 17px;
 	padding-top: 7px;
 	margin: 5px 10px 0px 10px;
 	border-color: rgb(194, 23, 42);

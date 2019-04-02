@@ -314,7 +314,6 @@ class HealtheatController extends AbstractController
             ]);
         }
 
-        $repositoryRecette = $manager->getRepository(Recette::class);
         $repositoryUser = $manager->getRepository(InfoUser::class);
 
         $iduser = $this->getUser()->getId();
@@ -323,7 +322,7 @@ class HealtheatController extends AbstractController
 
         $programme = $user->getProgrammes()->last();
 
-        if(!$programme){
+        if($programme != false){
             $user->removeProgramme($programme);
             $manager->persist($user);
             $manager->flush();
