@@ -194,7 +194,7 @@ class HealtheatController extends AbstractController
 
         $programme->setUtilisateur($user);
 
-        while($i < 21){
+        while($i < 14){
             $recette = new Recette();
 
             $id = rand(1, 111);
