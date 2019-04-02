@@ -141,7 +141,7 @@
     </script>
 
     <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-
+{# 
     {% if dateTemps | date('%d') >= 6 %}
         {{ dateTemps |date('%d') }}
     {% endif %}
@@ -152,7 +152,12 @@
         {{ datePoids |date('%d') }}
     {% endif %}
     
-    
+     #}
+
+         {% for connerie in programmes.getRecette() %}
+        <p> {{ connerie.nom }}</p>
+    {% endfor %}
+
 
      <button onclick="saisir_poid2()">Click me</button> 
 
