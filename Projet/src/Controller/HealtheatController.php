@@ -269,30 +269,19 @@ class HealtheatController extends AbstractController
     /**
      * @Route("/test", name = "page_test")
      */
-    public function page_test()
+    public function page_test(ObjectManager $manager)
     {
-        $repository = $this->getDoctrine()->getRepository(InfoUser::class);
+        $repository = $manager->getRepository(Programmes::class);
+        $repositoryUser = $manager->getRepository(InfoUser::class);
 
-        $date = new DateTime();
+        $user = $this->getUser();
+        $InfoUser = $repositoryUser->find($user->getId());
 
-        $id = $this->getUser()->getId();
-
-        $info = $repository->find($id);
-
-        if ($info->getPoids()->last() != NULL) 
-            $datePoids = $info->getPoids()->last()->getDate()->diff($date);
-        else   
-            $datePoids = NULL;
-
-        if ($info->getTempsActivitePhysique()->last() != NULL) 
-            $dateTemps = $info->getTempsActivitePhysique()->last()->getDate()->diff($date);
-        else   
-            $dateTemps = NULL;
-
+        $programme = $InfoUser->getProgrammes()->last();
+ 
 
         return $this->render('healtheat/page_test.html.twig', [
-            'datePoids' => $datePoids,
-            'dateTemps' => $dateTemps,
+            'programmes' => $programme,
         ]);
     }
 
@@ -311,6 +300,36 @@ class HealtheatController extends AbstractController
         return $this->render('healtheat/qui_sommes_nous.html.twig', [
             'controller_name' => 'HealtheatController',
         ]);
+    }
+
+
+    /**
+     * @Route("/suppr", name= "supprimer")
+     */
+    public function supprimer(ObjectManager $manager)
+    {
+        if($this->getUser() == NULL){
+            return $this->render('security/connexion.html.twig', [
+                'controller_name' => 'Healtheat_Controller',
+            ]);
+        }
+
+        $repositoryUser = $manager->getRepository(InfoUser::class);
+
+        $iduser = $this->getUser()->getId();
+
+        $user = $repositoryUser->find($iduser);
+
+        $programme = $user->getProgrammes()->last();
+
+        if($programme != false){
+            $user->removeProgramme($programme);
+            $manager->persist($user);
+            $manager->flush();
+        }
+
+        return $this->redirectToRoute('mon_programme');
+
     }
 } 
 

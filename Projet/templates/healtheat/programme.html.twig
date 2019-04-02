@@ -30,7 +30,10 @@
                 <h2 class="titre_co">MON PROGRAMME</h2>
                 <hr align=center width="20%">
             </div>
-            {# <a href="{{ path('mon_programme') }}"><button class="btn  btnprogramme" ><i class="fas fa-utensils"></i>  GÉNERER MON PROGRAMME</button></a> #}
+
+            {% if programmes == false %}
+                <a href="{{ path('generer_programme') }}"><button class="btn  btnprogramme" ><i class="fas fa-utensils"></i>  GÉNERER MON PROGRAMME</button></a>
+            {% else %}     
 
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse repellendus facilis obcaecati asperiores nisi itaque, labore iure quae nemo quos. Autem mollitia, accusantium dignissimos maiores quod culpa nulla repellendus cum!
             Doloremque rerum nostrum itaque? A asperiores, quas necessitatibus ad magnam eum officia consequuntur autem minus odit eveniet maiores maxime in aut magni itaque quam vitae, animi corrupti, corporis illo fugiat?
@@ -74,6 +77,7 @@
                         {% endfor %}
                     </div>
                 {% endfor %}
+            {% endif %}
                 </div>
                 <div class="col-sm-1"></div>
             </div>
