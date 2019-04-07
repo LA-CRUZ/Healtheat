@@ -1,0 +1,73 @@
+{% extends "base.html.twig" %}
+
+{% block stylesheet %}
+    {{ encore_entry_link_tags('') }}
+    <link rel="stylesheet" href="/build/InfoPersoForm.css">
+{% endblock %}
+
+{% block body %}
+
+    <script>
+        function maFonction()
+        {
+            document.getElementById("test").style.backgroundColor = "rgb(255, 255, 255)";
+            document.getElementById("test").style.boxShadow = "1px 3px 12px rgb(0, 0, 0)";
+            document.getElementById("elem-menu").style.color = "rgb(194, 23, 42)";
+            document.getElementById("elem-menu2").style.color = "rgb(194, 23, 42)";
+            document.getElementById("elem-menu3").style.color = "rgb(194, 23, 42)";
+            document.getElementById("elem-menu4").style.color = "rgb(194, 23, 42)";
+            document.getElementById("elem-menu5").style.color = "rgb(194, 23, 42)";
+            document.getElementById("elem-menu6").style.color = "rgb(194, 23, 42)";
+                  
+        }
+
+        maFonction();
+
+    </script>
+
+    <div id="homep" class="container-fluid">
+            <div class="landing-textp">
+                <div class="case_connexion">
+                    <div class=eqcss>
+                        <h2 class="titre_co">DETAILS DE LA RECETTE</h2>
+                        <hr align=center width="20%">
+                    </div>
+                    <br><br>
+                    <div class="row">
+                        <div class="col-sm-1"></div>
+                        <div class="col-sm-5">
+                            <img class="img_rece" src="{{ recette.image }}" alt="" style="width:100%;max-width:400px;">
+                        </div>
+                        <div class="col-sm-5">
+                            <p class="detail_r_titre"><i class="fas fa-utensils"></i>  {{ recette.nom }}</p>
+                            <br><br>
+                            <p class="detail_r_elem"><i class="fas fa-award"></i> Difficulté : {{ recette.difficulte }}</p>
+                            <p class="detail_r_elem"><i class="fas fa-stopwatch"></i> Temps de préparation :  {{ recette.getTempsPrep() }} min</p>
+                            <p class="detail_r_elem"><i class="fas fa-weight"></i></i> Nombre de calories :  {{ recette.kcal }} kcal</p>
+                        </div>
+                        <div class="col-sm-1"></div>
+                    </div>
+                    <br><br>
+                    <div class="row">
+                        <div class="col-sm-1"></div>
+                        <div class="col-sm-5" style="text-align:justify" id="info_p">
+                            <p style="text-align:center">INGREDIENTS</p>
+                            <ul>
+                                {% for ingredient in recette.ingredient %}
+                                    <li> {{ ingredient.getIngredientString() }} </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        <div class="col-sm-5" style="text-align:justify" id="info_p">
+                            <p>DESCRIPTION</p>
+                            {{ recette.description | raw }}       
+                        </div>
+                        <div class="col-sm-1"></div>
+                    </div>
+
+                </div>          
+            </div>               
+        </div>           
+    </div>
+
+{% endblock %}

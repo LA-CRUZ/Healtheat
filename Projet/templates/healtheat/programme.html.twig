@@ -60,7 +60,7 @@
                                     {% else %}
                                         <p class="style_titre"><ion-icon name="moon"></ion-icon> SOIR</p>
                                     {% endif %}
-                                        <a href="{{ path('security_connexion') }}"><button class="btn btn_recette" ><i class="fas fa-book"></i>  VOIR </button></a>
+                                        <a href="{{ path('recette', {"id" : recette.id}) }}"><button class="btn btn_recette" ><i class="fas fa-book"></i>  VOIR </button></a>
                                         <a href="{{ path('security_connexion') }}"><button class="btn btn_recette" ><i class="fas fa-sync-alt"></i>  CHANGER </button></a>   
                                     </div>
                                 </div>

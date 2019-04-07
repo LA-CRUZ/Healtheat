@@ -331,6 +331,16 @@ class HealtheatController extends AbstractController
         return $this->redirectToRoute('mon_programme');
 
     }
+
+    /**
+     * @Route("/recette/{id}", name="recette")
+     */
+    public function recette(Recette $recette)
+    {
+        return $this->render('healtheat/recette.html.twig', [
+            'recette' => $recette,
+        ]);   
+    }
 } 
 
 
