@@ -140,26 +140,60 @@
 
     </script>
 
-    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-{# 
-    {% if dateTemps | date('%d') >= 6 %}
-        {{ dateTemps |date('%d') }}
-    {% endif %}
-    
-    <br>
 
-    {% if datePoids | date('%d') >= 80 %}
-        {{ datePoids |date('%d') }}
-    {% endif %}
-    
-     #}
+    {# 
+        {% if dateTemps | date('%d') >= 6 %}
+            {{ dateTemps |date('%d') }}
+        {% endif %}
+    #}
 
-         {% for connerie in programmes.getRecette() %}
-        <p> {{ connerie.nom }}</p>
-    {% endfor %}
+    <div id="homep" class="container-fluid">
+            <div class="landing-textp">
+                <div class="case_connexion">
+                    <div class=eqcss>
+                        <h2 class="titre_co">DETAILS DE LA RECETTE</h2>
+                        <hr align=center width="20%">
+                    </div>
+                    <br><br>
+                    <div class="row">
+                        <div class="col-sm-1"></div>
+                        <div class="col-sm-5">
+                            <img class="img_rece" src="https://www.cuisine-etudiant.fr/image/recette/400250/01f1e352c5ff38c799c75767834a2575554c694d-poivrons-aux-oeufs.jpg" alt="" style="width:100%;max-width:400px;">
+                        </div>
+                        <div class="col-sm-5">
+                            <p class="detail_r_titre"><i class="fas fa-utensils"></i> Poivrons aux œufs</p>
+                            <br><br>
+                            <p class="detail_r_elem"><i class="fas fa-award"></i>Difficulté : Facile</p>
+                            <p class="detail_r_elem"><i class="fas fa-stopwatch"></i>Temps de préparation :  13 min</p>
+                            <p class="detail_r_elem"><i class="fas fa-weight"></i></i>Nombre de calories :  385 calories</p>
+                        </div>
+                        <div class="col-sm-1"></div>
+                    </div>
+                    <br><br>
+                    <div class="row">
+                        <div class="col-sm-1"></div>
+                        <div class="col-sm-5" style="text-align:justify" id="info_p">
+                            <p style="text-align:center">INGREDIENTS</p>
+                            <ul>
+                                <li>2 avocats </li>
+                                <li>le jus d'un citron</li>
+                                <li>¼ de concombre, coupé grossièrement</li>
+                                <li>1 petite tomate, coupée</li>
+                            </ul>
+                        </div>
+                        <div class="col-sm-5" style="text-align:justify" id="info_p">
+                            <p>DESCRIPTION</p>
+                                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minima ducimus id dolorum maxime, reiciendis corporis beatae omnis rem nostrum assumenda quasi, ut reprehenderit optio nihil voluptate quidem officia, nemo odio.
+                                Magni illum deserunt in veniam vero quibusdam dolore error fuga? Deserunt similique quibusdam praesentium dolores expedita dolorum sapiente soluta excepturi rerum id, ullam enim esse quos ea laboriosam nobis nihil!
+                                Voluptates quisquam quam sunt vitae nulla sed sint iure esse molestias cum quia vero assumenda incidunt repellendus quas ab animi aperiam, fuga illum hic eaque earum cupiditate vel! Distinctio,inventore.
+                        </div>
+                        <div class="col-sm-1"></div>
+                    </div>
 
+                </div>          
+            </div>               
+        </div>           
+    </div>
 
-     <button onclick="saisir_poid2()">Click me</button> 
-
-    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    {# <button onclick="saisir_poid2()">Click me</button>  #}
 {% endblock %}

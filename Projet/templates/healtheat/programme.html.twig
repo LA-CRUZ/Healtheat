@@ -46,7 +46,7 @@
                 {% set i = 0 %}
                 {% for jour in programmes.getRecette()|batch(2) %}
                     <div class="row case">
-                        <p class="jour_recette">{{ programmes.getDateDebut()| date_modify("+" ~ i ~ "day")|localizeddate('none', 'none', null, null, 'EEEE')}}</p>
+                        <p class="jour_recette">{{ programmes.getDateDebut()| date_modify("+" ~ i ~ "day")|localizeddate('none', 'none', 'fr', null, 'EEEE d')}}</p>
                         {% set i = i + 1 %}
                         {% for recette in jour %}
                             <div class="col-sm-5">

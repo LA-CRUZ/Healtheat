@@ -192,7 +192,8 @@ footer{
     width: 100%;
 	background-color: white;
 	color: rgb(194, 23, 42);
-    box-shadow: 1px 3px 12px rgb(46, 45, 45);
+	box-shadow: 1px 3px 12px rgb(46, 45, 45);
+	font-family: 'Quicksand', sans-serif;
 }
 
 footer h4{
@@ -650,4 +651,23 @@ footer a:hover{
 .detail_r i{
 	color: rgb(194, 23, 42);
 	padding-right: 15px;
+}
+
+.detail_r_titre{
+	color: rgb(194, 23, 42);
+	text-decoration: overline;
+	font-size: 30px;
+}
+
+.detail_r_titre i{
+	margin-right: 10px;
+}
+
+.detail_r_elem{
+	font-size: 20px;
+}
+
+.detail_r_elem i{
+	margin-right: 10px;
+	color: rgb(194, 23, 42);
 }
