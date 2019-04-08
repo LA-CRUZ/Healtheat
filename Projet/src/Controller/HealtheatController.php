@@ -23,32 +23,17 @@ class HealtheatController extends AbstractController
      */
     public function index(Request $requete, ObjectManager $manager)
     {
-        // $id = $this->getUser()->getId();
+        if($this->getUser() != NULL){
+            $id = $this->getUser()->getId();
+            $InfoUser = $manager->getRepository(InfoUser::class)->find($id);
+            $programme = $InfoUser->getProgrammes()->last();
+        } else {
+            $programme = NULL;
+        }
 
-        // $InfoUser = $manager->getRepository(InfoUser::class)->find($id);
-
-        // $date = new DateTime();
-
-        // if ($InfoUser->getPoids()->last() != NULL) 
-        //     $datePoids = $InfoUser->getPoids()->last()->getDate()->diff($date);
-        // else   
-        //     $datePoids = NULL;
-
-        // if ($InfoUser->getTempsActivitePhysique()->last() != NULL) 
-        //     $dateTemps = $InfoUser->getTempsActivitePhysique()->last()->getDate()->diff($date);
-        // else   
-        //     $dateTemps = NULL;
-
-        // if($requete->isXMLHttpRequest()){
-        //     $poids = $request->get('poids');
-        //     $sport = $request->get('sport');
-
-        //     var_dump($poids);
-        // }
 
         return $this->render('healtheat/index.html.twig', [
-        //    'datePoids' => $datePoids,
-        //    'dateTemps' => $dateTemps
+            'programme' => $programme,
         ]);
     }
 

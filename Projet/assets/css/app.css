@@ -671,3 +671,12 @@ footer a:hover{
 	margin-right: 10px;
 	color: rgb(194, 23, 42);
 }
+
+.recette_accueil{
+	text-align: center;
+	height: 100%;
+	font-family: 'Quicksand', sans-serif;
+	font-weight: bold;
+	font-size: 18px;
+	padding: 50px 0px 50px 0px;
+}
