@@ -10,6 +10,7 @@ use App\Entity\InfoUser;
 use App\Entity\Programmes;
 use App\Form\InfoPersoType;
 use App\Entity\TempsEffortPhy;
+use App\Repository\RecetteRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\Routing\Annotation\Route;
@@ -341,6 +342,22 @@ class HealtheatController extends AbstractController
             'recette' => $recette,
         ]);   
     }
+
+    /**
+    * @Route("/changement/{id}/{id}", name="changement")
+    */
+    // public function changementRecette(RecetteRepository $repo, Programme $programme, Recette $recette)
+    // {
+    //     $id = rand(1, 111);
+
+    //     $newRecette = $repo->find($id);        
+
+    //     $programme->removeRecette($recette);
+
+    //     $programme->addRecette($newRecette);
+
+    //     return $this->redirectToRoute('mon_programme');
+    // }
 } 
 
 
