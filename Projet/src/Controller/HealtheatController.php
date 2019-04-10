@@ -10,6 +10,7 @@ use App\Entity\InfoUser;
 use App\Entity\Programmes;
 use App\Form\InfoPersoType;
 use App\Entity\TempsEffortPhy;
+use App\Repository\RecetteRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\Routing\Annotation\Route;
@@ -22,32 +23,17 @@ class HealtheatController extends AbstractController
      */
     public function index(Request $requete, ObjectManager $manager)
     {
-        // $id = $this->getUser()->getId();
+        if($this->getUser() != NULL){
+            $id = $this->getUser()->getId();
+            $InfoUser = $manager->getRepository(InfoUser::class)->find($id);
+            $programme = $InfoUser->getProgrammes()->last();
+        } else {
+            $programme = NULL;
+        }
 
-        // $InfoUser = $manager->getRepository(InfoUser::class)->find($id);
-
-        // $date = new DateTime();
-
-        // if ($InfoUser->getPoids()->last() != NULL) 
-        //     $datePoids = $InfoUser->getPoids()->last()->getDate()->diff($date);
-        // else   
-        //     $datePoids = NULL;
-
-        // if ($InfoUser->getTempsActivitePhysique()->last() != NULL) 
-        //     $dateTemps = $InfoUser->getTempsActivitePhysique()->last()->getDate()->diff($date);
-        // else   
-        //     $dateTemps = NULL;
-
-        // if($requete->isXMLHttpRequest()){
-        //     $poids = $request->get('poids');
-        //     $sport = $request->get('sport');
-
-        //     var_dump($poids);
-        // }
 
         return $this->render('healtheat/index.html.twig', [
-        //    'datePoids' => $datePoids,
-        //    'dateTemps' => $dateTemps
+            'programme' => $programme,
         ]);
     }
 
@@ -341,6 +327,22 @@ class HealtheatController extends AbstractController
             'recette' => $recette,
         ]);   
     }
+
+    /**
+    * @Route("/changement/{id}/{id}", name="changement")
+    */
+    // public function changementRecette(RecetteRepository $repo, Programme $programme, Recette $recette)
+    // {
+    //     $id = rand(1, 111);
+
+    //     $newRecette = $repo->find($id);        
+
+    //     $programme->removeRecette($recette);
+
+    //     $programme->addRecette($newRecette);
+
+    //     return $this->redirectToRoute('mon_programme');
+    // }
 } 
 
 

@@ -699,3 +699,11 @@ footer a:hover{
 	transition: 0.2s;
 }
 
+.recette_accueil{
+	text-align: center;
+	height: 100%;
+	font-family: 'Quicksand', sans-serif;
+	font-weight: bold;
+	font-size: 18px;
+	padding: 50px 0px 50px 0px;
+}

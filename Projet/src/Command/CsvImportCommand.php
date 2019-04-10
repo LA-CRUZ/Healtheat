@@ -59,12 +59,18 @@ class CsvImportCommand extends Command
     {
         $io = new SymfonyStyle($input, $output);
 
+        $repositoryR = $this->manager->getRepository(Recette::class);
+        $videR = $repositoryR->findAll();
+
+        $repositoryI = $this->manager->getRepository(Ingredient::class);
+        $videI = $repositoryI->findAll();
+
         if($input->getOption('recette') == false and $input->getOption('ingredient') == false and $input->getOption('all') == false)
             $choix = $io->choice('Selectionnez le jeu de donnée à importer', ['recette', 'ingredient', 'all'], 'all');
         else
             $choix = '';
 
-        if($input->getOption('recette') || $choix == 'recette'){
+        if(($input->getOption('recette') || $choix == 'recette') && $videR == NULL){
 
             $io->title('Importation des recettes');
 
@@ -88,7 +94,7 @@ class CsvImportCommand extends Command
                 $this->manager->persist($recette);
             }
         }
-        if($input->getOption('ingredient') || $choix == 'ingredient'){
+        if(($input->getOption('ingredient') || $choix == 'ingredient') && $videI == NULL){
 
             $io->title('Importation des ingredients');
 
@@ -141,7 +147,7 @@ class CsvImportCommand extends Command
             $barre->finish();
             
         }
-        if($input->getOption('all') || $choix == 'all'){
+        if(($input->getOption('all') || $choix == 'all') && $videR == NULL && $videI == NULL){
 
             $io->title('Importation des recettes et des ingredients');
 

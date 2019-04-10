@@ -45,9 +45,9 @@
                 <div class="col-sm-10">
                 {% set i = 0 %}
                 {% for jour in programmes.getRecette()|batch(2) %}
+                    {# {% if (programmes.getDateDebut() | date_modify("+" ~ i ~ "days")) >= date() %} #}
                     <div class="row case">
                         <p class="jour_recette">{{ programmes.getDateDebut()| date_modify("+" ~ i ~ "day")|localizeddate('none', 'none', 'fr', null, 'EEEE d')}}</p>
-                        {% set i = i + 1 %}
                         {% for recette in jour %}
                             <div class="col-sm-5">
                                 <div class="row">
@@ -61,7 +61,7 @@
                                         <p class="style_titre"><ion-icon name="moon"></ion-icon> SOIR</p>
                                     {% endif %}
                                         <a href="{{ path('recette', {"id" : recette.id}) }}"><button class="btn btn_recette" ><i class="fas fa-book"></i>  VOIR </button></a>
-                                        <a href="{{ path('security_connexion') }}"><button class="btn btn_recette" ><i class="fas fa-sync-alt"></i>  CHANGER </button></a>   
+                                        <a href="{{ path('recette', {"id" : recette.id}) }}"><button class="btn btn_recette" ><i class="fas fa-sync-alt"></i>  CHANGER </button></a>   
                                     </div>
                                 </div>
                                 <br>
@@ -76,12 +76,13 @@
                             {% endif %}
                         {% endfor %}
                     </div>
+                    {# {% endif %} #}
+                    {% set i = i + 1 %}
                 {% endfor %}
             {% endif %}
                 </div>
                 <div class="col-sm-1"></div>
             </div>
-
         </div>
     </div>
 </div>

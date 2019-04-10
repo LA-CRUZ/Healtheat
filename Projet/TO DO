@@ -3,13 +3,13 @@
 - Rangement css avec Commentaire
 OK Accès inscription et connexion quand déja connecté.
 OK Changer position "L'équipe" le mettre dans le footer.
-- Pages recettes
+OK Pages recettes
 Ok Design page recette
-OK Programmes recettes.
+~ Programmes recettes.
 OK Design Programme.
 OK Rajouter recettes sur accueil.
 OK Scrapping aliments.
-- Inventaire.
+~ Inventaire.
 - Fixtures.
 ~ Entrer le poid par semaine.
 - Gérer les erreurs dans les formulaires quand le type n'est pas le bon. !!!
@@ -24,7 +24,8 @@ X Se renseigner sur le mot de passe oublié.
 OK Collapse d'aide dans l'espace perso.
 OK Remplir les textes du site.
 OK Faire la page " Qui sommes nous ? "
-- Diaporama + Texte.
+~ Diaporama + Texte.
 - Rapport.
 - Changer poids au lieu de ne pas le Mettre
 - Couleur menu quand précédent.
+~ csv:import
