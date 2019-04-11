@@ -1,5 +1,7 @@
 {% extends "base.html.twig" %}
 
+{% block title %} {{ recette.nom }} {% endblock %}
+
 {% block stylesheet %}
     {{ encore_entry_link_tags('') }}
     <link rel="stylesheet" href="/build/InfoPersoForm.css">

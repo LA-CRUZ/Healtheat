@@ -1,5 +1,7 @@
 {% extends "base.html.twig" %}
 
+{% block title %} Mon inventaire {% endblock %}
+
 {% block stylesheet %}
     {# {{ encore_entry_link_tags('') }}
     <link rel="stylesheet" href="/build/InfoPersoForm.css"> #}
@@ -22,13 +24,24 @@
         maFonction();
  </script>
 
-  <div id="homep">
-            <div class="landing-textp">
+  <div id="homep" class="container-fluid">
+            <div class="landing-textp ">
                 <div class="case_connexion">
                     <div class=eqcss>
-                        <h2 class="titre_co">MON INVENTAIRE</h2>
+                        <h2 class="titre_co">INVENTAIRE</h2>
                         <hr align=center width="20%">
                     </div>
+                    {% for i in 0..5 %}
+                        <div class="row" text_align:center;>
+                            <div class="col-sm-1"></div>
+                            {% for i in 0..4 %}
+                                <div class="col-sm-2 ">
+                                    <p class="case_ingred">Ingrédient 1</p>
+                                </div>
+                            {% endfor %}  
+                            <div class="col-sm-1"></div>  
+                        </div>
+                    {% endfor %}
                 </div>
             </div>
 </div>

@@ -707,3 +707,12 @@ footer a:hover{
 	font-size: 18px;
 	padding: 50px 0px 50px 0px;
 }
+
+.case_ingred{
+	box-shadow: 6px 6px 10px 6px rgba(0, 0, 0, 0.4);
+	height: auto;
+	width: 100%;
+	border-radius: 10px;
+	padding: 10px;
+	margin-bottom: 20px;
+}

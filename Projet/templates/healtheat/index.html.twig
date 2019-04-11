@@ -1,7 +1,5 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}HEALTH EAT{% endblock %}
-
 {% block body %}
 
 <script>
@@ -123,7 +121,7 @@
             </div>
     </div>
 
-    <section id="section2">
+    <section id="section2" class="container-fluid">
         {% if not app.user or (app.user and programme == false) %}
         <div class="container-fluid">
             <div class="description">
