@@ -63,9 +63,15 @@ class Recette
      */
     private $ingredient;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\ProgContenu", mappedBy="Recette", orphanRemoval=true)
+     */
+    private $Programme;
+
     public function __construct()
     {
         $this->ingredient = new ArrayCollection();
+        $this->Programme = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -194,6 +200,37 @@ class Recette
             // set the owning side to null (unless already changed)
             if ($ingredient->getRecette() === $this) {
                 $ingredient->setRecette(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|ProgContenu[]
+     */
+    public function getProgramme(): Collection
+    {
+        return $this->Programme;
+    }
+
+    public function addProgramme(ProgContenu $programme): self
+    {
+        if (!$this->Programme->contains($programme)) {
+            $this->Programme[] = $programme;
+            $programme->setRecette($this);
+        }
+
+        return $this;
+    }
+
+    public function removeProgramme(ProgContenu $programme): self
+    {
+        if ($this->Programme->contains($programme)) {
+            $this->Programme->removeElement($programme);
+            // set the owning side to null (unless already changed)
+            if ($programme->getRecette() === $this) {
+                $programme->setRecette(null);
             }
         }
 

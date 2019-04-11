@@ -8,11 +8,15 @@ use App\Entity\Poids;
 use App\Entity\Recette;
 use App\Entity\InfoUser;
 use App\Entity\Programmes;
+use App\Entity\ProgContenu;
 use App\Form\InfoPersoType;
 use App\Entity\TempsEffortPhy;
+use Doctrine\ORM\EntityManager;
+use App\Entity\ProgrammesContenu;
 use App\Repository\RecetteRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\Common\Persistence\ObjectManager;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
@@ -167,6 +171,7 @@ class HealtheatController extends AbstractController
 
         $repositoryRecette = $manager->getRepository(Recette::class);
         $repositoryUser = $manager->getRepository(InfoUser::class);
+        $repositoryContenu = $manager->getRepository(ProgContenu::class);
 
         $iduser = $this->getUser()->getId();
 
@@ -180,21 +185,29 @@ class HealtheatController extends AbstractController
 
         $programme->setUtilisateur($user);
 
+        $doublon = array();
+
         while($i < 14){
+            $contenu = new ProgContenu();
             $recette = new Recette();
 
             $id = rand(1, 111);
 
             $recette = $repositoryRecette->find($id);
 
-            if(!$programme->getRecette()->contains($recette)){
-                $programme->addRecette($recette);
+            if(!in_array($recette, $doublon)){
+                array_push($doublon, $recette);
+                $contenu->setProgramme($programme);
+                $contenu->setRecette($recette);
+                $programme->addRecette($contenu);
+                $manager->persist($contenu);
                 $i++;
-            }
+            }            
         }
 
         $manager->persist($programme);
         $manager->flush();
+        
 
         return $this->redirectToRoute('mon_programme');
     }
@@ -343,6 +356,29 @@ class HealtheatController extends AbstractController
 
     //     return $this->redirectToRoute('mon_programme');
     // }
+
+    /**
+     * @Route("/changement/{id}/recette", name="changement")
+     */
+    public function changementRecette(ProgContenu $contenu, ObjectManager $manager, RecetteRepository $repoR) {
+
+        $random = rand(1,111);
+        $newRecette = $repoR->find($random);
+
+        $recette = $contenu->getRecette();
+
+        $contenu->setRecette($newRecette);
+
+        $manager->persist($contenu);
+        $manager->flush();
+
+
+        return $this->json([
+            'message' => 'Recette changé',
+            'AncienneRecette' => $recette->getNom(),
+            'NouvelleRecette' => $newRecette->getNom(),
+        ], 200);
+    }
 } 
 
 

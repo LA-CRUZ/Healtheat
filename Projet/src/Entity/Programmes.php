@@ -25,14 +25,14 @@ class Programmes
     private $utilisateur;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Recette")
-     */
-    private $Recette;
-
-    /**
      * @ORM\Column(type="datetime")
      */
     private $date_debut;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\ProgContenu", mappedBy="programme", orphanRemoval=true)
+     */
+    private $Recette;
 
     public function __construct()
     {
@@ -56,32 +56,6 @@ class Programmes
         return $this;
     }
 
-    /**
-     * @return Collection|Recette[]
-     */
-    public function getRecette(): Collection
-    {
-        return $this->Recette;
-    }
-
-    public function addRecette(Recette $recette): self
-    {
-        if (!$this->Recette->contains($recette)) {
-            $this->Recette[] = $recette;
-        }
-
-        return $this;
-    }
-
-    public function removeRecette(Recette $recette): self
-    {
-        if ($this->Recette->contains($recette)) {
-            $this->Recette->removeElement($recette);
-        }
-
-        return $this;
-    }
-
     public function getDateDebut(): ?\DateTimeInterface
     {
         return $this->date_debut;
@@ -90,6 +64,37 @@ class Programmes
     public function setDateDebut(\DateTimeInterface $date_debut): self
     {
         $this->date_debut = $date_debut;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|ProgContenu[]
+     */
+    public function getRecette(): Collection
+    {
+        return $this->Recette;
+    }
+
+    public function addRecette(ProgContenu $recette): self
+    {
+        if (!$this->Recette->contains($recette)) {
+            $this->Recette[] = $recette;
+            $recette->setProgramme($this);
+        }
+
+        return $this;
+    }
+
+    public function removeRecette(ProgContenu $recette): self
+    {
+        if ($this->Recette->contains($recette)) {
+            $this->Recette->removeElement($recette);
+            // set the owning side to null (unless already changed)
+            if ($recette->getProgramme() === $this) {
+                $recette->setProgramme(null);
+            }
+        }
 
         return $this;
     }
