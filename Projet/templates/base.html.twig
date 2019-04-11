@@ -28,16 +28,6 @@
         <link rel="stylesheet" href="/build/app.css">
 
         {% endblock %}
-    
-        {% block javascripts %}
-            {{ encore_entry_script_tags('app') }}
-
-            <script src="/build/runtime.js"></script>
-            <script src="/build/scroll-down.js"></script>
-            <script src="/build/test.js"></script>
-            <script src="/build/app.js"></script>
-            
-        {% endblock %}
 
     </head>
     <body>  
@@ -121,4 +111,15 @@
         </div>
         </footer>     
     </body>
+
+    {% block javascripts %}
+            {{ encore_entry_script_tags('app') }}
+
+            <script src="/build/runtime.js"></script>
+            <script src="/build/scroll-down.js"></script>
+            <script src="/build/test.js"></script>
+            <script src="/build/app.js"></script>
+            
+    {% endblock %}
+
 </html>

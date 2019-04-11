@@ -5,23 +5,8 @@
     <link rel="stylesheet" href="/build/InfoPersoForm.css"> #}
 {% endblock %}
 
+
 {% block body %}
-
- <script>
-        function maFonction()
-        {
-            document.getElementById("test").style.backgroundColor = "rgb(255, 255, 255)";
-            document.getElementById("test").style.boxShadow = "1px 3px 12px rgb(0, 0, 0)";
-            document.getElementById("elem-menu").style.color = "rgb(194, 23, 42)";
-            document.getElementById("elem-menu2").style.color = "rgb(194, 23, 42)";
-            document.getElementById("elem-menu3").style.color = "rgb(194, 23, 42)";
-            document.getElementById("elem-menu4").style.color = "rgb(194, 23, 42)";
-            document.getElementById("elem-menu5").style.color = "rgb(194, 23, 42)";
-            document.getElementById("elem-menu6").style.color = "rgb(194, 23, 42)";
-        }
-
-        maFonction();
- </script>
 
 <div id="homep" class="container-fluid">
     <div class="landing-textp">
@@ -45,14 +30,14 @@
                 <div class="col-sm-10">
                 {% set i = 0 %}
                 {% for jour in programmes.getRecette()|batch(2) %}
-                    {# {% if (programmes.getDateDebut() | date_modify("+" ~ i ~ "days")) >= date() %} #}
+                    {% if (programmes.getDateDebut() | date_modify("+" ~ i ~ "days")) | date("d/m/Y") >= date() | date("d/m/Y") %}
                     <div class="row case">
                         <p class="jour_recette">{{ programmes.getDateDebut()| date_modify("+" ~ i ~ "day")|localizeddate('none', 'none', 'fr', null, 'EEEE d')}}</p>
                         {% for recette in jour %}
                             <div class="col-sm-5">
                                 <div class="row">
                                     <div class="col-sm-6">
-                                        <img class="img_rece" src={{ recette.image }} alt="" style="width:100%;max-width:300px;">
+                                        <img class="img_rece" src={{ recette.recette.image }} alt="" style="width:100%;max-width:300px;">
                                     </div>
                                     <div class="col-sm-6">
                                     {% if loop.index0 %2 == 0 %}
@@ -60,23 +45,23 @@
                                     {% else %}
                                         <p class="style_titre"><ion-icon name="moon"></ion-icon> SOIR</p>
                                     {% endif %}
-                                        <a href="{{ path('recette', {"id" : recette.id}) }}"><button class="btn btn_recette" ><i class="fas fa-book"></i>  VOIR </button></a>
-                                        <a href="{{ path('recette', {"id" : recette.id}) }}"><button class="btn btn_recette" ><i class="fas fa-sync-alt"></i>  CHANGER </button></a>   
+                                        <a href="{{ path('recette', { "id" : recette.recette.id }) }}" class="btn btn_recette" ><i class="fas fa-book"></i>  VOIR</a>
+                                        <a href=" {{ path('changement', { "id" : recette.id }) }} " class="js-change btn btn_recette" ><i class="fas fa-sync-alt"></i>  CHANGER</a>   
                                     </div>
                                 </div>
                                 <br>
-                                <p class="detail_r"><i class="fas fa-utensils"></i> {{ recette.nom }}</p>
-                                <p class="detail_r"><i class="fas fa-award"></i>  {{ recette.difficulte }}</p>
-                                <p class="detail_r"><i class="fas fa-stopwatch"></i>  {{ recette.getTempsPrep() }} min</p>
+                                <p class="detail_r"><i class="fas fa-utensils"></i> {{ recette.recette.nom }}</p>
+                                <p class="detail_r"><i class="fas fa-award"></i>  {{ recette.recette.difficulte }}</p>
+                                <p class="detail_r"><i class="fas fa-stopwatch"></i>  {{ recette.recette.getTempsPrep() }} min</p>
                             </div>
                             {% if loop.index0 %2 == 0 %}
-                                <div class=" col-sm-2 eqcssre">
+                                <div class="col-sm-2 eqcssre">
                                     <hr align="center">
                                 </div>
                             {% endif %}
                         {% endfor %}
                     </div>
-                    {# {% endif %} #}
+                    {% endif %}
                     {% set i = i + 1 %}
                 {% endfor %}
             {% endif %}
@@ -88,4 +73,36 @@
 </div>
 
 
+{% endblock %}
+
+{% block javascripts %}
+
+    <script>
+            document.getElementById("test").style.backgroundColor = "rgb(255, 255, 255)";
+            document.getElementById("test").style.boxShadow = "1px 3px 12px rgb(0, 0, 0)";
+            document.getElementById("elem-menu").style.color = "rgb(194, 23, 42)";
+            document.getElementById("elem-menu2").style.color = "rgb(194, 23, 42)";
+            document.getElementById("elem-menu3").style.color = "rgb(194, 23, 42)";
+            document.getElementById("elem-menu4").style.color = "rgb(194, 23, 42)";
+            document.getElementById("elem-menu5").style.color = "rgb(194, 23, 42)";
+    </script>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+
+        function onClickChange(event){
+            event.preventDefault();
+
+            const url = this.href;
+
+            axios.get(url).then(function(response){
+                console.log(response);
+            })
+        }
+
+        document.querySelectorAll('a.js-change').forEach(function(link){
+            link.addEventListener('click', onClickChange);
+        });
+
+    </script>
 {% endblock %}
