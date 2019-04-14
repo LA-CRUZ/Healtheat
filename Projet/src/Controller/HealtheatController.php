@@ -291,11 +291,7 @@ class HealtheatController extends AbstractController
      */
     public function qui_sommes_nous()
     {
-        if($this->getUser() == NULL){
-            return $this->render('security/connexion.html.twig', [
-                'controller_name' => 'Healtheat_Controller',
-            ]);
-        }
+       
             
 
         return $this->render('healtheat/qui_sommes_nous.html.twig', [

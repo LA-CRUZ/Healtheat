@@ -38,10 +38,21 @@ class SecurityController extends AbstractController
 
             return $this->redirectToRoute('security_connexion');
         }
+       
+        $estCo = false;
 
+        if($this->getUser() == NULL && $estCo == false){
         return $this->render('security/inscription.html.twig', [
             'form' => $form->createView()
         ]);
+        $estCo = true;
+        }
+        else{
+            //return $this->render('healtheat/index.html.twig', []);
+            return $this->redirectToRoute('healtheat');
+        }
+
+
     }
 
     /**
