@@ -1,4 +1,4 @@
-- MODE ADMIN SI POSSIBLE
+X MODE ADMIN SI POSSIBLE
 OK Changer les titles selon les pages
 - Résoudre pb langue docker date
 - Commentaire du code
@@ -7,7 +7,7 @@ OK Accès inscription et connexion quand déja connecté.
 OK Changer position "L'équipe" le mettre dans le footer.
 OK Pages recettes
 Ok Design page recette
-~ Programmes recettes.
+OK Programmes recettes.
 OK Design Programme.
 OK Rajouter recettes sur accueil.
 OK Scrapping aliments.
@@ -30,5 +30,5 @@ OK Faire la page " Qui sommes nous ? "
 - Rapport.
 - Changer poids au lieu de ne pas le Mettre
 - Couleur menu quand précédent.
-- Graphe IMC
+OK Graphe IMC
 OK csv:import

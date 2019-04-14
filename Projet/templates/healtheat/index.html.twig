@@ -154,7 +154,7 @@
                                     <div class="col-sm-5">
                                         <div class="row">
                                             <div class="col-sm-6">
-                                                <img class="img_rece" src={{ recette.image }} alt="" style="width:100%;max-width:300px;">
+                                                <img class="img_rece" src={{ recette.recette.image }} alt="" style="width:100%;max-width:300px;">
                                             </div>
                                             <div class="col-sm-6">
                                             {% if loop.index0 %2 == 0 %}
@@ -162,13 +162,13 @@
                                             {% else %}
                                                 <p class="style_titre"><ion-icon name="moon"></ion-icon> SOIR</p>
                                             {% endif %}
-                                                <a href="{{ path('recette', {"id" : recette.id}) }}"><button class="btn btn_recette" ><i class="fas fa-book"></i>  VOIR </button></a>   
+                                                <a href="{{ path('recette', {"id" : recette.recette.id}) }}"><button class="btn btn_recette" ><i class="fas fa-book"></i>  VOIR </button></a>   
                                             </div>
                                         </div>
                                         <br>
-                                        <p class="detail_r"><i class="fas fa-utensils"></i> {{ recette.nom }}</p>
-                                        <p class="detail_r"><i class="fas fa-award"></i>  {{ recette.difficulte }}</p>
-                                        <p class="detail_r"><i class="fas fa-stopwatch"></i>  {{ recette.getTempsPrep() }} min</p>
+                                        <p class="detail_r"><i class="fas fa-utensils"></i> {{ recette.recette.nom }}</p>
+                                        <p class="detail_r"><i class="fas fa-award"></i>  {{ recette.recette.difficulte }}</p>
+                                        <p class="detail_r"><i class="fas fa-stopwatch"></i>  {{ recette.recette.getTempsPrep() }} min</p>
                                     </div>
                                     {% if loop.index0 %2 == 0 %}
                                         <div class=" col-sm-2 eqcssre">

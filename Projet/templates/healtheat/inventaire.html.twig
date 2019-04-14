@@ -28,19 +28,25 @@
             <div class="landing-textp ">
                 <div class="case_connexion">
                     <div class=eqcss>
-                        <h2 class="titre_co">INVENTAIRE</h2>
+                        <p class="titre_co">INVENTAIRE </p>
                         <hr align=center width="20%">
+                        <a href=""><button class="btn btninfo" ><i class="fas fa-plus"></i> AJOUTER PRODUIT</button></a>
                     </div>
                     {% for i in 0..5 %}
-                        <div class="row" text_align:center;>
+                        <div class="row">
                             <div class="col-sm-1"></div>
-                            {% for i in 0..4 %}
-                                <div class="col-sm-2 ">
-                                    <p class="case_ingred">Ingrédient 1</p>
+                            <div class="col-sm-10">
+                                <div class="row">
+                                    {% for i in 0..2 %}
+                                        <div class="col-sm-4">
+                                            <p class="case_ingred">Ingrédient 1 <a><i class="fas fa-times-circle close_inventaire"></i></a></p>
+                                        </div>
+                                    {% endfor %}  
                                 </div>
-                            {% endfor %}  
+                            </div>
                             <div class="col-sm-1"></div>  
                         </div>
+                        <br>
                     {% endfor %}
                 </div>
             </div>
