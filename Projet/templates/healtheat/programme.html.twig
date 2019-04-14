@@ -47,14 +47,14 @@
                                     {% else %}
                                         <p class="style_titre"><ion-icon name="moon"></ion-icon> SOIR</p>
                                     {% endif %}
-                                        <a href="{{ path('recette', { "id" : recette.recette.id }) }}" class="btn btn_recette" ><i class="fas fa-book"></i>  VOIR</a>
+                                        <a href="{{ path('recette', { "id" : recette.recette.id }) }}" class="btn btn_recette r_id" ><i class="fas fa-book"></i>  VOIR</a>
                                         <a href=" {{ path('changement', { "id" : recette.id }) }} " class="js-change btn btn_recette" ><i class="fas fa-sync-alt"></i>  CHANGER</a>   
                                     </div>
                                 </div>
                                 <br>
-                                <p class="detail_r"><i class="fas fa-utensils"></i> {{ recette.recette.nom }}</p>
-                                <p class="detail_r"><i class="fas fa-award"></i>  {{ recette.recette.difficulte }}</p>
-                                <p class="detail_r"><i class="fas fa-stopwatch"></i>  {{ recette.recette.getTempsPrep() }} min</p>
+                                <p class="detail_r r_nom"><i class="fas fa-utensils"></i> {{ recette.recette.nom }}</p>
+                                <p class="detail_r r_diff"><i class="fas fa-award"></i>  {{ recette.recette.difficulte }}</p>
+                                <p class="detail_r r_temps"><i class="fas fa-stopwatch"></i>  {{ recette.recette.getTempsPrep() }} min</p>
                             </div>
                             {% if loop.index0 %2 == 0 %}
                                 <div class="col-sm-2 eqcssre">
@@ -96,13 +96,30 @@
             event.preventDefault();
 
             const url = this.href;
+            
+            var urlRecette = '{{ path('recette', {'id': 'id_recette'}) }}';
+
+            const imageRecette = this.parentElement.parentElement.parentElement.querySelector('img.img_rece');
+            const nomRecette = this.parentElement.parentElement.parentElement.querySelector('p.r_nom');
+            const tempsRecette = this.parentElement.parentElement.parentElement.querySelector('p.r_temps');
+            const diffRecette = this.parentElement.parentElement.parentElement.querySelector('p.r_diff');
+            const idRecette = this.parentElement.parentElement.parentElement.querySelector('a.r_id');
+
 
             axios.get(url).then(function(response){
+                urlRecette = urlRecette.replace("id_recette", response.data.Id);
                 console.log(response);
+                imageRecette.setAttribute("src",response.data.Image);
+                idRecette.setAttribute("href", urlRecette);
+                nomRecette.innerHTML = "<i class='fas fa-utensils'></i>" + response.data.NouvelleRecette;
+                tempsRecette.innerHTML = "<i class='fas fa-stopwatch'></i>" + response.data.TempsPrep + " min";
+                diffRecette.innerHTML = "<i class='fas fa-award'></i>" + response.data.Difficulte;
+                
             })
         }
 
         document.querySelectorAll('a.js-change').forEach(function(link){
+            
             link.addEventListener('click', onClickChange);
         });
 

@@ -11,13 +11,15 @@ use App\Entity\Programmes;
 use App\Entity\ProgContenu;
 use App\Form\InfoPersoType;
 use App\Entity\TempsEffortPhy;
-use Doctrine\ORM\EntityManager;
-use App\Entity\ProgrammesContenu;
 use App\Repository\RecetteRepository;
+use Symfony\Component\Serializer\Serializer;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Serializer\Encoder\XmlEncoder;
+use Symfony\Component\Serializer\Encoder\JsonEncoder;
+use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class HealtheatController extends AbstractController
@@ -298,11 +300,7 @@ class HealtheatController extends AbstractController
      */
     public function qui_sommes_nous()
     {
-        if($this->getUser() == NULL){
-            return $this->render('security/connexion.html.twig', [
-                'controller_name' => 'Healtheat_Controller',
-            ]);
-        }
+       
             
 
         return $this->render('healtheat/qui_sommes_nous.html.twig', [
@@ -351,26 +349,16 @@ class HealtheatController extends AbstractController
     }
 
     /**
-    * @Route("/changement/{id}/{id}", name="changement")
-    */
-    // public function changementRecette(RecetteRepository $repo, Programme $programme, Recette $recette)
-    // {
-    //     $id = rand(1, 111);
-
-    //     $newRecette = $repo->find($id);        
-
-    //     $programme->removeRecette($recette);
-
-    //     $programme->addRecette($newRecette);
-
-    //     return $this->redirectToRoute('mon_programme');
-    // }
-
-    /**
-     * @Route("/changement/{id}/recette", name="changement")
+     * @Route("/changement/{id}", name="changement")
      */
-    public function changementRecette(ProgContenu $contenu, ObjectManager $manager, RecetteRepository $repoR) {
+    public function changementRecette(ProgContenu $contenu, ObjectManager $manager, RecetteRepository $repoR) :
+    Response {
 
+
+        $encoders = [new JsonEncoder()]; // If no need for XmlEncoder
+        $normalizers = [new ObjectNormalizer()];
+        $serializer = new Serializer($normalizers, $encoders);
+        
         $random = rand(1,111);
         $newRecette = $repoR->find($random);
 
@@ -381,11 +369,20 @@ class HealtheatController extends AbstractController
         $manager->persist($contenu);
         $manager->flush();
 
+        $data = $serializer->serialize($newRecette, 'json', [
+            'circular_reference_handler' => function ($newRecette) {
+                return $newRecette->getId();
+            }
+        ]);
 
         return $this->json([
             'message' => 'Recette changé',
             'AncienneRecette' => $recette->getNom(),
             'NouvelleRecette' => $newRecette->getNom(),
+            'TempsPrep' => $newRecette->getTempsPrep(),
+            'Difficulte' => $newRecette->getDifficulte(),
+            'Id' => $newRecette->getId(),
+            'Image' => $newRecette->getImage(),
         ], 200);
     }
 } 
