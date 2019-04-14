@@ -125,7 +125,7 @@
                                         labels:[{% for date in datapoids %}'{{date.date.format('Y-m-d')}}',{% endfor %}],
                                         datasets:[
                                         {
-                                            label:'Imc',
+                                            label:'Votre IMC',
 
                                             data: [{% for poids in datapoids %}{{poids.poids / (tailleuser * tailleuser )}},{% endfor %}],
 
@@ -134,21 +134,25 @@
 
                                             fill : false,
                                         },{
-                                            label:'Imc-bas',
+                                            label:'IMC-MIN',
 
                                             data: [ {% for poids in datapoids %} {{ imcbas }},{% endfor %} ],
 
-                                            backgroundColor: 'rgba(75,192,192,1)',
-                                            borderColor: 'rgba(75,192,192,1)',
+                                            backgroundColor: 'rgba(0,0,0,0)',
+                                            borderColor: 'rgba(0,192,0,0.3)',
+                                            pointBorderColor: 'rgba(75,192,192,0)',
+                                            pointBackgroundColor: 'rgba(75,192,192,0)',
 
-                                            fill : true,
+                                            fill : false,
                                         },{
-                                            label:'Imc-haut',
+                                            label:'IMC-MAX',
 
                                             data: [ {% for poids in datapoids %} {{ imchaut }},{% endfor %} ],
 
-                                            backgroundColor: 'rgba(75,192,192,1)',
-                                            borderColor: 'rgba(75,192,192,1)',
+                                            backgroundColor: 'rgba(0,0,0,0)',
+                                            borderColor: 'rgba(192,0,0,0.3)',
+                                            pointBorderColor: 'rgba(75,192,192,0)',
+                                            pointBackgroundColor: 'rgba(75,192,192,0)',
 
                                             fill : true,
                                         }]

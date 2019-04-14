@@ -243,12 +243,20 @@ class HealtheatController extends AbstractController
 
         $info = $repository->find($id);
 
+        $imc_max = 0;
+
         $taille = $info->getTaille();
 
         $taille = $taille / 100;
 
         $dataPoids = $info->getPoids();
         $dataTemps = $info->getTempsActivitePhysique();
+
+        foreach ($dataPoids as $poids) {
+            if(($poids->getPoids()/($taille*$taille)) > $imc_max){
+                $imc_max = ($poids->getPoids()/($taille*$taille));
+            }
+        }
 
         $imc_bas = 18.5;
         $imc_haut = 25;
@@ -260,6 +268,7 @@ class HealtheatController extends AbstractController
         'tailleuser' => $taille,
         'imcbas' => $imc_bas,
         'imchaut' => $imc_haut,
+        'imcmax' => $imc_max,
         ]);
     }
 
