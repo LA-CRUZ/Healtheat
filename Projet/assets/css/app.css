@@ -41,7 +41,13 @@ body {
 	font-family: 'Quicksand', sans-serif;
 	transition: 0.5s;
 	text-decoration: overline;
-	
+	outline:none;
+}
+
+.navbar-default .navbar-nav li a:focus{
+	color: white;
+	font-family: 'Quicksand', sans-serif;
+	outline:none;
 }
 
 .landing-textp{
@@ -88,7 +94,7 @@ body {
 
 
 
-.connexion {
+.connexion, .connexion:focus {
 	color: rgb(194, 23, 42);
 	background-color: white;
 	height: 40px;
@@ -99,6 +105,7 @@ body {
 	padding-top: 7px;
 	margin: 5px 10px 0px 10px;
 	border-color: rgb(194, 23, 42);
+	outline: none;
 }
 
 .connexion:hover {
@@ -603,6 +610,7 @@ footer a:hover{
 	padding-top: 7px;
 	margin: 5px 10px 0px 10px;
 	border-color: rgb(194, 23, 42);
+	outline:none;
 }
 
 .btn_recette:hover {
