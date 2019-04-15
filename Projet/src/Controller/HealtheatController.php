@@ -12,15 +12,13 @@ use App\Entity\ProgContenu;
 use App\Form\InfoPersoType;
 use App\Entity\TempsEffortPhy;
 use App\Repository\RecetteRepository;
-use Symfony\Component\Serializer\Serializer;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Serializer\Encoder\XmlEncoder;
-use Symfony\Component\Serializer\Encoder\JsonEncoder;
-use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Repository\InfoUserRepository;
+use App\Repository\IngredientRepository;
 
 class HealtheatController extends AbstractController
 {
@@ -217,7 +215,7 @@ class HealtheatController extends AbstractController
      /**
      * @Route("/inventaire", name = "mon_inventaire")
      */
-    public function mon_inventaire()
+    public function mon_inventaire(InfoUserRepository $repoIU, IngredientRepository $repoIngred, ObjectManager $manager)
     {
         if($this->getUser() == NULL){
             return $this->render('security/connexion.html.twig', [
@@ -225,8 +223,19 @@ class HealtheatController extends AbstractController
             ]);
         }
 
+        $InfoUser = $repoIU->find($this->getUser()->getId());
+
+        if($InfoUser->getInventaire()->isEmpty()){
+            for($i = 0; $i < rand(4, 15); $i++){
+                $ingred = rand(0, 2180);
+                $InfoUser->addInventaire($repoIngred->find($ingred));
+                $manager->persist($InfoUser);
+                $manager->flush();
+            }
+        }
+
         return $this->render('healtheat/inventaire.html.twig', [
-            'controller_name' => 'HealtheatController',
+            'inventaire' => $InfoUser->getInventaire(),
         ]);
     }
 
@@ -353,11 +362,6 @@ class HealtheatController extends AbstractController
      */
     public function changementRecette(ProgContenu $contenu, ObjectManager $manager, RecetteRepository $repoR) :
     Response {
-
-
-        $encoders = [new JsonEncoder()]; // If no need for XmlEncoder
-        $normalizers = [new ObjectNormalizer()];
-        $serializer = new Serializer($normalizers, $encoders);
         
         $random = rand(1,111);
         $newRecette = $repoR->find($random);
@@ -369,12 +373,6 @@ class HealtheatController extends AbstractController
         $manager->persist($contenu);
         $manager->flush();
 
-        $data = $serializer->serialize($newRecette, 'json', [
-            'circular_reference_handler' => function ($newRecette) {
-                return $newRecette->getId();
-            }
-        ]);
-
         return $this->json([
             'message' => 'Recette changé',
             'AncienneRecette' => $recette->getNom(),
@@ -384,6 +382,48 @@ class HealtheatController extends AbstractController
             'Id' => $newRecette->getId(),
             'Image' => $newRecette->getImage(),
         ], 200);
+    }
+
+    /**
+     * @Route("/supprimerIngredient/{id}", name="supprimer_ingred")
+     */
+    public function supprimerIngred($id ,ObjectManager $manager, InfoUserRepository $repoIU, IngredientRepository $repoIngred) :
+    Response {
+
+        $InfoUser = $repoIU->find($this->getUser()->getId());
+        $ingredient = $repoIngred->find($id);
+        $InfoUser->removeInventaire($ingredient);
+
+        $manager->persist($InfoUser);
+        $manager->flush();
+
+        return $this->json([
+            'message' => 'Ingredient supprimé',
+            'ingredient' => $ingredient->getIngredient(),
+        ]);
+    }
+
+
+    /**
+     * @Route("/ajouterIngredient", name="ajouter_ingred")
+     */
+    public function addIngred(ObjectManager $manager, IngredientRepository $repoIngred, InfoUserRepository $repoIU) :
+    Response {
+        
+        $ingredient = $repoIngred->find(rand(1, 2180));
+
+        $InfoUser = $repoIU->find($this->getUser()->getId());
+
+        $InfoUser->addInventaire($ingredient);
+
+        $manager->persist($InfoUser);
+        $manager->flush();
+
+        return $this->json([
+            'message' => 'Ingredient ajouté',
+            'ingredient' => $ingredient->getIngredient(),
+            'id' => $ingredient->getId(),
+        ]);
     }
 } 
 

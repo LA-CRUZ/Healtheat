@@ -30,27 +30,97 @@
                     <div class=eqcss>
                         <p class="titre_co">INVENTAIRE </p>
                         <hr align=center width="20%">
-                        <a href=""><button class="btn btninfo" ><i class="fas fa-plus"></i> AJOUTER PRODUIT</button></a>
+                        <a href="{{ path('ajouter_ingred') }}" class="ajouter_ingred"><button class="btn btninfo" ><i class="fas fa-plus"></i> AJOUTER PRODUIT</button></a>
                     </div>
-                    {% for i in 0..5 %}
-                        <div class="row">
-                            <div class="col-sm-1"></div>
-                            <div class="col-sm-10">
-                                <div class="row">
-                                    {% for i in 0..2 %}
+                   
+                        <div class="row container-fluid" id="row">
+                             {% for ligne in inventaire | batch(3) %}
+                                    {% for ingredient in ligne %}
                                         <div class="col-sm-4">
-                                            <p class="case_ingred">Ingrédient 1 <a><i class="fas fa-times-circle close_inventaire"></i></a></p>
+                                            <p class="case_ingred"> {{ ingredient.ingredient }} <a href="{{ path('supprimer_ingred', {'id' : ingredient.id }) }} " class="close_inventaire"><i class="fas fa-times-circle"></i></a></p>
                                         </div>
                                     {% endfor %}  
-                                </div>
-                            </div>
-                            <div class="col-sm-1"></div>  
+                            {% endfor %}
+                            <span class="fin"></span>
                         </div>
-                        <br>
-                    {% endfor %}
+                    
                 </div>
             </div>
 </div>
 
 
+{% endblock %}
+
+{% block javascripts %}
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+
+    function onClickSuppr(event){
+
+        event.preventDefault();
+
+        const url = this.href;
+        const divsuppr = this.parentElement.parentElement;
+
+        axios.get(url).then(function(response){
+            divsuppr.remove();
+            console.log(response);
+        })
+    }
+
+    function onClickAdd(event){
+
+        event.preventDefault();
+
+        const url = this.href;
+
+        var urlIngred = '{{ path('supprimer_ingred', {'id': 'id_ingred'}) }}';
+
+        const row = document.getElementById('row');
+
+        axios.get(url).then(function(response){
+            console.log(response);
+            
+            console.log(response.data.id);
+            console.log(urlIngred);
+
+            urlIngred = urlIngred.replace("id_ingred", response.data.id);
+
+            console.log(urlIngred);
+
+            var newDiv = document.createElement("div");
+            newDiv.classList.add("col-sm-4");
+
+            var paragraphe = document.createElement("p");
+            paragraphe.classList.add("case_ingred");
+
+            var texte = document.createTextNode(response.data.ingredient);
+
+            var link = document.createElement("a");
+            link.classList.add("close_inventaire");
+            link.href = urlIngred;
+
+            var icon = document.createElement("i");
+            icon.classList.add("fas");
+            icon.classList.add("fa-times-circle");
+
+            link.appendChild(icon);
+            paragraphe.appendChild(link);
+            paragraphe.appendChild(texte);
+            newDiv.appendChild(paragraphe);
+            row.appendChild(newDiv);
+
+            link.addEventListener('click', onClickSuppr);
+        })
+    }
+
+    document.querySelectorAll('a.close_inventaire').forEach(function(link){
+        link.addEventListener('click', onClickSuppr);
+    });
+
+    document.querySelectorAll('a.ajouter_ingred').forEach(function(link){
+        link.addEventListener('click', onClickAdd);
+    });
+
+    </script>
 {% endblock %}
