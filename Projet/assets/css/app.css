@@ -118,7 +118,7 @@ body {
 	font-size: 16px;
 	padding-top: 7px;
 	margin: 5px 10px 0px 10px;
-	border-color: white;
+	border-color: rgb(194, 23, 42);
 	transition: 0.2s;
 }
 
@@ -251,7 +251,7 @@ footer a:hover{
 	font-size: 16px;
 	padding-top: 7px;
 	margin: 20px 10px 0px 10px;
-	border-color: white;
+	border-color: rgb(194, 23, 42);
 	transition: 0.2s;
 }
 
@@ -290,6 +290,16 @@ footer a:hover{
 	border-radius: 10px;
 	padding: 20px;
 	margin-bottom: 20px;
+	
+}
+
+.case h2{
+	color: rgb(44, 43, 43);
+	font-size: 200%;
+	font-family: 'Quicksand', sans-serif;
+	font-weight: bold;
+	text-decoration: overline;
+	padding-top: 10px;
 }
 
 .case2 {
