@@ -6,7 +6,7 @@
 {% endblock %}
 
 {% block body %}
-
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script>
         function maFonction()
         {
@@ -22,9 +22,101 @@
         }
 
         maFonction();
+
+
+        function saisir_poids(){
+            Swal.mixin({
+            customClass: {
+                    confirmButton: 'mick',
+                    cancelButton: 'mick'
+            },
+            buttonsStyling: false,
+            showCancelButton: true,
+            width:'500px',
+            type:'question',
+            input:'text',
+            confirmButtonText: 'CONTINUER',
+            cancelButtonText: 'PLUS TARD',
+            backdrop:'rgb(0,0,0,0.92)'
+            }).queue([
+            {   // Si il veut modifier maintenant ou une autre fois
+                title: '<h1>ATTENTION</h1>',
+                type:'warning',
+                html:
+                        '<p class="testalert">Les informations que vous avez renseignez sur le site pour votre suivi personnel ne sont plus à jour, voulez vous les mettre à jour maintenant ou plus tard ?</p>',
+                input:null
+            },
+            {   // Si il a pas indiqué depuis 1 semaine
+                input:'text',
+                title: 'Votre poid après une semaine de programme ?',
+                confirmButtonText: 'SUIVANT',
+            },
+            {   // Si il a pas indiqué depuis 1 semaine
+                input:'text',
+                title: 'Votre temps d\'activité physique cette semaine ?',
+                confirmButtonText: 'TERMINER',
+            },
+            ]).then((result) => {
+            if (result.value) {
+
+                var url = '{{ path('alerte') }}';
+
+                axios.get(url, {
+                    params: {
+                        poids: result.value[1],
+                        temps: result.value[2]
+                    }
+                }).then(function(response){
+                    console.log(response);
+                });
+
+                Swal.fire({
+                title: 'Informations enregistrés !',
+                type: 'success',
+                backdrop:false,
+                position:'bottom-end',
+                heightAuto:false,
+                showConfirmButton: false,
+                timer: 2000,
+                html:
+                    console.log(result.value),
+                })
+            }
+            })
+        }
     </script>
 
-    {{ recette.nom }}
 
-    {# <button onclick="saisir_poid2()">Click me</button>  #}
+   
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+        
+        <button onclick="saisir_poids()">Click me</button>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <br>
+    <br>
+    <br>
+    
 {% endblock %}

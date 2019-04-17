@@ -25,19 +25,39 @@ class HealtheatController extends AbstractController
     /**
      * @Route("/", name="healtheat")
      */
-    public function index(Request $requete, ObjectManager $manager)
+    public function index(InfoUserRepository $repo)
     {
-        if($this->getUser() != NULL){
-            $id = $this->getUser()->getId();
-            $InfoUser = $manager->getRepository(InfoUser::class)->find($id);
-            $programme = $InfoUser->getProgrammes()->last();
-        } else {
-            $programme = NULL;
-        }
+        $date = new DateTime();
 
+        if($this->getUser() != NULL){
+            $InfoUser = $repo->find($this->getUser()->getId());
+            if($InfoUser->getProgrammes() != NULL){
+                $programme = $InfoUser->getProgrammes()->last();
+            } else {
+                $programme = NULL;
+            }
+
+            if($InfoUser->getTempsActivitePhysique() != NULL){
+                $datetemps = $InfoUser->getTempsActivitePhysique()->last()->getDate()->diff($date);
+            } else {
+                $datetemps = NULL;
+            }
+
+            if($InfoUser->getPoids() != NULL){
+                $datepoids = $InfoUser->getPoids()->last()->getDate()->diff($date);
+            } else {
+                $datepoids = NULL;
+            }
+        } else {
+            return $this->render('security/connexion.html.twig', [
+                'controller_name' => 'Healtheat_Controller',
+            ]);
+        }
 
         return $this->render('healtheat/index.html.twig', [
             'programme' => $programme,
+            'dateTemps' => $datetemps,
+            'datePoids' => $datepoids,
         ]);
     }
 
@@ -301,6 +321,7 @@ class HealtheatController extends AbstractController
 
         return $this->render('healtheat/page_test.html.twig', [
             'programmes' => $programme,
+            'iduser' => $this->getUser()->getId(),
         ]);
     }
 
@@ -425,7 +446,63 @@ class HealtheatController extends AbstractController
             'id' => $ingredient->getId(),
         ]);
     }
+
+
+    /**
+     * @Route("/alerte", name="alerte")
+     */
+    public function savePoidsTemps(Request $requete, ObjectManager $manager, InfoUserRepository $repoIU) :
+    Response {
+
+        $date = new DateTime();
+
+        $InfoUser = $repoIU->find($this->getUser()->getId());
+
+        $poids = $requete->get('poids');
+        $temps = $requete->get('temps'); 
+
+        $InfoUser->setLPoids($poids);
+        $InfoUser->setLTemps($temps);
+
+        if($InfoUser->getLTemps() != NULL){
+            $newtemps = new TempsEffortPhy();
+            $newtemps->setInfoUser($InfoUser);
+            $newtemps->setTemps($InfoUser->getLTemps());
+            $newtemps->setDate($date);
+            $manager->persist($newtemps);
+            $manager->flush();
+        }
+
+        if($InfoUser->getLPoids() != NULL)
+            {
+                $newpoids = new Poids();
+                $newpoids->setInfoUser($InfoUser);
+                $newpoids->setPoids($InfoUser->getLPoids());
+                $newpoids->setDate($date);
+                $manager->persist($newpoids);
+                $manager->flush();
+
+                if($InfoUser->getTaille() != NULL){
+                    $poids = $InfoUser->getLPoids();
+                    $taille = $InfoUser->getTaille();
+                    $taille = $taille / 100;
+                    $IMC = $poids / ($taille * $taille);
+                    $IMC = round($IMC,2);
+
+                    $InfoUser->setImc($IMC);
+                } else {
+                    $InfoUser->setImc(NULL);
+                }
+            }
+
+        $manager->persist($InfoUser);
+        $manager->flush();
+
+        return $this->json([
+            'message' => 'Tout s\'est bien passé !',
+            'newPoids' => $poids,
+            'newTemps' => $temps,
+        ]);
+    }
 } 
-
-
 

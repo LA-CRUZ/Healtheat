@@ -11,8 +11,8 @@ OK Programmes recettes.
 OK Design Programme.
 OK Rajouter recettes sur accueil.
 OK Scrapping aliments.
-~ Inventaire.
-- Fixtures.
+OK Inventaire.
+X Fixtures.
 ~ Entrer le poid par semaine.
 - Gérer les erreurs dans les formulaires quand le type n'est pas le bon. !!!
 OK Mettre unités formulaires.
@@ -29,6 +29,6 @@ OK Faire la page " Qui sommes nous ? "
 ~ Diaporama + Texte.
 - Rapport.
 X Changer poids au lieu de ne pas le Mettre
-- Couleur menu quand précédent.
+OK Couleur menu quand précédent.
 OK Graphe IMC
 OK csv:import
