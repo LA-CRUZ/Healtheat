@@ -13,7 +13,6 @@
             document.getElementById("elem-menu3").style.color = "rgb(194, 23, 42)";
             document.getElementById("elem-menu4").style.color = "rgb(194, 23, 42)";
             document.getElementById("elem-menu5").style.color = "rgb(194, 23, 42)";
-            document.getElementById("elem-menu6").style.color = "rgb(194, 23, 42)";
         } else {
             document.getElementById("test").style.backgroundColor = "rgb(255, 255, 255, 0)";
             document.getElementById("test").style.boxShadow = "0px 0px 0px rgb(255, 255, 255)";
@@ -22,7 +21,6 @@
             document.getElementById("elem-menu3").style.color = "white";
             document.getElementById("elem-menu4").style.color = "white";
             document.getElementById("elem-menu5").style.color = "white";
-            document.getElementById("elem-menu6").style.color = "white";
             document.getElementById("test").style.transition = "1s";
         }
     })
@@ -84,6 +82,18 @@
             confirmButtonText: 'TERMINER',
         },
         ]).then((result) => {
+
+        var url = '{{ path('alerte') }}';
+
+        axios.get(url, {
+            params: {
+                poids: result.value[1],
+                temps: result.value[2]
+            }
+        }).then(function(response){
+            console.log(response);
+        });
+
         if (result.value) {
             Swal.fire({
             title: 'Informations enregistrés !',
@@ -100,18 +110,14 @@
         })
     }
 
+    {% if (dateTemps | date('%d') >= 6) or (datePoids | date('%d') >= 6) %}
+           saisir_poids();
+    {% endif %}
 </script>
 
 
-    {# {% if dateTemps | date('%d') >= 6 %}
-        <script>saisir_poids()</script>    
-    {% endif %}
-    
-    <br>
 
-    {% if datePoids | date('%d') >= 6 %}
-        <script>saisir_poids()</script>
-    {% endif %} #}
+    
 
     <div id="home">
             <div class="landing-text">
