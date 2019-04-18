@@ -3,20 +3,17 @@
 html, body {
 	height: 100%;
 	width: 100%;
+	font-family: 'Quicksand', sans-serif;
 }
 
 body {
     background-color: rgb(255, 255, 255);
 }
 
-.responsive {
-	width: 100%;
-	max-width: 200px;
-	height: auto;
-}
-
+/*******************************************************/
+/*					CSS NAVBAR
+/*******************************************************/
 .navbar {
-	font-family: 'Quicksand', sans-serif;
 	font-size: 17px;
     font-weight: bold;  
     padding: 1% 0;
@@ -30,15 +27,12 @@ body {
 	padding: 0 15px 5px;
 }
 
-
 .navbar-default .navbar-nav li a{
     color: rgb(255, 255, 255);
-	font-family: 'Quicksand', sans-serif;
 }
 
 .navbar-default .navbar-nav li a:hover,.navbar-default .navbar-nav li a:active {
     color: white;
-	font-family: 'Quicksand', sans-serif;
 	transition: 0.5s;
 	text-decoration: overline;
 	outline:none;
@@ -46,8 +40,19 @@ body {
 
 .navbar-default .navbar-nav li a:focus{
 	color: white;
-	font-family: 'Quicksand', sans-serif;
 	outline:none;
+}
+/*******************************************************/
+/*					FIN CSS NAVBAR
+/*******************************************************/
+
+.landing-text{
+	display: table-cell;
+	text-align: center;
+    vertical-align: middle;
+    color: white;
+    font-size: 200%;
+	font-weight: 700;
 }
 
 .landing-textp{
@@ -55,22 +60,6 @@ body {
 	text-align: center;
 	vertical-align: middle;
 	padding-top: 130px;
-}
-
-.landing-textp h1{
-    font-size: 300%;
-	font-weight: 700;
-	font-family: 'Quicksand', sans-serif;
-    color: white;
-}
-
-#homep{
-	background: url(../images/baniere2.jpg) no-repeat center center fixed ;
-	display: table;
-	height: 100%;
-	position: relative;
-	width: 100%;
-	background-size: cover;
 }
 
 #home{
@@ -82,23 +71,10 @@ body {
 	background-size: cover;
 }
 
-.landing-text{
-	display: table-cell;
-	text-align: center;
-    vertical-align: middle;
-    color: white;
-    font-size: 200%;
-	font-weight: 700;
-	font-family: 'Quicksand', sans-serif;
-}
-
-
-
 .connexion, .connexion:focus {
 	color: rgb(194, 23, 42);
 	background-color: white;
 	height: 40px;
-	font-family: 'Quicksand', sans-serif;
 	border-radius: 2rem;
 	font-weight: bold;
 	font-size: 16px;
@@ -112,7 +88,6 @@ body {
 	color: white;
 	background-color: rgb(194, 23, 42);
 	height: 40px;
-	font-family: 'Quicksand', sans-serif;
 	border-radius: 2rem;
 	font-weight: bold;
 	font-size: 16px;
@@ -143,7 +118,6 @@ body {
 
 .description h1{
 	color: rgb(194, 23, 42);
-	font-family: 'Quicksand', sans-serif;
 	text-align: center;
 	font-size: 40px;
 }
@@ -151,7 +125,6 @@ body {
 .description p{
 	text-align: center;
 	color: rgb(32, 32, 32);
-	font-family: 'Quicksand', sans-serif;
 	font-size: 20px;
 }
 
@@ -231,7 +204,6 @@ footer a:hover{
 	background-color: white;
 	height: 60px;
 	width: 90%;
-	font-family: 'Quicksand', sans-serif;
 	border-radius: 4rem;
 	font-weight: bold;
 	font-size: 16px;
@@ -245,7 +217,6 @@ footer a:hover{
 	background-color: rgb(194, 23, 42);
 	height: 60px;
 	width: 90%;
-	font-family: 'Quicksand', sans-serif;
 	border-radius: 4rem;
 	font-weight: bold;
 	font-size: 16px;
@@ -260,7 +231,6 @@ footer a:hover{
 	background-color: white;
 	height: 60px;
 	width: 45%;
-	font-family: 'Quicksand', sans-serif;
 	border-radius: 4rem;
 	font-weight: bold;
 	font-size: 16px;
@@ -274,7 +244,6 @@ footer a:hover{
 	background-color: rgb(194, 23, 42);
 	height: 60px;
 	width: 45%;
-	font-family: 'Quicksand', sans-serif;
 	border-radius: 4rem;
 	font-weight: bold;
 	font-size: 16px;
@@ -296,7 +265,6 @@ footer a:hover{
 .case h2{
 	color: rgb(44, 43, 43);
 	font-size: 200%;
-	font-family: 'Quicksand', sans-serif;
 	font-weight: bold;
 	text-decoration: overline;
 	padding-top: 10px;
@@ -307,7 +275,6 @@ footer a:hover{
     height: auto;
 	border-radius: 10px;
 	padding: 20px;
-	font-family: 'Quicksand', sans-serif;
 	font-weight: bold;
 	font-size: 18px;
 }
@@ -316,7 +283,6 @@ footer a:hover{
 	background-color: white;
 	/* box-shadow: 6px 6px 10px 6px rgba(0, 0, 0, 0.4); */
     height: 100%;
-	font-family: 'Quicksand', sans-serif;
 	font-weight: bold;
 	font-size: 18px;
 	padding: 50px 0px 50px 0px;
@@ -395,7 +361,6 @@ footer a:hover{
 	box-shadow: 0px 6px 10px 6px rgba(0, 0, 0, 0.4);
     height: auto;
 	padding: 20px;
-	font-family: 'Quicksand', sans-serif;
 	font-weight: bold;
 	font-size: 28px;
 	margin-bottom: 30px;
@@ -410,7 +375,6 @@ footer a:hover{
 	color: rgb(194, 23, 42);
 	background-color: white;
 	height: 50px;
-	font-family: 'Quicksand', sans-serif;
 	border-radius: 3rem;
 	font-weight: bold;
 	font-size: 20px;
@@ -423,7 +387,6 @@ footer a:hover{
 	color: white;
 	background-color: rgb(194, 23, 42);
 	height: 50px;
-	font-family: 'Quicksand', sans-serif;
 	border-radius: 3rem;
 	font-weight: bold;
 	font-size: 20px;
@@ -441,7 +404,6 @@ footer a:hover{
 	color: rgb(194, 23, 42);
 	background-color: white;
 	height: 60%;
-	font-family: 'Quicksand', sans-serif;
 	border-radius: 3rem;
 	font-weight: bold;
 	font-size: 30px;
@@ -454,7 +416,6 @@ footer a:hover{
 	color: white;
 	background-color: rgb(194, 23, 42);
 	height: 60%;
-	font-family: 'Quicksand', sans-serif;
 	border-radius: 3rem;
 	font-weight: bold;
 	font-size: 30px;
@@ -485,7 +446,6 @@ footer a:hover{
 	color: white;
 	background-color: rgb(194, 23, 42);
 	height: 40px;
-	font-family: 'Quicksand', sans-serif;
 	border-radius: 1rem;
 	font-weight: bold;
 	font-size: 18px;
@@ -560,7 +520,6 @@ footer a:hover{
 	color: rgb(0, 125, 183);
 	background-color: white;
 	height: 45px;
-	font-family: 'Quicksand', sans-serif;
 	border-radius: 3rem;
 	font-weight: bold;
 	font-size: 20px;
@@ -573,7 +532,6 @@ footer a:hover{
 	color: white;
 	background-color: rgb(0, 125, 183);
 	height: 45px;
-	font-family: 'Quicksand', sans-serif;
 	border-radius: 3rem;
 	font-weight: bold;
 	font-size: 20px;
@@ -595,7 +553,6 @@ footer a:hover{
 
 .jour_recette{
 	color: rgb(194, 23, 42);
-	font-family: 'Quicksand', sans-serif;
 	font-weight: bold;
 	font-size: 36px;
 	text-decoration: overline;
@@ -613,7 +570,6 @@ footer a:hover{
 	background-color: rgb(194, 23, 42);
 	height: 38px;
 	width: 100%;
-	font-family: 'Quicksand', sans-serif;
 	border-radius: 2rem;
 	font-weight: bold;
 	font-size: 17px;
@@ -627,7 +583,6 @@ footer a:hover{
 	color: rgb(194, 23, 42);
 	background-color: white;
 	height: 38px;
-	font-family: 'Quicksand', sans-serif;
 	border-radius: 3rem;
 	font-weight: bold;
 	font-size: 17px;
@@ -698,7 +653,6 @@ footer a:hover{
 	background-color: white;
 	height: 60px;
 	width: 60px;
-	font-family: 'Quicksand', sans-serif;
 	border-radius: 3rem;
 	font-weight: bold;
 	font-size: 25px;
@@ -712,7 +666,6 @@ footer a:hover{
 	background-color: rgb(194, 23, 42);
 	height: 60px;
 	width: 60px;
-	font-family: 'Quicksand', sans-serif;
 	border-radius: 3rem;
 	font-weight: bold;
 	font-size: 25px;
@@ -725,7 +678,6 @@ footer a:hover{
 .recette_accueil{
 	text-align: center;
 	height: 100%;
-	font-family: 'Quicksand', sans-serif;
 	font-weight: bold;
 	font-size: 18px;
 	padding: 50px 0px 50px 0px;
