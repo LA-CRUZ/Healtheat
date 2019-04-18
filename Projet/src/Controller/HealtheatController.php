@@ -19,6 +19,8 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use App\Repository\InfoUserRepository;
 use App\Repository\IngredientRepository;
+use App\Repository\ProgrammesRepository;
+use App\Repository\ProgContenuRepository;
 
 class HealtheatController extends AbstractController
 {
@@ -64,16 +66,15 @@ class HealtheatController extends AbstractController
     /**
      * @Route("/perso", name="espace_perso")
      */
-    public function perso(Request $request, ObjectManager $manager)
+    public function perso(Request $request, ObjectManager $manager, InfoUserRepository $repoIU)
     {
         if($this->getUser() == NULL){
             return $this->render('security/connexion.html.twig', [
                 'controller_name' => 'Healtheat_Controller',
             ]);
         }
-        $id = $this->getUser()->getId();
 
-        $InfoUser = $manager->getRepository(InfoUser::class)->find($id);
+        $InfoUser = $repoIU->find($this->getUser()->getId());
 
         $form = $this->createForm(InfoPersoType::class, $InfoUser);
 
@@ -82,20 +83,23 @@ class HealtheatController extends AbstractController
         $date = new DateTime();
 
         if($form->isSubmitted() && $form->isValid()) {
+
             $this->addFlash(
                 'notice',
                 'Vos changement ont été sauvegardé !'
             );
-            if($InfoUser->getLPoids() != NULL)
-            {
-                        $newpoids = new Poids();
-                        $newpoids->setInfoUser($InfoUser);
-                        $newpoids->setPoids($InfoUser->getLPoids());
-                        $newpoids->setDate($date);
-                        $manager->persist($newpoids);
-                        $manager->flush();
+
+            if($InfoUser->getLPoids() != NULL){
+
+                $newpoids = new Poids();
+                $newpoids->setInfoUser($InfoUser);
+                $newpoids->setPoids($InfoUser->getLPoids());
+                $newpoids->setDate($date);
+                $manager->persist($newpoids);
+                $manager->flush();
 
                 if($InfoUser->getTaille() != NULL){
+
                     $poids = $InfoUser->getLPoids();
                     $taille = $InfoUser->getTaille();
                     $taille = $taille / 100;
@@ -110,6 +114,7 @@ class HealtheatController extends AbstractController
                 $InfoUser->setImc(NULL);
             }
             if($InfoUser->getLTemps() != NULL){
+
                 $newtemps = new TempsEffortPhy();
                 $newtemps->setInfoUser($InfoUser);
                 $newtemps->setTemps($InfoUser->getLTemps());
@@ -117,6 +122,7 @@ class HealtheatController extends AbstractController
                 $manager->persist($newtemps);
                 $manager->flush();
             } 
+
             $manager->persist($InfoUser);
             $manager->flush();
             if($form->get('enregistrer')->isClicked()){
@@ -132,21 +138,16 @@ class HealtheatController extends AbstractController
     /**
      * @Route("/infoperso", name = "info_perso")
      */
-    public function info_perso()
+    public function info_perso(InfoUserRepository $repoIU)
     {
         if($this->getUser() == NULL){
             return $this->render('security/connexion.html.twig', [
                 'controller_name' => 'Healtheat_Controller',
             ]);
         }
-        $repository = $this->getDoctrine()->getRepository(InfoUser::class);
-
-        $id = $this->getUser()->getId();
-
-        $info = $repository->find($id);
 
         return $this->render('healtheat/infoperso.html.twig', [
-            'info_user' => $info,
+            'info_user' => $repoIU->find($this->getUser()->getId()),
             'user' => $this->getUser()
         ]);
     }
@@ -154,24 +155,16 @@ class HealtheatController extends AbstractController
     /**
      * @Route("/programme", name = "mon_programme")
      */
-    public function mon_programme(ObjectManager $manager)
+    public function mon_programme(InfoUserRepository $repoIU)
     {
         if($this->getUser() == NULL){
             return $this->render('security/connexion.html.twig', [
                 'controller_name' => 'Healtheat_Controller',
             ]);
         }
-
-        $repository = $manager->getRepository(Programmes::class);
-        $repositoryUser = $manager->getRepository(InfoUser::class);
-
-        $user = $this->getUser();
-        $InfoUser = $repositoryUser->find($user->getId());
-
-        $programme = $InfoUser->getProgrammes()->last();
-
+  
         return $this->render('healtheat/programme.html.twig', [
-            'programmes' => $programme,
+            'programmes' => $repoIU->find($this->getUser()->getId())->getProgrammes()->last(),
         ]);
     }
 
@@ -179,7 +172,7 @@ class HealtheatController extends AbstractController
     /**
      * @Route("/generer", name="generer_programme")
      */
-    public function generer_programme(ObjectManager $manager)
+    public function generer_programme(ObjectManager $manager, RecetteRepository $repoRecette, InfoUserRepository $repoIU)
     {
         if($this->getUser() == NULL){
             return $this->render('security/connexion.html.twig', [
@@ -189,31 +182,19 @@ class HealtheatController extends AbstractController
 
         $date = new DateTime();
 
-        $repositoryRecette = $manager->getRepository(Recette::class);
-        $repositoryUser = $manager->getRepository(InfoUser::class);
-        $repositoryContenu = $manager->getRepository(ProgContenu::class);
-
-        $iduser = $this->getUser()->getId();
-
-        $user = $repositoryUser->find($iduser);
-
         $programme = new Programmes();
 
         $programme->setDateDebut($date);
-
-        $i = 0;
-
-        $programme->setUtilisateur($user);
+        $programme->setUtilisateur($repoIU->find($this->getUser()->getId()));
 
         $doublon = array();
+        $i = 0;
 
         while($i < 14){
             $contenu = new ProgContenu();
             $recette = new Recette();
 
-            $id = rand(1, 111);
-
-            $recette = $repositoryRecette->find($id);
+            $recette = $repoRecette->find(rand(1, 111));
 
             if(!in_array($recette, $doublon)){
                 array_push($doublon, $recette);
@@ -235,7 +216,7 @@ class HealtheatController extends AbstractController
      /**
      * @Route("/inventaire", name = "mon_inventaire")
      */
-    public function mon_inventaire(InfoUserRepository $repoIU, IngredientRepository $repoIngred, ObjectManager $manager)
+    public function mon_inventaire( ObjectManager $manager, InfoUserRepository $repoIU, IngredientRepository $repoIngred)
     {
         if($this->getUser() == NULL){
             return $this->render('security/connexion.html.twig', [
@@ -247,8 +228,7 @@ class HealtheatController extends AbstractController
 
         if($InfoUser->getInventaire()->isEmpty()){
             for($i = 0; $i < rand(4, 15); $i++){
-                $ingred = rand(0, 2180);
-                $InfoUser->addInventaire($repoIngred->find($ingred));
+                $InfoUser->addInventaire($repoIngred->find(rand(0, 2180)));
                 $manager->persist($InfoUser);
                 $manager->flush();
             }
@@ -263,27 +243,24 @@ class HealtheatController extends AbstractController
     * @Route("/suivi", name = "suivi_perso")
     */
 
-    public function suivi_perso()
+    public function suivi_perso(InfoUserRepository $repoIU)
     {
         if($this->getUser() == NULL){
             return $this->render('security/connexion.html.twig', [
                 'controller_name' => 'Healtheat_Controller',
             ]);
         }
-        $repository = $this->getDoctrine()->getRepository(InfoUser::class);
 
-        $id = $this->getUser()->getId();
-
-        $info = $repository->find($id);
+        $InfoUser = $repoIU->find($this->getUser()->getId());
 
         $imc_max = 0;
+        $imc_bas = 18.5;
+        $imc_haut = 25;
 
-        $taille = $info->getTaille();
+        $taille = $InfoUser->getTaille() / 100;
 
-        $taille = $taille / 100;
-
-        $dataPoids = $info->getPoids();
-        $dataTemps = $info->getTempsActivitePhysique();
+        $dataPoids = $InfoUser->getPoids();
+        $dataTemps = $InfoUser->getTempsActivitePhysique();
 
         foreach ($dataPoids as $poids) {
             if(($poids->getPoids()/($taille*$taille)) > $imc_max){
@@ -291,11 +268,8 @@ class HealtheatController extends AbstractController
             }
         }
 
-        $imc_bas = 18.5;
-        $imc_haut = 25;
-
         return $this->render('healtheat/suivi.html.twig', [
-        'infouser' => $info,
+        'infouser' => $InfoUser,
         'datapoids' => $dataPoids,
         'datatemps' => $dataTemps,
         'tailleuser' => $taille,
@@ -308,19 +282,10 @@ class HealtheatController extends AbstractController
     /**
      * @Route("/test", name = "page_test")
      */
-    public function page_test(ObjectManager $manager)
+    public function page_test(ObjectManager $manager, InfoUserRepository $repoIU, ProgrammesRepository $repoProg)
     {
-        $repository = $manager->getRepository(Programmes::class);
-        $repositoryUser = $manager->getRepository(InfoUser::class);
-
-        $user = $this->getUser();
-        $InfoUser = $repositoryUser->find($user->getId());
-
-        $programme = $InfoUser->getProgrammes()->last();
- 
-
         return $this->render('healtheat/page_test.html.twig', [
-            'programmes' => $programme,
+            'programmes' => $repoIU->find($this->getUser()->getId())->getProgrammes()->last(),
             'iduser' => $this->getUser()->getId(),
         ]);
     }
@@ -330,19 +295,14 @@ class HealtheatController extends AbstractController
      */
     public function qui_sommes_nous()
     {
-       
-            
-
-        return $this->render('healtheat/qui_sommes_nous.html.twig', [
-            'controller_name' => 'HealtheatController',
-        ]);
+        return $this->render('healtheat/qui_sommes_nous.html.twig', []);
     }
 
 
     /**
      * @Route("/suppr", name= "supprimer")
      */
-    public function supprimer(ObjectManager $manager)
+    public function supprimer(ObjectManager $manager, InfoUserRepository $repoIU)
     {
         if($this->getUser() == NULL){
             return $this->render('security/connexion.html.twig', [
@@ -350,22 +310,17 @@ class HealtheatController extends AbstractController
             ]);
         }
 
-        $repositoryUser = $manager->getRepository(InfoUser::class);
+        $InfoUser = $repoIU->find($this->getUser()->getId());
 
-        $iduser = $this->getUser()->getId();
-
-        $user = $repositoryUser->find($iduser);
-
-        $programme = $user->getProgrammes()->last();
+        $programme = $InfoUser->getProgrammes()->last();
 
         if($programme != false){
-            $user->removeProgramme($programme);
-            $manager->persist($user);
+            $InfoUser->removeProgramme($programme);
+            $manager->persist($InfoUser);
             $manager->flush();
         }
 
         return $this->redirectToRoute('mon_programme');
-
     }
 
     /**
@@ -381,27 +336,24 @@ class HealtheatController extends AbstractController
     /**
      * @Route("/changement/{id}", name="changement")
      */
-    public function changementRecette(ProgContenu $contenu, ObjectManager $manager, RecetteRepository $repoR) :
+    public function changementRecette(ProgContenu $contenu, ObjectManager $manager, RecetteRepository $repoRecette) :
     Response {
         
-        $random = rand(1,111);
-        $newRecette = $repoR->find($random);
+        $oldRecette = $contenu->getRecette();
 
-        $recette = $contenu->getRecette();
-
-        $contenu->setRecette($newRecette);
+        $contenu->setRecette($repoRecette->find(rand(1,111)));
 
         $manager->persist($contenu);
         $manager->flush();
 
         return $this->json([
             'message' => 'Recette changé',
-            'AncienneRecette' => $recette->getNom(),
-            'NouvelleRecette' => $newRecette->getNom(),
-            'TempsPrep' => $newRecette->getTempsPrep(),
-            'Difficulte' => $newRecette->getDifficulte(),
-            'Id' => $newRecette->getId(),
-            'Image' => $newRecette->getImage(),
+            'AncienneRecette' => $oldRecette->getNom(),
+            'NouvelleRecette' => $contenu->getRecette()->getNom(),
+            'TempsPrep' => $contenu->getRecette()->getTempsPrep(),
+            'Difficulte' => $contenu->getRecette()->getDifficulte(),
+            'Id' => $contenu->getRecette()->getId(),
+            'Image' => $contenu->getRecette()->getImage(),
         ], 200);
     }
 
