@@ -26,6 +26,12 @@ class HealtheatController extends AbstractController
 {
     /**
      * @Route("/", name="healtheat")
+     * 
+     * Envoie à la vue les dates des dernières rentrée de poids et de temps d'activité physique,
+     * ainsi que le programme en cours
+     *
+     * @param InfoUserRepository $repo
+     * @return void
      */
     public function index(InfoUserRepository $repo)
     {
@@ -65,6 +71,13 @@ class HealtheatController extends AbstractController
 
     /**
      * @Route("/perso", name="espace_perso")
+     * 
+     * Envoie les informations personnelles à la vue
+     *
+     * @param Request $request
+     * @param ObjectManager $manager
+     * @param InfoUserRepository $repoIU
+     * @return void
      */
     public function perso(Request $request, ObjectManager $manager, InfoUserRepository $repoIU)
     {
@@ -137,6 +150,12 @@ class HealtheatController extends AbstractController
 
     /**
      * @Route("/infoperso", name = "info_perso")
+     * 
+     * Envoie le formulaire d'enregistrement d'informations personnelles à la vue
+     * Gère le résultat de la requete du formulaire, insère les informations dans la base de donnée 
+     *
+     * @param InfoUserRepository $repoIU
+     * @return void
      */
     public function info_perso(InfoUserRepository $repoIU)
     {
@@ -154,6 +173,11 @@ class HealtheatController extends AbstractController
 
     /**
      * @Route("/programme", name = "mon_programme")
+     * 
+     * Envoie le programme en cours à la vue
+     *
+     * @param InfoUserRepository $repoIU
+     * @return void
      */
     public function mon_programme(InfoUserRepository $repoIU)
     {
@@ -171,6 +195,13 @@ class HealtheatController extends AbstractController
 
     /**
      * @Route("/generer", name="generer_programme")
+     *
+     * Génère un programme aléatoire sans doublon de recette et l'enregistre dans la base de donnée
+     *
+     * @param ObjectManager $manager
+     * @param RecetteRepository $repoRecette
+     * @param InfoUserRepository $repoIU
+     * @return void
      */
     public function generer_programme(ObjectManager $manager, RecetteRepository $repoRecette, InfoUserRepository $repoIU)
     {
@@ -215,6 +246,14 @@ class HealtheatController extends AbstractController
 
      /**
      * @Route("/inventaire", name = "mon_inventaire")
+     *
+     * Envoie l'inventaire de l'utilisateur à la vue
+     * Si l'inventaire est vide, génère un inventaire aléatoire contenant entre 4 et 15 ingrédients
+     *
+     * @param ObjectManager $manager
+     * @param InfoUserRepository $repoIU
+     * @param IngredientRepository $repoIngred
+     * @return void
      */
     public function mon_inventaire( ObjectManager $manager, InfoUserRepository $repoIU, IngredientRepository $repoIngred)
     {
@@ -240,9 +279,13 @@ class HealtheatController extends AbstractController
     }
 
     /**
-    * @Route("/suivi", name = "suivi_perso")
-    */
-
+     * @Route("/suivi", name = "suivi_perso")
+     *
+     * Envoie les informations de poids, de temps d'activité ainsi que d'imc à la vue
+     *
+     * @param InfoUserRepository $repoIU
+     * @return void
+     */
     public function suivi_perso(InfoUserRepository $repoIU)
     {
         if($this->getUser() == NULL){
@@ -280,18 +323,11 @@ class HealtheatController extends AbstractController
     }
 
     /**
-     * @Route("/test", name = "page_test")
-     */
-    public function page_test(ObjectManager $manager, InfoUserRepository $repoIU, ProgrammesRepository $repoProg)
-    {
-        return $this->render('healtheat/page_test.html.twig', [
-            'programmes' => $repoIU->find($this->getUser()->getId())->getProgrammes()->last(),
-            'iduser' => $this->getUser()->getId(),
-        ]);
-    }
-
-    /**
      * @Route("/InfoCrea", name = "qui_sommes_nous")
+     *
+     * Affiche la page équipe
+     *
+     * @return void
      */
     public function qui_sommes_nous()
     {
@@ -301,6 +337,13 @@ class HealtheatController extends AbstractController
 
     /**
      * @Route("/suppr", name= "supprimer")
+     *
+     * Supprime le programme actuel
+     * Fonction de test uniquement, n'est plus utilisé
+     *
+     * @param ObjectManager $manager
+     * @param InfoUserRepository $repoIU
+     * @return void
      */
     public function supprimer(ObjectManager $manager, InfoUserRepository $repoIU)
     {
@@ -325,6 +368,11 @@ class HealtheatController extends AbstractController
 
     /**
      * @Route("/recette/{id}", name="recette")
+     *
+     * Affiche la page de la recette ayant l'identifiant {id} dans la base de donnée
+     *
+     * @param Recette $recette
+     * @return void
      */
     public function recette(Recette $recette)
     {
@@ -335,6 +383,15 @@ class HealtheatController extends AbstractController
 
     /**
      * @Route("/changement/{id}", name="changement")
+     *
+     * Change le contenu avec l'identifiant {id} dans le programme actuel
+     * Le retour est au format Json
+     * Fonction appelé par le bouton "changer" sur les recettes de la page programme
+     *
+     * @param ProgContenu $contenu
+     * @param ObjectManager $manager
+     * @param RecetteRepository $repoRecette
+     * @return Response
      */
     public function changementRecette(ProgContenu $contenu, ObjectManager $manager, RecetteRepository $repoRecette) :
     Response {
@@ -359,6 +416,16 @@ class HealtheatController extends AbstractController
 
     /**
      * @Route("/supprimerIngredient/{id}", name="supprimer_ingred")
+     *
+     * Supprime l'ingredient avec l'identifiant {id} de l'inventaire
+     * Le retour est au format Json
+     * Fonction appelé par le bouton de suppression des ingredients sur la page inventaire
+     *
+     * @param [type] $id
+     * @param ObjectManager $manager
+     * @param InfoUserRepository $repoIU
+     * @param IngredientRepository $repoIngred
+     * @return Response
      */
     public function supprimerIngred($id ,ObjectManager $manager, InfoUserRepository $repoIU, IngredientRepository $repoIngred) :
     Response {
@@ -379,6 +446,15 @@ class HealtheatController extends AbstractController
 
     /**
      * @Route("/ajouterIngredient", name="ajouter_ingred")
+     *
+     * Ajoute un ingredient aléatoire dans l'inventaire
+     * Le retour est au format Json
+     * Fonction appelé par le bouton "ajouter produit" de la page inventaire
+     *
+     * @param ObjectManager $manager
+     * @param IngredientRepository $repoIngred
+     * @param InfoUserRepository $repoIU
+     * @return Response
      */
     public function addIngred(ObjectManager $manager, IngredientRepository $repoIngred, InfoUserRepository $repoIU) :
     Response {
@@ -402,6 +478,16 @@ class HealtheatController extends AbstractController
 
     /**
      * @Route("/alerte", name="alerte")
+     */
+    /**
+     * Enregistre un poids et un temps d'activité dans la base de donnée
+     * Le retour est au format Json
+     * Fonction appelé par l'alerte de la page index
+     *
+     * @param Request $requete
+     * @param ObjectManager $manager
+     * @param InfoUserRepository $repoIU
+     * @return Response
      */
     public function savePoidsTemps(Request $requete, ObjectManager $manager, InfoUserRepository $repoIU) :
     Response {

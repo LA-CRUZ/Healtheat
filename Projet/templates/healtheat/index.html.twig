@@ -127,7 +127,7 @@
     </div>
 
     <section id="section2" class="container-fluid">
-        {% if not app.user or (app.user and programme == false) %}
+        {% if not app.user or (app.user and programme == false) or (programme.getDateDebut() | date_modify("+6days") | date("d/m/Y") < date() | date("d/m/Y")) %}
         <div class="container-fluid">
             <div class="description">
                 <div class="row">
