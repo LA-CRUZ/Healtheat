@@ -6,7 +6,6 @@ use DateTime;
 use App\Entity\Poids;
 
 use App\Entity\Recette;
-use App\Entity\InfoUser;
 use App\Entity\Programmes;
 use App\Entity\ProgContenu;
 use App\Form\InfoPersoType;
@@ -19,8 +18,6 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use App\Repository\InfoUserRepository;
 use App\Repository\IngredientRepository;
-use App\Repository\ProgrammesRepository;
-use App\Repository\ProgContenuRepository;
 
 class HealtheatController extends AbstractController
 {
@@ -478,8 +475,7 @@ class HealtheatController extends AbstractController
 
     /**
      * @Route("/alerte", name="alerte")
-     */
-    /**
+     *
      * Enregistre un poids et un temps d'activité dans la base de donnée
      * Le retour est au format Json
      * Fonction appelé par l'alerte de la page index
