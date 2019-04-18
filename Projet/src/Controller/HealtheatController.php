@@ -34,29 +34,23 @@ class HealtheatController extends AbstractController
     {
         $date = new DateTime();
 
+        $programme = NULL;
+        $datetemps = NULL;
+        $datepoids = NULL;
+
         if($this->getUser() != NULL){
             $InfoUser = $repo->find($this->getUser()->getId());
             if($InfoUser->getProgrammes()->last() != false){
                 $programme = $InfoUser->getProgrammes()->last();
-            } else {
-                $programme = NULL;
             }
 
             if($InfoUser->getTempsActivitePhysique()->last() != false){
                 $datetemps = $InfoUser->getTempsActivitePhysique()->last()->getDate()->diff($date);
-            } else {
-                $datetemps = NULL;
             }
 
             if($InfoUser->getPoids()->last() != false){
                 $datepoids = $InfoUser->getPoids()->last()->getDate()->diff($date);
-            } else {
-                $datepoids = NULL;
             }
-        } else {
-            return $this->render('security/connexion.html.twig', [
-                'controller_name' => 'Healtheat_Controller',
-            ]);
         }
 
         return $this->render('healtheat/index.html.twig', [
