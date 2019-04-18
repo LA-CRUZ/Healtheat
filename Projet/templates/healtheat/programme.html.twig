@@ -18,7 +18,7 @@
                 <hr align=center width="20%">
             </div>
 
-            {% if programmes == false %}
+            {% if programmes == false or (programmes.getDateDebut() | date_modify("+6days") | date("d/m/Y") < date() | date("d/m/Y"))  %}
                 <a href="{{ path('generer_programme') }}"><button class="btn  btnprogramme" ><i class="fas fa-utensils"></i>  GÉNERER MON PROGRAMME</button></a>
             {% else %}     
 
@@ -111,7 +111,6 @@
                 nomRecette.innerHTML = "<i class='fas fa-utensils'></i>" + response.data.NouvelleRecette;
                 tempsRecette.innerHTML = "<i class='fas fa-stopwatch'></i>" + response.data.TempsPrep + " min";
                 diffRecette.innerHTML = "<i class='fas fa-award'></i>" + response.data.Difficulte;
-                
             })
         }
 

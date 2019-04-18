@@ -33,19 +33,19 @@ class HealtheatController extends AbstractController
 
         if($this->getUser() != NULL){
             $InfoUser = $repo->find($this->getUser()->getId());
-            if($InfoUser->getProgrammes() != NULL){
+            if($InfoUser->getProgrammes()->last() != false){
                 $programme = $InfoUser->getProgrammes()->last();
             } else {
                 $programme = NULL;
             }
 
-            if($InfoUser->getTempsActivitePhysique() != NULL){
+            if($InfoUser->getTempsActivitePhysique()->last() != false){
                 $datetemps = $InfoUser->getTempsActivitePhysique()->last()->getDate()->diff($date);
             } else {
                 $datetemps = NULL;
             }
 
-            if($InfoUser->getPoids() != NULL){
+            if($InfoUser->getPoids()->last() != false){
                 $datepoids = $InfoUser->getPoids()->last()->getDate()->diff($date);
             } else {
                 $datepoids = NULL;
