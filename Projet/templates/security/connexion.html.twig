@@ -6,34 +6,34 @@
     <script>
         function maFonction()
         {
-            document.getElementById("test").style.backgroundColor = "rgb(255, 255, 255)";
-            document.getElementById("test").style.boxShadow = "1px 3px 12px rgb(0, 0, 0)";
+            document.getElementById("nav").style.backgroundColor = "rgb(255, 255, 255)";
+            document.getElementById("nav").style.boxShadow = "1px 3px 12px rgb(0, 0, 0)";
             document.getElementById("elem-menu").style.color = "rgb(194, 23, 42)";
         }
 
         maFonction();
     </script>
 
-    <div id="homep">
-        <div class="landing-textp">
-            <div class="case_connexion">
-            <div class=eqcss>
-                <h2 class="titre_co">CONNECTEZ-VOUS</h2>
+    <div id="home">
+        <div class="landing_text_2">
+            <div class="case_4">
+            <div class="ligne_hr_r">
+                <h2 class="titre_principal">CONNECTEZ-VOUS</h2>
                 <hr align=center width="20%">
 		    </div>
                     <form action="{{ path('security_connexion') }}" method="post">
                         <div class="form-group">
-                            <input class="form-control form_co" name="_username" placeholder="Adresse email.." required type="text">
+                            <input class="form-control formulaire" name="_username" placeholder="Adresse email.." required type="text">
                         </div>
                         <div class="form-group">
-                            <input class="form-control form_co" name="_password" placeholder="Mot de passe.." required type="password">
+                            <input class="form-control formulaire" name="_password" placeholder="Mot de passe.." required type="password">
                         </div>
                         <div class="form-group">
-                            <button class="btn  fonction" type="submit">SE CONNECTER</button>
+                            <button class="btn btn_action" type="submit">SE CONNECTER</button>
                         </div>
                         <br>
                     </form>
-            <div class=eqcss2>
+            <div class="ligne_hr_r">
                 <hr align=center width="70%">
                 <br>
                 Vous n'avez pas de compte Health Eat ? <a class="lien" href="{{ path('security_inscription') }}">Créer un compte</a>

@@ -11,15 +11,15 @@
 {% block body %}
 
 <div id="home" class="container-fluid">
-    <div class="landing-textp">
-        <div class="case_connexion">
-            <div class=eqcss>
-                <h2 class="titre_co">MON PROGRAMME</h2>
+    <div class="landing_text_2">
+        <div class="case_4">
+            <div class="ligne_hr_r">
+                <h2 class="titre_principal">MON PROGRAMME</h2>
                 <hr align=center width="20%">
             </div>
 
             {% if programmes == false or (programmes.getDateDebut() | date_modify("+6days") | date("d/m/Y") < date() | date("d/m/Y"))  %}
-                <a href="{{ path('generer_programme') }}"><button class="btn  btnprogramme" ><i class="fas fa-utensils"></i>  GÉNERER MON PROGRAMME</button></a>
+                <a href="{{ path('generer_programme') }}"><button class="btn btn_action_2" ><i class="fas fa-utensils"></i>  GÉNERER MON PROGRAMME</button></a>
             {% else %}     
 
             <p>Votre programme est généré pour une semaine. Chaque jour comporte une recette pour le midi et le soir. Vous pouvez changer une recette si celle-ci ne vous convient pas, où bien voir le detail pour pouvoir préparer votre repas.</p><br>
@@ -55,7 +55,7 @@
                                 <p class="detail_r r_temps"><i class="fas fa-stopwatch"></i>  {{ recette.recette.getTempsPrep() }} min</p>
                             </div>
                             {% if loop.index0 %2 == 0 %}
-                                <div class="col-sm-2 eqcssre">
+                                <div class="col-sm-2 ligne_hr_resp">
                                     <hr align="center">
                                 </div>
                             {% endif %}
@@ -79,8 +79,8 @@
 {% block javascripts %}
 
     <script>
-            document.getElementById("test").style.backgroundColor = "rgb(255, 255, 255)";
-            document.getElementById("test").style.boxShadow = "1px 3px 12px rgb(0, 0, 0)";
+            document.getElementById("nav").style.backgroundColor = "rgb(255, 255, 255)";
+            document.getElementById("nav").style.boxShadow = "1px 3px 12px rgb(0, 0, 0)";
             document.getElementById("elem-menu").style.color = "rgb(194, 23, 42)";
             document.getElementById("elem-menu2").style.color = "rgb(194, 23, 42)";
             document.getElementById("elem-menu3").style.color = "rgb(194, 23, 42)";

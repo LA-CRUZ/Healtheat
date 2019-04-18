@@ -1,15 +1,3 @@
-/* assets/css/app.css */
-/* font-family: 'Quicksand', sans-serif;*/
-html, body {
-	height: 100%;
-	width: 100%;
-	font-family: 'Quicksand', sans-serif;
-}
-
-body {
-    background-color: rgb(255, 255, 255);
-}
-
 /*******************************************************/
 /*					CSS NAVBAR
 /*******************************************************/
@@ -46,128 +34,9 @@ body {
 /*					FIN CSS NAVBAR
 /*******************************************************/
 
-.landing-text{
-	display: table-cell;
-	text-align: center;
-    vertical-align: middle;
-    color: white;
-    font-size: 200%;
-	font-weight: 700;
-}
-
-.landing-textp{
-	display: table-cell;
-	text-align: center;
-	vertical-align: middle;
-	padding-top: 130px;
-}
-
-#home{
-	background: url(../images/baniere2.jpg) no-repeat center center fixed ;
-	display: table;
-	height: 100%;
-	position: relative;
-	width: 100%;
-	background-size: cover;
-}
-
-.connexion, .connexion:focus {
-	color: rgb(194, 23, 42);
-	background-color: white;
-	height: 40px;
-	border-radius: 2rem;
-	font-weight: bold;
-	font-size: 16px;
-	padding-top: 7px;
-	margin: 5px 10px 0px 10px;
-	border-color: rgb(194, 23, 42);
-	outline: none;
-}
-
-.connexion:hover {
-	color: white;
-	background-color: rgb(194, 23, 42);
-	height: 40px;
-	border-radius: 2rem;
-	font-weight: bold;
-	font-size: 16px;
-	padding-top: 7px;
-	margin: 5px 10px 0px 10px;
-	border-color: rgb(194, 23, 42);
-	transition: 0.2s;
-}
-
-.connexion i{
-	font-size: 18px;
-}
-
-.scroll {
-	color: white;
-	font-size: 70px;
-}
-
-.scroll:hover{
-	color: white;
-	transition: 0.3s;
-}
-
-.description{
-	padding: 100px 0px 100px 0px;
-	text-align: center;
-}
-
-.description h1{
-	color: rgb(194, 23, 42);
-	text-align: center;
-	font-size: 40px;
-}
-
-.description p{
-	text-align: center;
-	color: rgb(32, 32, 32);
-	font-size: 20px;
-}
-
-.eqcss{
-	padding-bottom: 30px;
-}
-
-.eqcss hr {
- 	display: block;
-  	background-color: rgb(194, 23, 42) ;
-  	height: 2px;
-  	border-color: rgb(194, 23, 42);
-}
-
-.eqcss2 hr {
-	display: block;
-	background-color: rgb(194, 23, 42) ;
-	height: 1px;
-	border-color: rgb(194, 23, 42);
-}
-
-.eqcss h1 {
-	color: rgb(194, 23, 42);
-}
-
-.eqcss4 hr {
-	display: block;
-  	background-color: rgb(194, 23, 42) ;
-  	height: 2px;
-  	border-color: rgb(194, 23, 42);
-}
-
-.eqcssj{
-	padding-bottom: 10px;
-}
-
-.eqcssj hr {
- 	display: block;
-  	background-color: rgb(58, 58, 58) ;
-  	height: 2px;
-  	border-color: rgb(58, 58, 58);
-}
-
+/*******************************************************/
+/*					CSS FOOTER
+/*******************************************************/
 footer{
     width: 100%;
 	background-color: white;
@@ -180,326 +49,16 @@ footer h4{
 	font-weight: bold;
 }
 
-footer a{
-	color: rgb(194, 23, 42);
+footer a, footer a:hover{
 	font-size:20px;
 }
 
-footer a:hover{
-	color: rgb(194, 23, 42);
-	font-size:20px;
-}
-
-#home2{
-	background: url(../images/baniere2.jpg) no-repeat center center fixed;
-	display: table;
-	height: 40%;
-	position: relative;
-	width: 100%;
-	background-size: cover;
-}
-
-.fonction {
-	color: rgb(194, 23, 42);
-	background-color: white;
-	height: 60px;
-	width: 90%;
-	border-radius: 4rem;
-	font-weight: bold;
-	font-size: 16px;
-	padding-top: 7px;
-	margin: 20px 10px 0px 10px;
-	border: solid 3px rgb(194, 23, 42);
-}
-
-.fonction:hover {
-	color: white;
-	background-color: rgb(194, 23, 42);
-	height: 60px;
-	width: 90%;
-	border-radius: 4rem;
-	font-weight: bold;
-	font-size: 16px;
-	padding-top: 7px;
-	margin: 20px 10px 0px 10px;
-	border-color: rgb(194, 23, 42);
-	transition: 0.2s;
-}
-
-.fonction2 {
-	color: rgb(194, 23, 42);
-	background-color: white;
-	height: 60px;
-	width: 45%;
-	border-radius: 4rem;
-	font-weight: bold;
-	font-size: 16px;
-	padding-top: 7px;
-	margin: 20px 10px 0px 10px;
-	border: solid 3px rgb(194, 23, 42);
-}
-
-.fonction2:hover {
-	color: white;
-	background-color: rgb(194, 23, 42);
-	height: 60px;
-	width: 45%;
-	border-radius: 4rem;
-	font-weight: bold;
-	font-size: 16px;
-	padding-top: 7px;
-	margin: 20px 10px 0px 10px;
-	border-color: white;
-	transition: 0.2s;
-}
-
-.case {
-    box-shadow: 6px 6px 10px 6px rgba(0, 0, 0, 0.4);
-    height: auto;
-	border-radius: 10px;
-	padding: 20px;
-	margin-bottom: 20px;
-	
-}
-
-.case h2{
-	color: rgb(44, 43, 43);
-	font-size: 200%;
-	font-weight: bold;
-	text-decoration: overline;
-	padding-top: 10px;
-}
-
-.case2 {
-    box-shadow: 6px 6px 10px 6px rgba(0, 0, 0, 0.4);
-    height: auto;
-	border-radius: 10px;
-	padding: 20px;
-	font-weight: bold;
-	font-size: 18px;
-}
-
-.case_connexion{
-	background-color: white;
-	/* box-shadow: 6px 6px 10px 6px rgba(0, 0, 0, 0.4); */
-    height: 100%;
-	font-weight: bold;
-	font-size: 18px;
-	padding: 50px 0px 50px 0px;
-	margin-bottom: 100px;
-}
-
-.case_supp {
-    box-shadow: 6px 6px 10px 6px rgba(0, 0, 0, 0.4);
-    height: auto;
-	border-radius: 10px;
-	padding: 20px;
-	margin-bottom: 20px;
-	text-align: left;
-}
-
-.case_supp a, .case_supp a:hover{
-	color: rgb(49, 48, 48);
-	text-decoration: none;
-}
-
-.case_tour {
-	height: auto;
-	width: 40%;
-	/*margin-bottom: 20px;*/
-	position: relative;
-	left:410px;
-	text-align: center;
-	cursor: pointer;
-}
-
-.titre_co{
-	font-size: 50px;
-}
-
-.form_co {
-	width:80%;
-	display:block; 
-	margin:auto;
-}
-
-.form_perso {
-	width:70%;
-	display:block; 
-	margin:auto;
-}
-
-.lien {
-	color: rgb(194, 23, 42);
-}
-
-.lien:hover {
-	color: rgb(194, 23, 42);
-	text-decoration: none;
-}
-
-.badge-danger {
-	color: white;
-	background-color: red;
-}
-
-.form-error-message {
-	color: red;
-}
-
-#info_p{
-	text-align:center;
-}
-
-#info_p p{
-	text-align: center;
-	color: rgb(194, 23, 42);
-	text-decoration: overline;
-}
-
-.case3{
-	box-shadow: 0px 6px 10px 6px rgba(0, 0, 0, 0.4);
-    height: auto;
-	padding: 20px;
-	font-weight: bold;
-	font-size: 28px;
-	margin-bottom: 30px;
-	color: rgb(194, 23, 42);
-}
-
-.hr_rouge{
-	background-color: rgb(194, 23, 42);
-}
-
-.btninfo {
-	color: rgb(194, 23, 42);
-	background-color: white;
-	height: 50px;
-	border-radius: 3rem;
-	font-weight: bold;
-	font-size: 20px;
-	padding-top: 7px;
-	margin: 10px 0px 0px 0px;
-	border-color: rgb(194, 23, 42);
-}
-
-.btninfo:hover{
-	color: white;
-	background-color: rgb(194, 23, 42);
-	height: 50px;
-	border-radius: 3rem;
-	font-weight: bold;
-	font-size: 20px;
-	padding-top: 7px;
-	margin: 10px 0px 0px 0px;
-	border-color: rgb(194, 23, 42);
-	transition: 0.2s;
-}
-
-.btninfo i{
-	margin-right: 10px;
-}
-
-.btnprogramme {
-	color: rgb(194, 23, 42);
-	background-color: white;
-	height: 60%;
-	border-radius: 3rem;
-	font-weight: bold;
-	font-size: 30px;
-	padding-top: 7px;
-	margin: 10px 0px 0px 0px;
-	border-color: rgb(194, 23, 42);
-}
-
-.btnprogramme:hover{
-	color: white;
-	background-color: rgb(194, 23, 42);
-	height: 60%;
-	border-radius: 3rem;
-	font-weight: bold;
-	font-size: 30px;
-	padding-top: 7px;
-	margin: 10px 0px 0px 0px;
-	border-color: rgb(194, 23, 42);
-	transition: 0.2s;
-}
-
-.eqcss3 hr{
-	display: block;
-	background-color: rgb(49, 48, 48) ;
-	height: 1px;
-	border-color: rgb(54, 54, 54);
-}
-
-#myChart2{
-	height : auto;
-	margin-top: 100px;
-} 
-
-#myChart3{
-	height : auto;
-	margin-top : 100px;
-}
-
-.mick {
-	color: white;
-	background-color: rgb(194, 23, 42);
-	height: 40px;
-	border-radius: 1rem;
-	font-weight: bold;
-	font-size: 18px;
-	margin: 10px 20px 10px 20px;
-	border-color: rgb(194, 23, 42);
-}
-
-.aide_normal{
-	text-align: justify;
-	color: rgb(84, 84, 85);
-	font-size: 15px;
-	font-weight: bold;
-}
-
-.aide_titre {
-	text-align: center;
-	color: rgb(194, 23, 42);
-	text-decoration: overline;	
-	font-size: 18px;
-}
-
-.icon_aide {
-	cursor: pointer;
-	margin-left: 10px;
-}
-
-.pointer{
-	cursor: pointer;
-}
-
-.icon_suivi {
-	margin-right: 50px;
-	font-size: 40px;
-}
-
-.icon_footer {
-	color: rgb(194, 23, 42);
-	font-size:40px;
-}
-/* .testheight Not required - unless testing ;) */
-.testheight {
-  height:1200px;
-  font-size:20px;
-  text-align:center;
-  padding:100px 20px;
-}
+/* Bouton qui reviens een haut de la page */
 .scrolltop {
-	color: white;
 	font-size: 50px;
 	width:100%;
-	bottom: 0;
-	right: 0;
-	text-align: right;
 }
+
 .scrollt {
 	position:absolute;
 	color: rgb(194, 23, 42);
@@ -508,14 +67,153 @@ footer a:hover{
 	padding:20px;
 	text-align: center;
 	margin: 0 0 0 0;
-	cursor:pointer;
 	transition: 0.1s;		
 }
+
 .scrollt:hover {
 	font-size: 55px;
 	transition: 0.1s;	
 }
+/*******************************************************/
+/*					FIN CSS FOOTER
+/*******************************************************/
 
+/*******************************************************/
+/*					CSS HR ( lignes )
+/*******************************************************/
+.ligne_hr_r{
+	padding-bottom: 30px;
+}
+
+.ligne_hr_r hr{
+ 	display: block;
+  	background-color: rgb(194, 23, 42) ;
+  	height: 2px;
+  	border-color: rgb(194, 23, 42);
+}
+
+.ligne_hr_r h1 {
+	color: rgb(194, 23, 42);
+}
+
+.ligne_hr_n {
+	padding-bottom: 10px;
+}
+
+.ligne_hr_n hr {
+ 	display: block;
+  	background-color: rgb(58, 58, 58) ;
+  	height: 2px;
+  	border-color: rgb(58, 58, 58);
+}
+
+.ligne_hr_resp hr {
+	display: block;
+	background-color: rgb(194, 23, 42) ;
+	width:2px;
+	height: 200px;
+	border-color: rgb(194, 23, 42);
+}
+
+/* Permet de changer les propriétés de <hr> selon la taille de l'écran */
+@media only screen and (max-width: 800px) {.ligne_hr_resp hr {
+    width: 80%;
+    height: 2px;}
+}
+/*******************************************************/
+/*					FIN CSS HR ( lignes )
+/*******************************************************/
+
+/*******************************************************/
+/*					CSS BOUTONS 
+/*******************************************************/
+
+/* Bouton pour la connexion, l'inscription et la déconnexion.. | Base | Index */
+.btn_con_dec, .btn_con_dec:focus {
+	color: rgb(194, 23, 42);
+	background-color: white;
+	height: 40px;
+	border-radius: 2rem;
+	font-weight: bold;
+	font-size: 16px;
+	padding-top: 7px;
+	margin: 5px 10px 0px 10px;
+	border-color: rgb(194, 23, 42);
+	outline: none;
+}
+
+.btn_con_dec:hover {
+	color: white;
+	background-color: rgb(194, 23, 42);
+	transition: 0.2s;
+}
+
+.btn_con_dec i{
+	font-size: 18px;
+}
+
+.btn_action {
+	color: rgb(194, 23, 42);
+	background-color: white;
+	height: 60px;
+	width: 90%;
+	border-radius: 4rem;
+	font-weight: bold;
+	font-size: 16px;
+	padding-top: 7px;
+	margin: 20px 10px 0px 10px;
+	border: solid 3px rgb(194, 23, 42);
+}
+
+.btn_action:hover {
+	color: white;
+	background-color: rgb(194, 23, 42);
+	transition: 0.2s;
+}
+
+.btn_int_all {
+	color: rgb(194, 23, 42);
+	background-color: white;
+	height: 60px;
+	width: 45%;
+	border-radius: 4rem;
+	font-weight: bold;
+	font-size: 16px;
+	padding-top: 7px;
+	margin: 20px 10px 0px 10px;
+	border: solid 3px rgb(194, 23, 42);
+}
+
+.btn_int_all:hover {
+	color: white;
+	background-color: rgb(194, 23, 42);
+	border-color: white;
+	transition: 0.2s;
+}
+
+/* Bouton pour la modification du profil, le génération du programme et l'ajout d'un ingrédient | InfoPerso | Programme | Inventaire */
+.btn_action_2 {
+	color: rgb(194, 23, 42);
+	background-color: white;
+	border-radius: 3rem;
+	font-weight: bold;
+	font-size: 20px;
+	padding-top: 7px;
+	margin: 10px 0px 0px 0px;
+	border-color: rgb(194, 23, 42);
+}
+
+.btn_action_2:hover{
+	color: white;
+	background-color: rgb(194, 23, 42);
+	transition: 0.2s;
+}
+
+.btn_action_2 i{
+	margin-right: 10px;
+}
+
+/* Boutons linkedIn de la page "Qui sommes nous ?" */
 .linkedin{
 	color: rgb(0, 125, 183);
 	background-color: white;
@@ -531,40 +229,10 @@ footer a:hover{
 .linkedin:hover {
 	color: white;
 	background-color: rgb(0, 125, 183);
-	height: 45px;
-	border-radius: 3rem;
-	font-weight: bold;
-	font-size: 20px;
-	padding-top: 7px;
-	margin: 5px 10px 0px 10px;
-	border-color: rgb(0, 125, 183);
 	transition: 0.2s;
 }
 
-.linkedin i{
-	font-size: 22px;
-}
-
-.linkedin:hover i{
-	font-size: 22px;
-	transition: 1s;
-	transform: rotate(360deg); /* Équivalent à rotateZ(45deg) */
-}
-
-.jour_recette{
-	color: rgb(194, 23, 42);
-	font-weight: bold;
-	font-size: 36px;
-	text-decoration: overline;
-	text-transform: uppercase;
-}
-
-.style_titre{
-	color: rgb(194, 23, 42);
-	font-size: 20px;
-	text-decoration: overline;
-}
-
+/* Bouton de reload de recette et de détails | Recette */
 .btn_recette, .btn_recette:focus{
 	color: white;
 	background-color: rgb(194, 23, 42);
@@ -582,13 +250,6 @@ footer a:hover{
 .btn_recette:hover {
 	color: rgb(194, 23, 42);
 	background-color: white;
-	height: 38px;
-	border-radius: 3rem;
-	font-weight: bold;
-	font-size: 17px;
-	padding-top: 7px;
-	margin: 5px 10px 0px 10px;
-	border-color: rgb(194, 23, 42);
 	transition: 0.2s;
 }
 
@@ -598,26 +259,284 @@ footer a:hover{
 }
 
 .btn_recette:hover i{
-	font-size: 20px;
 	transition: 1s;
 	transform: rotate(360deg); /* Équivalent à rotateZ(45deg) */
 }
 
-.info_recette i{
-	padding-right: 15px;
+/* Bouton de retour vers programme | Détails Recette */
+.retour {
+	color: rgb(194, 23, 42);
+	background-color: white;
+	height: 60px;
+	width: 60px;
+	border-radius: 3rem;
+	font-weight: bold;
+	font-size: 25px;
+	margin: 5px 10px 0px 50px;
+	border-color: rgb(194, 23, 42);
+	float: left;
 }
 
-.eqcssre hr {
-	display: block;
-	background-color: rgb(194, 23, 42) ;
-	width:2px;
-	height: 200px;
+.retour:hover {
+	color: white;
+	background-color: rgb(194, 23, 42);
+	transition: 0.2s;
+	transform: rotate(360deg);
+}
+/*******************************************************/
+/*					FIN CSS BOUTONS 
+/*******************************************************/
+
+/*******************************************************/
+/*					CSS GRAPHIQUES 
+/*******************************************************/
+#myChart2, #myChart3{
+	height : auto;
+	margin-top: 100px;
+} 
+/*******************************************************/
+/*					FIN CSS GRAPHIQUES 
+/*******************************************************/
+
+/*******************************************************/
+/*					CSS AUTRE 
+/*******************************************************/
+
+/* Première image du site */
+#home{
+	background: url(../images/baniere2.jpg) no-repeat center center fixed ;
+	display: table;
+	height: 100%;
+	position: relative;
+	width: 100%;
+	background-size: cover;
+}
+
+/* Image en bandeau qui sépare les zones de textes sur accueil */
+#home_bandeau{
+	background: url(../images/baniere2.jpg) no-repeat center center fixed;
+	display: table;
+	height: 40%;
+	position: relative;
+	width: 100%;
+	background-size: cover;
+}
+
+/* Bloc landing text pour alignement et disposition des blocs */
+.landing_text{
+	display: table-cell;
+	text-align: center;
+    vertical-align: middle;
+    color: white;
+    font-size: 200%;
+	font-weight: 700;
+}
+
+.landing_text_2{
+	display: table-cell;
+	text-align: center;
+	vertical-align: middle;
+	padding-top: 130px;
+}
+
+/* Bouton sur l'image d'accueil opur dessendre vers intro */
+.scroll, .scroll:hover {
+	color: white;
+	font-size: 70px;
+}
+
+/* Div normal pour les textes et titres | Index | InofoPeros | Qui sommes nous */
+.description{
+	padding: 100px 0px 100px 0px;
+	text-align: center;
+}
+
+.description h1{
+	color: rgb(194, 23, 42);
+	font-size: 40px;
+}
+
+.description p{
+	color: rgb(32, 32, 32);
+	font-size: 20px;
+}
+
+/*******************************************************/
+/*					CSS CASE 
+/*******************************************************/
+
+/* Le visuel du site est organisé majoritairement dans des bloc case */
+
+
+/* Index | Infoperso | Perso | Programme | QSN */
+.case {
+    box-shadow: 6px 6px 10px 6px rgba(0, 0, 0, 0.4);
+    height: auto;
+	border-radius: 10px;
+	padding: 20px;
+	margin-bottom: 20px;
+	
+}
+
+.case h2{
+	color: rgb(44, 43, 43);
+	font-size: 200%;
+	font-weight: bold;
+	text-decoration: overline;
+	padding-top: 10px;
+}
+
+/* Index */
+.case_2 {
+    box-shadow: 6px 6px 10px 6px rgba(0, 0, 0, 0.4);
+    height: auto;
+	border-radius: 10px;
+	padding: 20px;
+	font-weight: bold;
+	font-size: 18px;
+}
+
+/* Infoperso*/
+.case_3{
+	box-shadow: 0px 6px 10px 6px rgba(0, 0, 0, 0.4);
+    height: auto;
+	padding: 20px;
+	font-weight: bold;
+	font-size: 28px;
+	margin-bottom: 30px;
+	color: rgb(194, 23, 42);
+}
+
+/* Infoperso | Inventaire  | Perso | Programme | QSN | Recette | Suivi */
+.case_4{
+	background-color: white;
+    height: 100%;
+	font-weight: bold;
+	font-size: 18px;
+	padding: 50px 0px 50px 0px;
+	margin-bottom: 100px;
+}
+
+/* Infoperso | Suivi */
+.case_5 {
+    box-shadow: 6px 6px 10px 6px rgba(0, 0, 0, 0.4);
+    height: auto;
+	border-radius: 10px;
+	padding: 20px;
+	margin-bottom: 20px;
+	text-align: left;
+}
+
+.case_5 a, .case_5 a:hover{
+	color: rgb(49, 48, 48);
+	text-decoration: none;
+}
+
+/* Inventaire*/
+.case_ingred{
+	box-shadow: 6px 6px 10px 6px rgba(0, 0, 0, 0.4);
+	height: auto;
+	width: 100%;
+	border-radius: 10px;
+	padding: 10px;
+	margin-bottom: 20px;
+}
+/*******************************************************/
+/*					FIN CSS CASE 
+/*******************************************************/
+
+/*******************************************************/
+/*					CSS ICONES 
+/*******************************************************/
+.icon_aide {
+	cursor: pointer;
+	margin-left: 10px;
+}
+
+.icon_suivi {
+	margin-right: 50px;
+	font-size: 40px;
+}
+
+.icon_footer {
+	color: rgb(194, 23, 42);
+	font-size:40px;
+}
+
+.linkedin i{
+	font-size: 22px;
+}
+
+.linkedin:hover i{
+	transition: 1s;
+	transform: rotate(360deg); /* Équivalent à rotateZ(45deg) */
+}
+
+/* Icone croix pour suppression ingrédient */
+.close_inventaire {
+	color :rgb(194, 23, 42);
+	float: right;
+	vertical-align: middle;
+	cursor: pointer;
+}
+
+.close_inventaire:hover {
+	transition: 1s;
+	transform: rotate(360deg);
+}
+/*******************************************************/
+/*					FIN CSS ICONES 
+/*******************************************************/
+
+/*******************************************************/
+/*					CSS ALERTES  
+/*******************************************************/
+
+/* Css sweetalert2 pour informations utilisateurs */
+.aide_normal{
+	text-align: justify;
+	color: rgb(84, 84, 85);
+	font-size: 15px;
+	font-weight: bold;
+}
+
+.aide_titre {
+	text-align: center;
+	color: rgb(194, 23, 42);
+	text-decoration: overline;	
+	font-size: 18px;
+}
+
+/* Icone pour ouvrir une alerte */
+.btn_alerte {
+	color: white;
+	background-color: rgb(194, 23, 42);
+	height: 40px;
+	border-radius: 1rem;
+	font-weight: bold;
+	font-size: 18px;
+	margin: 10px 20px 10px 20px;
 	border-color: rgb(194, 23, 42);
 }
+/*******************************************************/
+/*					FIN CSS ALERTES 
+/*******************************************************/
 
-@media only screen and (max-width: 800px) {.eqcssre hr {
-    width: 80%;
-    height: 2px;}
+/*******************************************************/
+/*					CSS RECETTES  
+/*******************************************************/
+
+/* Tout les détrails de la page de détails des recettes */
+.jour_recette{
+	color: rgb(194, 23, 42);
+	font-weight: bold;
+	font-size: 36px;
+	text-decoration: overline;
+	text-transform: uppercase;
+}
+
+.info_recette i{
+	padding-right: 15px;
 }
 
 .img_rece{
@@ -648,33 +567,7 @@ footer a:hover{
 	color: rgb(194, 23, 42);
 }
 
-.retour {
-	color: rgb(194, 23, 42);
-	background-color: white;
-	height: 60px;
-	width: 60px;
-	border-radius: 3rem;
-	font-weight: bold;
-	font-size: 25px;
-	margin: 5px 10px 0px 50px;
-	border-color: rgb(194, 23, 42);
-	float: left;
-}
-
-.retour:hover {
-	color: white;
-	background-color: rgb(194, 23, 42);
-	height: 60px;
-	width: 60px;
-	border-radius: 3rem;
-	font-weight: bold;
-	font-size: 25px;
-	margin: 5px 10px 0px 50px;
-	border-color: rgb(194, 23, 42);
-	transition: 0.2s;
-	transform: rotate(360deg);
-}
-
+/* Recette affichée sur l'accueil */
 .recette_accueil{
 	text-align: center;
 	height: 100%;
@@ -683,31 +576,65 @@ footer a:hover{
 	padding: 50px 0px 50px 0px;
 }
 
-.case_ingred{
-	box-shadow: 6px 6px 10px 6px rgba(0, 0, 0, 0.4);
-	height: auto;
-	width: 100%;
-	border-radius: 10px;
-	padding: 10px;
-	margin-bottom: 20px;
+/* Titre de la recette en Midi et Soir */
+.style_titre{
+	color: rgb(194, 23, 42);
+	font-size: 20px;
+	text-decoration: overline;
+}
+/*******************************************************/
+/*					FIN CSS RECETTES  
+/*******************************************************/
+.titre_principal{
+	font-size: 50px;
 }
 
-.close_inventaire {
-	color :rgb(194, 23, 42);
-	float: right;
-	vertical-align: middle;
-	cursor: pointer;
+/* Style des formulaires | Inscription | Connexion | Perso */
+.formulaire {
+	width:80%;
+	display:block; 
+	margin:auto;
 }
 
-.close_inventaire:hover {
-	color :rgb(194, 23, 42);
-	float: right;
-	vertical-align: middle;
-	cursor: pointer;
-	transition: 1s;
-	transform: rotate(360deg);
-}
-
-.link, .link:hover {
+/* Lien vers autre page | Footer | Connexion | Inscription */
+.lien {
+	color: rgb(194, 23, 42);
 	font-size: 16px;
 }
+
+.lien:hover {
+	color: rgb(194, 23, 42);
+	text-decoration: underline;
+	font-size: 16px;
+}
+
+/* Css des titres des parties d'informations | Infoperso | Perso | Recette */
+#info p{
+	text-align:center;
+	color: rgb(194, 23, 42);
+	text-decoration: overline;
+}
+
+/* Changement de curseur en hover */
+.pointer{
+	cursor: pointer;
+}
+
+/* Css présent sur tout le site */
+html, body {
+	height: 100%;
+	width: 100%;
+	font-family: 'Quicksand', sans-serif;
+}
+
+
+
+
+
+
+
+
+
+
+
+

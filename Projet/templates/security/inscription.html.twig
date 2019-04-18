@@ -7,39 +7,39 @@
     <script>
         function maFonction()
         {
-            document.getElementById("test").style.backgroundColor = "rgb(255, 255, 255)";
-            document.getElementById("test").style.boxShadow = "1px 3px 12px rgb(0, 0, 0)";
+            document.getElementById("nav").style.backgroundColor = "rgb(255, 255, 255)";
+            document.getElementById("nav").style.boxShadow = "1px 3px 12px rgb(0, 0, 0)";
             document.getElementById("elem-menu").style.color = "rgb(194, 23, 42)";
         }
 
         maFonction();
     </script>
 
-    <div id="homep">
-        <div class="landing-textp">
-            <div class="case_connexion">
-                <div class=eqcss>
-                    <h2 class="titre_co">INSCRIVEZ-VOUS</h2>
+    <div id="home">
+        <div class="landing_text_2">
+            <div class="case_4">
+                <div class="ligne_hr_r">
+                    <h2 class="titre_principal">INSCRIVEZ-VOUS</h2>
                     <hr align=center width="20%">
                 </div>
                     
                     {{ form_start(form) }}
 
                         {{ form_row(form.username, {'label' : " ",'attr': 
-                        {'placeholder': 'Username', 'class': 'form_co'}})}}
+                        {'placeholder': 'Username', 'class': 'formulaire'}})}}
                         {{ form_row(form.email, {'label' : " ",'attr': 
-                        {'placeholder': 'Email', 'class': 'form_co'}})}}
+                        {'placeholder': 'Email', 'class': 'formulaire'}})}}
                         {{ form_row(form.password, {'label' : " ",'attr': 
-                        {'placeholder': 'Mot de passe', 'class': 'form_co'}})}}
+                        {'placeholder': 'Mot de passe', 'class': 'formulaire'}})}}
                         {{ form_row(form.confirm_password, {'label' : " ",'attr': 
-                        {'placeholder': 'Confirmez votre mot de passe', 'class': 'form_co'}})}}
+                        {'placeholder': 'Confirmez votre mot de passe', 'class': 'formulaire'}})}}
                         
-                        <button class="btn  fonction" type="submit">S'INSCRIRE</button>
+                        <button class="btn btn_action" type="submit">S'INSCRIRE</button>
     
                     {{ form_end(form) }}
                     <br>
 
-                    <div class=eqcss2>
+                    <div class="ligne_hr_r">
                         <hr align=center width="70%">
                         <br>
                         Vous avez déja un compte Health Eat ? <a class="lien" href="{{ path('security_connexion') }}">Connectez-vous</a>

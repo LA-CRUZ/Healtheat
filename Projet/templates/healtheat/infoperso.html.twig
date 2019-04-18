@@ -12,8 +12,8 @@
     <script>
         function maFonction()
         {
-            document.getElementById("test").style.backgroundColor = "rgb(255, 255, 255)";
-            document.getElementById("test").style.boxShadow = "1px 3px 12px rgb(0, 0, 0)";
+            document.getElementById("nav").style.backgroundColor = "rgb(255, 255, 255)";
+            document.getElementById("nav").style.boxShadow = "1px 3px 12px rgb(0, 0, 0)";
             document.getElementById("elem-menu").style.color = "rgb(194, 23, 42)";
             document.getElementById("elem-menu2").style.color = "rgb(194, 23, 42)";
             document.getElementById("elem-menu3").style.color = "rgb(194, 23, 42)";
@@ -47,7 +47,7 @@
         function aide(){
             Swal.fire({
                 customClass: {
-                    cancelButton: 'mick'
+                    cancelButton: 'btn_alerte'
                 },
                 buttonsStyling: false,
                 showCancelButton: true,
@@ -59,8 +59,8 @@
                 cancelButtonText: 'FERMER',
                 backdrop:'rgb(0,0,0,0.92)',
                 html:
-                    '<div class=eqcss>' +
-                        '<h2 class="titre_co\">PAGE D\'AIDE</h2>' +
+                    '<div class="ligne_hr_r">' +
+                        '<h2 class="titre_principal\">PAGE D\'AIDE</h2>' +
                         '<hr align=center width="20%">' +
                     '</div>' +
                     '<div class="titre_aide">' +
@@ -93,12 +93,12 @@
     <div id="home">
     <div class="container-fluid">
         <div class="description">
-            <div class="case_connexion">
-                <div class=eqcss>
-                    <h2 class="titre_co">ESPACE PERSONNEL</h2>
+            <div class="case_4">
+                <div class="ligne_hr_r">
+                    <h2 class="titre_principal">ESPACE PERSONNEL</h2>
                     <hr align=center width="20%">
                 </div>
-                <div class="case3">
+                <div class="case_3">
                 {{ user.username }}
                 </div>
                 {% for message in app.flashes('notice') %}
@@ -146,32 +146,32 @@
                 <div class="row">
                     <div class="col-sm-1"></div>
                         <div class="col-sm-10">
-                            <a href="{{ path('espace_perso') }}"><button class="btn  btninfo" ><i class="fas fa-pencil-alt"></i>  MODIFER MON PROFIL</button></a>
+                            <a href="{{ path('espace_perso') }}"><button class="btn btn_action_2" ><i class="fas fa-pencil-alt"></i>  MODIFER MON PROFIL</button></a>
                         </div>
                     <div class="col-sm-1"></div>
                 </div>
                 <br><br>
                 <div class="row" >
                     <div class="col-sm-1"></div>
-                    <div class="col-sm-3" id="info_p">
+                    <div class="col-sm-3" id="info">
                         <div class="case">
                             <img src="{{ asset('build/images/info.png') }}" alt="" style="width:100%;max-width:100px">
                             <br>
-                            <div class=eqcss>
+                            <div class="ligne_hr_r">
                             <hr align=center width="100%">
                             </div>
                             <p>NOM</p>
                             {% if info_user.nom != NULL %}
                                 {{ info_user.nom }} {{ info_user.prenom }}
                             {% endif %}
-                            <div class=eqcss3>
+                            <div class="ligne_hr_n">
                                 <hr align=center width="80%">
                             </div>
                             <p>SEXE</p>
                             {% if info_user.sexe != NULL %}
                                 {{ info_user.sexe }}
                             {% endif %}
-                            <div class=eqcss3>
+                            <div class="ligne_hr_n">
                                 <hr align=center width="80%">
                             </div>
                             <p>AGE</p>
@@ -180,25 +180,25 @@
                             {% endif %}
                         </div>
                     </div>
-                    <div class="col-sm-4" id="info_p">
+                    <div class="col-sm-4" id="info">
                         <div class="case">
                             <img src="{{ asset('build/images/info2.png') }}" alt="" style="width:100%;max-width:100px;">
                             <br>
-                            <div class=eqcss>
+                            <div class="ligne_hr_r">
                             <hr align=center width="100%">
                             </div>
                             <p>POIDS</p>
                             {% if info_user.getLPoids() != NULL %}
                                 {{ info_user.getLPoids() }} kg
                             {% endif %}
-                            <div class=eqcss3>
+                            <div class="ligne_hr_n">
                                 <hr align=center width="80%">
                             </div>
                             <p>TAILLE</p>
                             {% if info_user.taille != NULL %}
                                 {{ info_user.taille /100 }} m
                             {% endif %}
-                            <div class=eqcss3>
+                            <div class="ligne_hr_n">
                                 <hr align=center width="80%">
                             </div>
                             <p>IMC <i onclick="aide()" class="fas fa-question-circle icon_aide"></i></p> 
@@ -207,11 +207,11 @@
                             {% endif %}
                         </div>
                     </div>
-                    <div class="col-sm-3" id="info_p">
+                    <div class="col-sm-3" id="info">
                         <div class="case">
                             <img src="{{ asset('build/images/info3.png') }}" alt="" style="width:100%;max-width:100px">
                             <br>
-                            <div class=eqcss>
+                            <div class="ligne_hr_r">
                             <hr align=center width="100%">
                             </div>
                             {% if info_user.intolerance != NULL %}
@@ -222,7 +222,7 @@
                             {% endfor %}
                             </ul>
                             {% endif %}
-                            <div class=eqcss3>
+                            <div class="ligne_hr_n">
                             <hr align=center width="100%">
                             </div>
                             {% if info_user.allergie != NULL %}
@@ -240,7 +240,7 @@
                 <div class="row" >
                     <div class="col-sm-1"></div>
                     <div class="col-sm-10">
-                        <div class="case_supp">
+                        <div class="case_5">
                             <div class="row pointer" data-toggle="collapse" data-target="#target1">
                                 <div class="col-sm-11">
                                     <a style="font-size:100%;">Informations supplémentaires</a>
@@ -250,8 +250,8 @@
                                 </div>
                             </div>
                             <div id="target1" class="collapse">
-                                <div id="info_p">
-                                    <div class=eqcss3>
+                                <div id="info">
+                                    <div class="ligne_hr_n">
                                     <hr align=center width="100%">
                                     </div>
                                     <br>

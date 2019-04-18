@@ -14,8 +14,8 @@
     <script>
         function maFonction()
         {
-            document.getElementById("test").style.backgroundColor = "rgb(255, 255, 255)";
-            document.getElementById("test").style.boxShadow = "1px 3px 12px rgb(0, 0, 0)";
+            document.getElementById("nav").style.backgroundColor = "rgb(255, 255, 255)";
+            document.getElementById("nav").style.boxShadow = "1px 3px 12px rgb(0, 0, 0)";
             document.getElementById("elem-menu").style.color = "rgb(194, 23, 42)";
             document.getElementById("elem-menu2").style.color = "rgb(194, 23, 42)";
             document.getElementById("elem-menu3").style.color = "rgb(194, 23, 42)";
@@ -29,7 +29,7 @@
         function aide(){
             Swal.fire({
                 customClass: {
-                    cancelButton: 'mick'
+                    cancelButton: 'btn_alerte'
                 },
                 buttonsStyling: false,
                 showCancelButton: true,
@@ -41,8 +41,8 @@
                 cancelButtonText: 'FERMER',
                 backdrop:'rgb(0,0,0,0.92)',
                 html:
-                    '<div class=eqcss>' +
-                        '<h2 class="titre_co\">PAGE D\'AIDE</h2>' +
+                    '<div class="ligne_hr_r">' +
+                        '<h2 class="titre_principal\">PAGE D\'AIDE</h2>' +
                         '<hr align=center width="20%">' +
                     '</div>' +
                     '<div class="titre_aide">' +
@@ -73,73 +73,72 @@
     </script>
 
     <div id="home" class="container-fluid">
-            <div class="landing-textp">
-                <div class="case_connexion">
-                    <div class=eqcss>
-                        <h2 class="titre_co">ESPACE PERSONNEL</h2>
+            <div class="landing_text_2">
+                <div class="case_4">
+                    <div class="ligne_hr_r">
+                        <h2 class="titre_principal">ESPACE PERSONNEL</h2>
                         <hr align=center width="20%">
                     </div>
 
-<div class="row" id="info_p">
+<div class="row" id="info">
     {{ form_start(form) }}
         <div class="col-sm-1"></div>
         <div class="col-sm-5">
             <div class="case">
                 <img src="{{ asset('build/images/info.png') }}" alt="" style="width:100%;max-width:100px">
                 <br>
-                <div class=eqcss>
+                <div class="ligne_hr_r">
                 <hr align=center width="100%">
                 </div>
                 <p>NOM</p>
                 {{ form_row(form.Nom, {'label' : " " ,'attr':
-                {'placeholder': 'Nom', 'class': 'form_perso'}})}}
+                {'placeholder': 'Nom', 'class': 'formulaire'}})}}
                 </br>
                 <p>PRENOM</p>
                 {{ form_row(form.Prenom, {'label' : " " ,'attr':
-                {'placeholder': 'Prénom', 'class': 'form_perso'}})}}
+                {'placeholder': 'Prénom', 'class': 'formulaire'}})}}
                 </br>
                 <p>SEXE</p>
                 {{ form_row(form.Sexe, {'label' : " " ,'attr':
-                {'placeholder': 'Sexe', 'class': 'form_perso'}})}}
+                {'placeholder': 'Sexe', 'class': 'formulaire'}})}}
                 </br>
                 <p>AGE</p>
                 {{ form_row(form.Age, {'label' : " " ,'attr':
-                {'placeholder': 'Age', 'class': 'form_perso'}})}}  
+                {'placeholder': 'Age', 'class': 'formulaire'}})}}  
                 <br>
-                <a href=""><button class="btn  fonction" >  MODIFIER MON MOT DE PASSE</button></a>
             </div>
         </div>
         <div class="col-sm-5">
         <div class="case">
             <img src="{{ asset('build/images/info2.png') }}" alt="" style="width:100%;max-width:100px;">
             <br>
-            <div class=eqcss>
+            <div class="ligne_hr_r">
             <hr align=center width="100%">
             </div>
             <p>TAILLE (cm)</p>
             {{ form_row(form.Taille, {'label' : " " ,'attr':
-            {'placeholder': 'Taille', 'class': 'form_perso'}})}}
+            {'placeholder': 'Taille', 'class': 'formulaire'}})}}
             </br>
             <p>POIDS (kg)</p>
             {{ form_row(form.l_poids, {'label' : " " ,'attr':
-            {'placeholder': 'Poids', 'class': 'form_perso'}})}}
+            {'placeholder': 'Poids', 'class': 'formulaire'}})}}
             </br>
             <p>TOUR DE TAILLE (cm)<i onclick="aide()" class="fas fa-question-circle icon_aide"></i></p> 
             {{ form_row(form.tour_taille, {'label' : " " ,'attr':
-            {'placeholder': 'Tour de taille', 'class': 'form_perso'}})}}
+            {'placeholder': 'Tour de taille', 'class': 'formulaire'}})}}
             </br>
             <p>TOUR DE HANCHE (cm)<i onclick="aide()" class="fas fa-question-circle icon_aide"></i></p>  
             {{ form_row(form.tour_hanche, {'label' : " " ,'attr':
-            {'placeholder': 'Tour de hanche', 'class': 'form_perso'}})}}
+            {'placeholder': 'Tour de hanche', 'class': 'formulaire'}})}}
             </br>
             <p>TEMPS D'ACTIVITE PHYSIQUE (minutes)<i onclick="aide()" class="fas fa-question-circle icon_aide"></i></p>
             {{ form_row(form.l_temps, {'label' : " " ,'attr':
-            {'placeholder': 'Temps d\'activité physique', 'class': 'form_perso'}})}}
+            {'placeholder': 'Temps d\'activité physique', 'class': 'formulaire'}})}}
             </br>
             <p>INTOLERANCE ET ALLERGIE <i onclick="aide()" class="fas fa-question-circle icon_aide"></i></p>
             </br>
-            <button type="button" class="btn fonction2" data-toggle="collapse" data-target="#intolerance">Intolerance <i class="fas fa-caret-down" style="font-size:100%;"></i></button>
-            <button type="button" class="btn fonction2" data-toggle="collapse" data-target="#allergie">Allergie <i class="fas fa-caret-down" style="font-size:100%;"></i></button>
+            <button type="button" class="btn btn_int_all" data-toggle="collapse" data-target="#intolerance">Intolerance <i class="fas fa-caret-down" style="font-size:100%;"></i></button>
+            <button type="button" class="btn btn_int_all" data-toggle="collapse" data-target="#allergie">Allergie <i class="fas fa-caret-down" style="font-size:100%;"></i></button>
             <div class="row">
                 <div class="col-sm-6">
                     <div id="intolerance" class="collapse col-sm-6">

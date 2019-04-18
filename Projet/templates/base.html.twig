@@ -32,7 +32,7 @@
 
     </head>
     <body>  
-        <nav class="navbar navbar-default navbar-fixed-top" role="navigation" id="test">
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation" id="nav">
             <div class="container-fluid ">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-main">
@@ -46,14 +46,14 @@
                 <div class="collapse navbar-collapse" id="navbar-collapse-main">
                 {% if not app.user %}
                     <ul class="nav navbar-nav navbar-right">
-                        <a href="{{ path('security_connexion') }}"><button class="btn connexion" ><i class="far fa-user-circle"></i>  CONNEXION</button></a>
+                        <a href="{{ path('security_connexion') }}"><button class="btn btn_con_dec" ><i class="far fa-user-circle"></i>  CONNEXION</button></a>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <a href="{{ path('security_inscription') }}"><button class="btn connexion" ><i class="fab fa-wpforms"></i>  INSCRIPTION</button></a>
+                        <a href="{{ path('security_inscription') }}"><button class="btn btn_con_dec" ><i class="fab fa-wpforms"></i>  INSCRIPTION</button></a>
                     </ul>
                 {% else %}
                     <ul class="nav navbar-nav navbar-right">
-                        <a href="{{ path('security_logout') }}"><button class="btn connexion" ><i class="far fa-user-circle"></i>  DÉCONNEXION</button></a>
+                        <a href="{{ path('security_logout') }}"><button class="btn btn_con_dec" ><i class="far fa-user-circle"></i>  DÉCONNEXION</button></a>
                     </ul>
                 {% endif %}
                     <ul class="nav navbar-nav navbar-right">
@@ -76,7 +76,7 @@
         <div class="row">
             <div class="col-sm-5">
                 <h3><i class="fas fa-users icon_footer"></i></h3>
-                <div class=eqcss4>
+                <div class="ligne_hr_r">
 			        <hr align=center width="100%">
 		        </div>
                 <div class="row">
@@ -95,16 +95,16 @@
             </div> 
             <div class="col-sm-5">
                 <h3><i class="material-icons icon_footer">textsms</i></h3>
-                <div class=eqcss4>
+                <div class="ligne_hr_r">
 			        <hr align=center width="100%">
 		        </div>
                 <div class="row">
                     <div class="col-sm-10">
-                        <h4>Projet de 3ème année d'informatique réalisé dans le cadre de LIFPROJET   <a href="{{ path('qui_sommes_nous') }}" class="pointer link"><ion-icon name="contacts" style="margin-left: 20px;  "></ion-icon> VOIR L'EQUIPE</a></h4>
+                        <h4>Projet de 3ème année d'informatique réalisé dans le cadre de LIFPROJET   <a href="{{ path('qui_sommes_nous') }}" class="pointer lien"><ion-icon name="contacts" style="margin-left: 20px;  "></ion-icon> VOIR L'EQUIPE</a></h4>
                     </div>
                     <div class="col-sm-2 scrolltop">
                     <br>
-                        <div class='scrollt icon '><i class="fas fa-chevron-circle-up" alt="Arrow Down Icon"></i>
+                        <div class='scrollt icon pointer'><i class="fas fa-chevron-circle-up" alt="Arrow Down Icon"></i>
                     </div>
                 </div>
             </div> 

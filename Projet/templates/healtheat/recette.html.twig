@@ -12,8 +12,8 @@
     <script>
         function maFonction()
         {
-            document.getElementById("test").style.backgroundColor = "rgb(255, 255, 255)";
-            document.getElementById("test").style.boxShadow = "1px 3px 12px rgb(0, 0, 0)";
+            document.getElementById("nav").style.backgroundColor = "rgb(255, 255, 255)";
+            document.getElementById("nav").style.boxShadow = "1px 3px 12px rgb(0, 0, 0)";
             document.getElementById("elem-menu").style.color = "rgb(194, 23, 42)";
             document.getElementById("elem-menu2").style.color = "rgb(194, 23, 42)";
             document.getElementById("elem-menu3").style.color = "rgb(194, 23, 42)";
@@ -28,11 +28,11 @@
     </script>
 
     <div id="home" class="container-fluid">
-            <div class="landing-textp">
-                <div class="case_connexion">
+            <div class="landing_text_2">
+                <div class="case_4">
                     <a href="{{ path('mon_programme') }}"><button class="btn retour" ><i class="fas fa-arrow-left"></i></button></a><br>
-                    <div class=eqcss>
-                        <h2 class="titre_co">DETAILS DE LA RECETTE</h2>
+                    <div class="ligne_hr_r">
+                        <h2 class="titre_principal">DETAILS DE LA RECETTE</h2>
                         <hr align=center width="20%">
                     </div>
                     <br><br>
@@ -53,7 +53,7 @@
                     <br><br>
                     <div class="row">
                         <div class="col-sm-1"></div>
-                        <div class="col-sm-5" style="text-align:justify" id="info_p">
+                        <div class="col-sm-5" style="text-align:justify" id="info">
                             <p style="text-align:center">INGREDIENTS</p>
                             <ul>
                                 {% for ingredient in recette.ingredient %}
@@ -61,7 +61,7 @@
                                 {% endfor %}
                             </ul>
                         </div>
-                        <div class="col-sm-5" style="text-align:justify" id="info_p">
+                        <div class="col-sm-5" style="text-align:justify" id="info">
                             <p>DESCRIPTION</p>
                             {{ recette.description | raw }}       
                         </div>
