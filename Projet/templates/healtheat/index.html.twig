@@ -202,7 +202,6 @@
                 <div class="col-sm-3">
                     <div class="case">
                         <img id="myImg" src="{{ asset('build/images/info.png') }}" alt="" style="width:100%;max-width:200px"><br>
-                        <h2>PROFIL</h2>
                         {# <p>Gérer vos Informations personnelles au cours du temps.</p> #}
                         {% if app.user %}
                         <a href="{{ path('info_perso') }}"><button class="btn  fonction" >  PROFIL</button></a>
@@ -213,7 +212,6 @@
                 <div class="col-sm-3 ">
                     <div class="case">
                         <img id="myImg" src="{{ asset('build/images/graphe.png') }}" alt="" style="width:100%;max-width:200px"><br>
-                        <h2>SUIVI</h2>
                         {# <p>Affiche l'évolution des informations de santé.</p> #}
                         {% if app.user %}
                         <a href="{{ path('suivi_perso') }}"><button class="btn  fonction" >  SUIVI</button></a>
@@ -224,10 +222,9 @@
                 <div class="col-sm-3 ">
                     <div class="case">
                         <img id="myImg" src="{{ asset('build/images/nourriture.png') }}" alt="" style="width:100%;max-width:200px"><br>
-                        <h2>PROGRAMMES</h2>
                         {# <p>Vos programmes alimentaires pour une semaine.</p> #}
                         {% if app.user %}
-                        <a href="{{ path('mon_programme') }}"><button class="btn  fonction" >  PROGRAMMES</button></a>
+                        <a href="{{ path('mon_programme') }}"><button class="btn  fonction" >  PROGRAMME</button></a>
                         {% endif %}
                     </div>
                 </div>
@@ -235,7 +232,6 @@
                 <div class="col-sm-3 ">
                     <div class="case">
                         <img id="myImg" src="{{ asset('build/images/inventaire.png') }}" alt="" style="width:100%;max-width:200px"><br>
-                        <h2>INVENTAIRE</h2>
                         {# <p>Répertorie les aliments qui se trouvent dans votre frigo.</p> #}
                         {% if app.user %}
                         <a href="{{ path('mon_inventaire') }}"><button class="btn  fonction" >  INVENTAIRE</button></a>
