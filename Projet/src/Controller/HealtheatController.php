@@ -475,8 +475,7 @@ class HealtheatController extends AbstractController
 
     /**
      * @Route("/alerte", name="alerte")
-     */
-    /**
+     *
      * Enregistre un poids et un temps d'activité dans la base de donnée
      * Le retour est au format Json
      * Fonction appelé par l'alerte de la page index
