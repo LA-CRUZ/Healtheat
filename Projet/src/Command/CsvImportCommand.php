@@ -70,7 +70,7 @@ class CsvImportCommand extends Command
         else
             $choix = '';
 
-        if(($input->getOption('recette') || $choix == 'recette') && $videR == NULL){
+        if($input->getOption('recette') || $choix == 'recette'){
 
             $io->title('Importation des recettes');
 
@@ -94,7 +94,7 @@ class CsvImportCommand extends Command
                 $this->manager->persist($recette);
             }
         }
-        if(($input->getOption('ingredient') || $choix == 'ingredient') && $videI == NULL){
+        if($input->getOption('ingredient') || $choix == 'ingredient'){
 
             $io->title('Importation des ingredients');
 
@@ -147,9 +147,9 @@ class CsvImportCommand extends Command
             $barre->finish();
             
         }
-        if(($input->getOption('all') || $choix == 'all') && $videR == NULL && $videI == NULL){
+        if($input->getOption('all') || $choix == 'all'){
 
-            $io->title('Importation des recettes et des ingredients');
+            $io->title('Importation des recettes');
 
             $reader = Reader::createFromPath('%kernel.root_dir%/../src/Data/Recette.csv');
 
@@ -157,19 +157,68 @@ class CsvImportCommand extends Command
 
             foreach ($results as $row){
 
-                // $kcal = rand(300, 1200);
-                // $recette = (new Recette())
-                //     ->setNom($row['nom'])
-                //     ->setImage($row['image'])
-                //     ->setDescription($row['description'])
-                //     ->setKcal($kcal)
-                //     ->setTempsPrep($row['temps'])
-                //     ->setTypeRepas($row['type'])
-                //     ->setTags($row['tags'])
-                //     ->setDifficulte($row['difficulte'])
-                // ;
-                // $this->manager->persist($recette);
+                $kcal = rand(300, 1200);
+                $recette = (new Recette())
+                    ->setNom($row['nom'])
+                    ->setImage($row['image'])
+                    ->setDescription($row['description'])
+                    ->setKcal($kcal)
+                    ->setTempsPrep($row['temps'])
+                    ->setTypeRepas($row['type'])
+                    ->setTags($row['tags'])
+                    ->setDifficulte($row['difficulte'])
+                ;
+                $this->manager->persist($recette);
             }
+            $io->title('Importation des ingredients');
+
+            $reader = Reader::createFromPath('%kernel.root_dir%/../src/Data/ingredcsv.csv');
+
+            $repository = $this->manager->getRepository(Recette::class);
+
+            $results = $reader->fetchAssoc();
+
+            $reader2 = Reader::createFromPath('%kernel.root_dir%/../src/Data/ingredient.csv');
+
+            $results2 = $reader2->fetchAssoc();
+
+            $barre = new ProgressBar($output, iterator_count($results) + iterator_count($results2));
+
+            $barre->start();
+
+            foreach ($results as $row){
+
+                $barre->advance();
+
+                $recetteString = $row['recette'];
+
+                $recette = $repository->findOneBy([
+                    'nom' => $recetteString
+                ]);
+
+                if($recette != NULL){
+                    $ingredCSV = (new IngredCSV())
+                        ->setIngredientString($row['ingredient'])
+                        ->setRecette($recette)
+                    ;
+                    $this->manager->persist($ingredCSV);
+                }
+            }
+
+            
+
+            foreach($results2 as $row){
+
+                $barre->advance();
+
+                $ingred = (new Ingredient())
+                    ->setIngredient($row['nom'])
+                ;
+
+                $this->manager->persist($ingred);
+            }
+
+            $barre->finish();
         }
 
         $this->manager->flush();
