@@ -134,13 +134,13 @@ class CsvImportCommand extends Command
             }
 
             $barre->finish();
-
-            $this->manager->flush();
-
-            $io->newLine(3);
-
-            $io->success('Tout s\'est bien passé !');
             
         }
+
+        $this->manager->flush();
+
+        $io->newLine(3);
+
+        $io->success('Tout s\'est bien passé !');
     }
 }
