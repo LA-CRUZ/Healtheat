@@ -38,10 +38,10 @@ Pour lancer le site :
 
 ```bash
 cd ../..
-docker-compose up
+sudo docker-compose up
 ```
 
-Le site est hebergé sur [localhost](https://localhost:8081)
+Le site est hebergé sur [localhost](http://localhost:8081)
 
 ## Organisation du code
 
