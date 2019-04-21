@@ -33,6 +33,15 @@ composer require encore
 sudo yarn install
 ```
 
+Pour lancer le site :
+
+```bash
+cd ../..
+docker-compose up
+```
+
+Le site est hebergé sur [localhost](https://localhost:8081)
+
 ## Organisation du code
 
 ### Modèle
@@ -49,9 +58,9 @@ Tout le code du modèle ce trouve dans le dossier /src
 
 ### Controller
 
-* Les controller se trouvent dans le fichier /src/controller.
+* Les controllers se trouvent dans le fichier /src/controller.
 
-On y trouve deux controller differents :
+On y trouve deux controllers differents :
     * HealtheatController, qui contient toutes les fonctions qui permettent de faire fonctionner le site.
     * SecurityController, qui s'occupe de la partie sécurité de notre site, dans notre cas qui contient la partie connexion / - inscription
 
@@ -61,7 +70,3 @@ On y trouve deux controller differents :
     * Le fichier twig base.html.twig, qui est la base de la vue de notre site
     * Un sous dossier /healtheat qui contient tout les templates du site, affichés en fonction de la vue
     * Un sous dossier /security qui contient les templates de la partie sécurité de notre site
-
-
-:tongue: :tongue: :tongue: :tongue: :tongue: 
-:tongue:
