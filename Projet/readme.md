@@ -21,10 +21,10 @@ Tout le code du modèle ce trouve dans le dossier /src
 On y trouve plusieurs sous dossiers :
     /Entity pour les entitées utilisées notamment pour faire le lien avec la base de donnée
     /Repository pour les dépot permettant de récupéré dans la base de donnée les informations des entités correspondantes
-    /Migrations pour les migrations qui s'effectue lors de la commande '''bash php bin/console doctrine:migrations:migrate '''
+    /Migrations pour les migrations qui s'effectue lors de la commande ```bash php bin/console doctrine:migrations:migrate ```
     /Form pour les formulaires, dans notre cas le formulaire d'inscription et celui lié au informations personnelles
     /Data pour les données provenant du scraping en format csv
-    /Command pour les commandes ajoutées, dans notre cas la commande '''bash php bin/console csv:import''' qui permet d'importer les fichiers csv
+    /Command pour les commandes ajoutées, dans notre cas la commande ```bash php bin/console csv:import``` qui permet d'importer les fichiers csv
 
 ### Controller
 
