@@ -37,7 +37,7 @@ Ensuite, il
 
 Tout le code du modèle ce trouve dans le dossier /src
 
-On y trouve plusieurs sous dossiers :
+* On y trouve plusieurs sous dossiers :
     * /Entity pour les entitées utilisées notamment pour faire le lien avec la base de donnée
     * /Repository pour les dépot permettant de récupéré dans la base de donnée les informations des entités correspondantes
     * /Migrations pour les migrations qui s'effectue lors de la commande ```php bin/console doctrine:migrations:migrate ```
@@ -47,7 +47,7 @@ On y trouve plusieurs sous dossiers :
 
 ### Controller
 
-Les controller se trouvent dans le fichier /src/controller.
+* Les controller se trouvent dans le fichier /src/controller.
 
 On y trouve deux controller differents :
     * HealtheatController, qui contient toutes les fonctions qui permettent de faire fonctionner le site.
@@ -55,7 +55,7 @@ On y trouve deux controller differents :
 
 ### Vue
 
-Les pages html.twig sont toutes stockées dans le dossier /templates, qui contient plusieurs chose : 
+* Les pages html.twig sont toutes stockées dans le dossier /templates, qui contient plusieurs chose : 
     * Le fichier twig base.html.twig, qui est la base de la vue de notre site
     * Un sous dossier /healtheat qui contient tout les templates du site, affichés en fonction de la vue
     * Un sous dossier /security qui contient les templates de la partie sécurité de notre site
