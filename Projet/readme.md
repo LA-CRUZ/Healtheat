@@ -41,7 +41,7 @@ cd ../..
 sudo docker-compose up
 ```
 
-Le site est hebergé sur [localhost](http://localhost:8081)
+Le site est hebergé sur [localhost](http://localhost:8081) (à ouvrir de préférence avec firefox)
 
 ## Organisation du code
 
