@@ -2,6 +2,10 @@
 
 Healteat est un diététicien en ligne, permettant au utilisateur de générer des programmes alimentaires en fonction de leurs informations personnelles.
 
+Le site permet, après avoir rentré ses informations personnelles, de pouvoir suivre différents programmes alimentaires générés automatiquements, et d'avoir l'évolutions de ses différentes informations tel que le poids.
+
+Réalisé dans le cadre de l'UE [LifProjet](http://perso.univ-lyon1.fr/fabien.rico/site/projet:2019:pri:start)
+
 ## Installation
 
 Si composer n'est pas installé :
@@ -12,7 +16,7 @@ php -r "if (hash_file('sha384', 'composer-setup.php') === '48e3236262b34d30969dc
 php composer-setup.php
 php -r "unlink('composer-setup.php');"
 ```
-Voir la page de composer : [Composer](https://getcomposer.org/download/)
+Voir la page de [Composer](https://getcomposer.org/download/)
 
 Si yarn n'est pas installé :
 
@@ -28,8 +32,6 @@ composer install
 composer require encore
 sudo yarn install
 ```
-
-Ensuite, il
 
 ## Organisation du code
 
@@ -59,3 +61,6 @@ On y trouve deux controller differents :
     * Le fichier twig base.html.twig, qui est la base de la vue de notre site
     * Un sous dossier /healtheat qui contient tout les templates du site, affichés en fonction de la vue
     * Un sous dossier /security qui contient les templates de la partie sécurité de notre site
+
+
+:tongue::tongue::tongue::tongue::tongue::tongue:
