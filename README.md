@@ -79,22 +79,41 @@ Les controllers se trouvent dans le fichier /src/controller.
 
 ### Inscription / Connexion
 
+<img src="./assets/images/connexion.png" alt="logo" width="334"/>
+<img src="./assets/images/inscription.png" alt="logo" width="334"/>
+&nbsp;
+
 À la création d'un nouveau compte, un test sur l'adresse mail est effectué pour eviter qu'une même personne créée plusieurs comptes, le mot de passe est crypté avant d'être inseré dans la base de données pour plus de sécurité.
 
 ### Module Informations personnelles
+
+<img src="./assets/images/profil.png" alt="logo" width="334" />
+<img src="./assets/images/formulaire.png" alt="logo" width="334" />
+&nbsp;
 
 Le formulaire d'informations personnelles est créé par le composant form de symfony, ce qui permet de gagner du temps à la programmation. De plus, le poids et le temps d'activité physique sont aussi stockés dans des tables annexes pour les garder en fonction du temps.
 
 ### Module Suivi
 
+<img src="./assets/images/poids.png" alt="logo" width="334" />
+<img src="./assets/images/imc.png" alt="logo" width="334" />
+&nbsp;
+
 Grâce aux informations stockées dans les tables poids et temps d'activité, on affiche des graphiques avec la librairy javascript Chart.js qui permettent de mieux voir l'évolution du poids au court du temps.
 
 ### Module Programme
+
+<img src="./assets/images/programme.png" alt="logo" />
+&nbsp;
+
 
 Si l'utilisateur n'a pas de programme en cours, un bouton "générer programme" permet, comme son nom l'indique, de générer un programme aléatoirement.
 Une fois que l'utilisateur a un programme créé, toutes les recettes du jour courant ainsi que celles des prochains jours sont affichées avec un bouton pour avoir des informations plus détaillés sur la recette et un bouton pour la changer.
 
 ### Module Inventaire
+
+<img src="./assets/images/inventaire_ingredient.png" alt="logo" />
+&nbsp;
 
 Si l'inventaire de l'utilisateur est vide, un inventaire aléatoire contenant entre 4 et 15 ingredients est généré.
 Une fois que l'utilisateur possède un inventaire, il peut ajouter un ingredient aléatoire ou supprimer un ingredient de son choix.
