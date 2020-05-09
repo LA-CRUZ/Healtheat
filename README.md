@@ -1,4 +1,4 @@
-![Logo](/assets/images/LOGO_HE.png =200x200)
+<img src="./assets/images/LOGO_HE.png" alt="logo" width="200" height="200"/>
 
 # Healtheat
 
