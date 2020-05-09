@@ -1,4 +1,4 @@
-![Logo](/assets/images/LOGO_HE.png)
+![Logo](/assets/images/LOGO_HE.png =200x200)
 
 # Healtheat
 
