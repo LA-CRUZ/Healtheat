@@ -1,10 +1,12 @@
+![Logo](/assets/images/LOGO_HE.png)
+
 # Healtheat
 
 Healteat est un diététicien en ligne, permettant aux utilisateurs de générer des programmes alimentaires en fonction de leurs informations personnelles.
 
 Le site permet, après avoir rentré ses informations personnelles, de pouvoir suivre différents programmes alimentaires générés automatiquements, et d'avoir l'évolutions de ses différentes informations tel que le poids.
 
-Réalisé dans le cadre de l'UE [LifProjet](http://perso.univ-lyon1.fr/fabien.rico/site/projet:2019:pri:start)
+Réalisé dans le cadre de l'UE [LifProjet](http://perso.univ-lyon1.fr/fabien.rico/site/projet:2019:pri:start) dans le cadre de la 3eme année de licence d'informatique à l'université Claude Bernard Lyon 1
 
 ## Installation
 
